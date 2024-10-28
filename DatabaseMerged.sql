@@ -27,13 +27,13 @@ CREATE TABLE User_Roles (
 CREATE TABLE Billing_Account (
     Billing_Account_ID VARCHAR(25) PRIMARY KEY,
     User_ID VARCHAR(25),
-    Account_Balance FLOAT,
+    Account_Balance DECIMAL(10, 2),
     FOREIGN KEY (User_ID) REFERENCES USERS(User_ID)
 );
 
 CREATE TABLE Charge (
 	Charge_ID varchar(25) PRIMARY KEY,
-    Amount float,
+    Amount DECIMAL(10, 2),
     Charge_Type varchar(25),
     Description varchar(255)
 );
@@ -70,7 +70,7 @@ CREATE TABLE Inbound_Orders (
     Estimated_Arrival DATE, 
     Product_Quantity INT,
     Creation_Date DATE,
-    Cost FLOAT,
+    Cost DECIMAL(10, 2),
     Currency VARCHAR(50),
     Boxes INT,
     Inbound_Type VARCHAR(25),
@@ -99,7 +99,7 @@ CREATE TABLE Freight_Outbound (
     Creation_Date DATE,
     Estimated_Delivery_Date DATE, 
     Order_Ship_Date DATE,
-    Cost FLOAT,
+    Cost DECIMAL(10, 2),
     Currency VARCHAR(50),
     Recipient VARCHAR(100),
     Recipient_Post_Code VARCHAR(50),
@@ -135,7 +135,7 @@ CREATE TABLE Parcel_Outbound (
     Estimated_Delivery_Date DATE,
     Ship_Date DATE,
     Transport_Days INT,
-    Cost FLOAT,
+    Cost DECIMAL(10, 2),
     Currency VARCHAR(25),
     Recipient VARCHAR(50),
     Country VARCHAR(50),
@@ -196,16 +196,13 @@ CREATE TABLE Customer (
     User_ID VARCHAR(25) PRIMARY KEY,
     Admin_ID VARCHAR(25),
     Company_Name VARCHAR(50),
-    Customer_Status VARCHAR(25),
+    Account_Status VARCHAR(25),
     Product_Need_Audit_Free VARCHAR(25),
     Warehouse_Availability INT,
     Billing_Account_ID VARCHAR(25),
-    Credit_Limit DECIMAL(10, 2),
-    Available_Fund DECIMAL(10, 2),
     Date_Created DATE,
-    FOREIGN KEY (Admin_ID) REFERENCES USERS(User_ID),
-    FOREIGN KEY (Billing_Account_ID) REFERENCES Billing_Account(Billing_Account_ID)
-);
+    FOREIGN KEY (Admin_ID) REFERENCES USERS(User_ID)
+    );
 
 # INSERT DUMMY DATA
 INSERT INTO USERS (User_ID, Username, Password, Email, Date_Created) VALUES
@@ -314,9 +311,10 @@ INSERT INTO User_Roles (User_ID, Role_ID) VALUES
     
 SELECT * FROM Billing_Account WHERE Billing_Account_ID IN ('BA001', 'BA002');
 
-INSERT INTO Customer (User_ID, Admin_ID, Customer_Status, Company_Name, Product_Need_Audit_Free, Warehouse_Availability, Billing_Account_ID, Credit_Limit, Available_Fund, Date_Created) VALUES
-    ('U001', 'U004', 'Enable', 'Company A', 'Yes', 1, 'BA001', '3000', '2500', '2024-04-10'),
-    ('U002', 'U005', 'Enable', 'Company B', 'No', 5, 'BA002', '5000', '4250', '2024-02-20');
+INSERT INTO Customer (User_ID, Admin_ID, Account_Status, Company_Name, Product_Need_Audit_Free, Date_Created) 
+VALUES 
+    ('U001', 'U004', 'Enabled', 'Company A', 'Yes', '2024-04-10'), 
+    ('U002', 'U005', 'Enabled', 'Company B', 'No', '2024-02-20');
 
 # CREATE VIEWS
 CREATE VIEW Inbound AS 
@@ -479,24 +477,17 @@ SELECT
     Customer.User_ID AS "Customer ID",
     Customer_Users.Username AS "Customer",
     Customer.Company_Name AS "Company",
-    Customer.Customer_Status AS "Status",
+    Customer.Account_Status AS "Account Status",
     Customer.Admin_ID AS "Administrator ID",
     Admin.Username AS "Administrator",
     Customer.Product_Need_Audit_Free AS "Product Need Audit Free",
-    Customer.Warehouse_Availability AS "Warehouse Availability",
-    Customer.Billing_Account_ID AS "Billing Account ID",  
-    Billing_Account.Account_Balance AS "Account Balance",
-    Customer.Credit_Limit AS "Credit Limit",
-    Customer.Available_Fund AS "Available Fund",
-    Customer.Date_Created AS "Date Created"
+   Customer.Date_Created AS "Date Created"
 FROM  
     Customer
 JOIN  
     USERS AS Admin ON Customer.Admin_ID = Admin.User_ID
 JOIN  
-    USERS AS Customer_Users ON Customer.User_ID = Customer_Users.User_ID
-JOIN  
-    Billing_Account ON Customer.Billing_Account_ID = Billing_Account.Billing_Account_ID;
+    USERS AS Customer_Users ON Customer.User_ID = Customer_Users.User_ID;
 
     
 CREATE VIEW Seller_List AS
@@ -607,3 +598,4 @@ JOIN
   Inventory ON Inventory.Product_ID = Platform_Product_List.Product_ID;
 SELECT * FROM Platform_Products WHERE Order_ID = "PFO001";
 
+SELECT * From Customer_List;
