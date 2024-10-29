@@ -5,11 +5,14 @@ namespace OrderManagementSystem.Models
     public class CostBasedCharge
     {
         [Key]
-        public string CostChargeId { get; set; } 
+        [Required]
+        public string CostChargeId { get; set; }
 
-        public double? Amount { get; set; }
-
+        [Required]
         [StringLength(255)]
         public string Description { get; set; }
+
+        [DataType(DataType.Currency)]
+        public decimal? Amount { get; set; } 
     }
 }

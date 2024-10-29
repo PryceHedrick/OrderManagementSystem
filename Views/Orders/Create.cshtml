@@ -9,41 +9,64 @@
 <h4>Order</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
             <div class="form-group">
                 <label asp-for="OrderId" class="control-label"></label>
                 <input asp-for="OrderId" class="form-control" />
                 <span asp-validation-for="OrderId" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="CustomerId" class="control-label"></label>
                 <input asp-for="CustomerId" class="form-control" />
                 <span asp-validation-for="CustomerId" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId">
+                    <option value="">-- Select User --</option>
+                </select>
                 <span asp-validation-for="UserId" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="OrderDate" class="control-label"></label>
-                <input asp-for="OrderDate" class="form-control" />
+                <input asp-for="OrderDate" class="form-control" type="date" />
                 <span asp-validation-for="OrderDate" class="text-danger"></span>
             </div>
-
+            <div class="form-group">
+                <label asp-for="ShippedDate" class="control-label"></label>
+                <input asp-for="ShippedDate" class="form-control" type="date" />
+                <span asp-validation-for="ShippedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderStatus" class="control-label"></label>
+                <input asp-for="OrderStatus" class="form-control" />
+                <span asp-validation-for="OrderStatus" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="TotalAmount" class="control-label"></label>
                 <input asp-for="TotalAmount" class="form-control" />
                 <span asp-validation-for="TotalAmount" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <h4>Order Items</h4>
+            <table class="table" id="orderItemsTable">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Order Items will be added here -->
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-secondary" onclick="addOrderItem()">Add Order Item</button>
+
+            <div class="form-group mt-3">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -58,4 +81,49 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script>
+        function addOrderItem() {
+            var tableBody = document.getElementById("orderItemsTable").getElementsByTagName("tbody")[0];
+            var rowCount = tableBody.rows.length;
+            var row = tableBody.insertRow(rowCount);
+
+            // Product dropdown
+            var cell1 = row.insertCell(0);
+            var select = document.createElement("select");
+            select.name = $"OrderItems[{rowCount}].ProductId";
+            select.className = "form-control";
+            select.innerHTML = '@Html.Raw(Json.Serialize(new SelectList(ViewBag.ProductId, "ProductId", "ProductName")))';
+            cell1.appendChild(select);
+
+            // Quantity input
+            var cell2 = row.insertCell(1);
+            var quantityInput = document.createElement("input");
+            quantityInput.type = "number";
+            quantityInput.name = $"OrderItems[{rowCount}].Quantity";
+            quantityInput.className = "form-control";
+            quantityInput.min = "1";
+            cell2.appendChild(quantityInput);
+
+            // Unit Price input
+            var cell3 = row.insertCell(2);
+            var unitPriceInput = document.createElement("input");
+            unitPriceInput.type = "number";
+            unitPriceInput.name = $"OrderItems[{rowCount}].UnitPrice";
+            unitPriceInput.className = "form-control";
+            unitPriceInput.min = "0";
+            unitPriceInput.step = "0.01";
+            cell3.appendChild(unitPriceInput);
+
+            // Remove button
+            var cell4 = row.insertCell(3);
+            var removeBtn = document.createElement("button");
+            removeBtn.type = "button";
+            removeBtn.className = "btn btn-danger";
+            removeBtn.innerText = "Remove";
+            removeBtn.onclick = function () {
+                tableBody.removeChild(row);
+            };
+            cell4.appendChild(removeBtn);
+        }
+    </script>
 }

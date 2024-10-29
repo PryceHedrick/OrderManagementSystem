@@ -1,0 +1,29 @@
+﻿@model OrderManagementSystem.Models.CostBasedCharge
+
+@{
+    ViewData["Title"] = "Edit Cost-Based Charge";
+}
+
+<h1>Edit Cost-Based Charge</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="CostChargeId" />
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount" class="control-label"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

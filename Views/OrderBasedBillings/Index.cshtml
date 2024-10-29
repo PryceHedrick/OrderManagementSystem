@@ -1,0 +1,29 @@
+﻿@model IEnumerable<OrderManagementSystem.Models.OrderBasedBilling>
+
+<h1>Order-Based Billings</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Billing Account ID</th>
+            <th>Order Charge ID</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BillingAccountId</td>
+                <td>@item.OrderChargeId</td>
+                <td>
+                    <a asp-action="Edit" asp-route-billingAccountId="@item.BillingAccountId" asp-route-orderChargeId="@item.OrderChargeId" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-billingAccountId="@item.BillingAccountId" asp-route-orderChargeId="@item.OrderChargeId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

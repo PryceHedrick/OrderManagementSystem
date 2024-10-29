@@ -1,0 +1,64 @@
+﻿@model IEnumerable<OrderManagementSystem.Models.Billing>
+
+@{
+    ViewData["Title"] = "Billings";
+    string searchString = Context.Request.Query["searchString"];
+}
+
+<h1>Billings</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<form asp-action="Index" method="get" class="form-inline mb-3">
+    <div class="form-group">
+        <label for="searchString" class="mr-2">Search:</label>
+        <input type="text" name="searchString" value="@searchString" class="form-control mr-2" placeholder="Billing ID or Account ID" />
+    </div>
+    <input type="submit" value="Search" class="btn btn-secondary" />
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BillingId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillingAccountId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BillingId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BillingAccountId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BillingId" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.BillingId" class="btn btn-sm btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.BillingId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

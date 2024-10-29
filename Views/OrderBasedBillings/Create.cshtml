@@ -1,0 +1,16 @@
+﻿@model OrderManagementSystem.Models.OrderBasedBilling
+
+<h1>Create Order-Based Billing</h1>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="BillingAccountId"></label>
+        <select asp-for="BillingAccountId" asp-items="ViewBag.BillingAccountId" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="OrderChargeId"></label>
+        <select asp-for="OrderChargeId" asp-items="ViewBag.OrderChargeId" class="form-control"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+

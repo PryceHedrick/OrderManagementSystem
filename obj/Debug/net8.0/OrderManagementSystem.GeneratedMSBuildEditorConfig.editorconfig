@@ -26,8 +26,148 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Pryce\source\repos\OrderManagementSystem\OrderManagementSystem
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/BillingAccounts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ0FjY291bnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/BillingAccounts/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ0FjY291bnRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/BillingAccounts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ0FjY291bnRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/BillingAccounts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ0FjY291bnRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/BillingAccounts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ0FjY291bnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Billings/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Billings/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Billings/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Billings/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Billings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/CostBasedBillings/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdEJhc2VkQmlsbGluZ3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/CostBasedBillings/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdEJhc2VkQmlsbGluZ3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/CostBasedBillings/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdEJhc2VkQmlsbGluZ3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/CostBasedBillings/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdEJhc2VkQmlsbGluZ3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/CostBasedBillings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdEJhc2VkQmlsbGluZ3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/CostBasedCharges/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdEJhc2VkQ2hhcmdlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/CostBasedCharges/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdEJhc2VkQ2hhcmdlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/CostBasedCharges/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdEJhc2VkQ2hhcmdlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/CostBasedCharges/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdEJhc2VkQ2hhcmdlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/CostBasedCharges/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdEJhc2VkQ2hhcmdlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Costs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Costs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Costs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Costs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Costs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29zdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/FreightOutbound/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodE91dGJvdW5kXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/FreightOutbound/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodE91dGJvdW5kXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/FreightOutbound/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodE91dGJvdW5kXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/FreightOutbound/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodE91dGJvdW5kXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/FreightOutbound/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodE91dGJvdW5kXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/FreightProductLists/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodFByb2R1Y3RMaXN0c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/FreightProductLists/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodFByb2R1Y3RMaXN0c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/FreightProductLists/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodFByb2R1Y3RMaXN0c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/FreightProductLists/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodFByb2R1Y3RMaXN0c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/FreightProductLists/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodFByb2R1Y3RMaXN0c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Home/About.cshtml]
@@ -44,6 +184,106 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/InboundOrders/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZE9yZGVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/InboundOrders/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZE9yZGVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/InboundOrders/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZE9yZGVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/InboundOrders/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZE9yZGVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/InboundOrders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZE9yZGVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/InboundProductLists/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZFByb2R1Y3RMaXN0c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/InboundProductLists/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZFByb2R1Y3RMaXN0c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/InboundProductLists/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZFByb2R1Y3RMaXN0c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/InboundProductLists/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZFByb2R1Y3RMaXN0c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/InboundProductLists/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZFByb2R1Y3RMaXN0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Inventories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JpZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Inventories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JpZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Inventories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JpZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Inventories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JpZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Inventories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JpZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/OrderBasedBillings/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZEJpbGxpbmdzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/OrderBasedBillings/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZEJpbGxpbmdzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/OrderBasedBillings/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZEJpbGxpbmdzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/OrderBasedBillings/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZEJpbGxpbmdzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/OrderBasedBillings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZEJpbGxpbmdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/OrderBasedCharges/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZENoYXJnZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/OrderBasedCharges/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZENoYXJnZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/OrderBasedCharges/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZENoYXJnZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/OrderBasedCharges/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZENoYXJnZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/OrderBasedCharges/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZENoYXJnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Orders/Create.cshtml]
@@ -66,6 +306,86 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/ParcelOutbounds/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsT3V0Ym91bmRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/ParcelOutbounds/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsT3V0Ym91bmRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/ParcelOutbounds/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsT3V0Ym91bmRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/ParcelOutbounds/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsT3V0Ym91bmRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/ParcelOutbounds/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsT3V0Ym91bmRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/ParcelProductLists/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsUHJvZHVjdExpc3RzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/ParcelProductLists/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsUHJvZHVjdExpc3RzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/ParcelProductLists/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsUHJvZHVjdExpc3RzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/ParcelProductLists/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsUHJvZHVjdExpc3RzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/ParcelProductLists/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsUHJvZHVjdExpc3RzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/PlatformOrders/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1PcmRlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/PlatformOrders/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1PcmRlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/PlatformOrders/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1PcmRlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/PlatformOrders/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1PcmRlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/PlatformOrders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1PcmRlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Roles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Roles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Roles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Roles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Roles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -76,6 +396,66 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/ShipmentResult.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcG1lbnRSZXN1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/UserRoles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/UserRoles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/UserRoles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/UserRoles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/UserRoles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Users/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Users/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Users/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Warehouses/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Warehouses/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Warehouses/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Warehouses/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/Warehouses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Pryce/source/repos/OrderManagementSystem/OrderManagementSystem/Views/_ViewImports.cshtml]

@@ -1,0 +1,42 @@
+﻿@model OrderManagementSystem.Models.Billing
+
+@{
+    ViewData["Title"] = "Billing Details";
+}
+
+<h1>Billing Details</h1>
+
+<div>
+    <h4>Billing</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Billing ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.BillingId
+        </dd>
+        <dt class="col-sm-2">
+            Billing Account ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.BillingAccountId
+        </dd>
+        <dt class="col-sm-2">
+            Amount
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Amount.ToString("C")
+        </dd>
+        <dt class="col-sm-2">
+            Date Created
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DateCreated.ToShortDateString()
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.BillingId" class="btn btn-primary">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

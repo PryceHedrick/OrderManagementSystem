@@ -18,9 +18,18 @@ namespace OrderManagementSystem.Controllers
         }
 
         // GET: Orders
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var orders = _context.Orders.Include(o => o.User);
+            var orders = _context.Orders
+                .Include(o => o.User)
+                .Include(o => o.OrderItems)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                orders = orders.Where(o => o.OrderId.Contains(searchString) || o.User.Username.Contains(searchString));
+            }
+
             return View(await orders.ToListAsync());
         }
 
@@ -28,14 +37,19 @@ namespace OrderManagementSystem.Controllers
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
+            {
                 return NotFound();
+            }
 
             var order = await _context.Orders
                 .Include(o => o.User)
+                .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.Inventory)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
-
             if (order == null)
+            {
                 return NotFound();
+            }
 
             return View(order);
         }
@@ -43,14 +57,15 @@ namespace OrderManagementSystem.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewBag.UserId = new SelectList(_context.Users, "UserId", "Username");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Username");
+            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductName");
             return View();
         }
 
         // POST: Orders/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,CustomerId,UserId,OrderDate,TotalAmount")] Order order)
+        public async Task<IActionResult> Create([Bind("OrderId,CustomerId,UserId,OrderDate,ShippedDate,OrderStatus,TotalAmount")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +73,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.UserId = new SelectList(_context.Users, "UserId", "Username", order.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Username", order.UserId);
             return View(order);
         }
 
@@ -66,23 +81,28 @@ namespace OrderManagementSystem.Controllers
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
+            {
                 return NotFound();
+            }
 
             var order = await _context.Orders.FindAsync(id);
             if (order == null)
+            {
                 return NotFound();
-
-            ViewBag.UserId = new SelectList(_context.Users, "UserId", "Username", order.UserId);
+            }
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Username", order.UserId);
             return View(order);
         }
 
         // POST: Orders/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("OrderId,CustomerId,UserId,OrderDate,TotalAmount")] Order order)
+        public async Task<IActionResult> Edit(string id, [Bind("OrderId,CustomerId,UserId,OrderDate,ShippedDate,OrderStatus,TotalAmount")] Order order)
         {
             if (id != order.OrderId)
+            {
                 return NotFound();
+            }
 
             if (ModelState.IsValid)
             {
@@ -94,13 +114,17 @@ namespace OrderManagementSystem.Controllers
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!OrderExists(order.OrderId))
+                    {
                         return NotFound();
+                    }
                     else
+                    {
                         throw;
+                    }
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.UserId = new SelectList(_context.Users, "UserId", "Username", order.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Username", order.UserId);
             return View(order);
         }
 
@@ -108,13 +132,17 @@ namespace OrderManagementSystem.Controllers
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
+            {
                 return NotFound();
+            }
 
             var order = await _context.Orders
                 .Include(o => o.User)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (order == null)
+            {
                 return NotFound();
+            }
 
             return View(order);
         }
@@ -124,9 +152,16 @@ namespace OrderManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var order = await _context.Orders.FindAsync(id);
-            _context.Orders.Remove(order);
-            await _context.SaveChangesAsync();
+            var order = await _context.Orders
+                .Include(o => o.OrderItems)
+                .FirstOrDefaultAsync(o => o.OrderId == id);
+            if (order != null)
+            {
+                // Remove associated OrderItems
+                _context.OrderItems.RemoveRange(order.OrderItems);
+                _context.Orders.Remove(order);
+                await _context.SaveChangesAsync();
+            }
             return RedirectToAction(nameof(Index));
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -16,7 +17,7 @@ namespace OrderManagementSystem.Models
 
         [Required]
         [StringLength(255)]
-        public string Password { get; set; } 
+        public string Password { get; set; } // Ensure passwords are securely hashed
 
         [Required]
         [EmailAddress]
@@ -28,6 +29,6 @@ namespace OrderManagementSystem.Models
         // Navigation Properties
         public ICollection<BillingAccount> BillingAccounts { get; set; } = new List<BillingAccount>();
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
-        public ICollection<Order> Orders { get; set; } = new List<Order>(); 
+        public ICollection<Order> Orders { get; set; } = new List<Order>(); // Added this navigation property
     }
 }

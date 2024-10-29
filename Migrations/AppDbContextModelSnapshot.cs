@@ -109,8 +109,8 @@ namespace OrderManagementSystem.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
-                    b.Property<double?>("Amount")
-                        .HasColumnType("float");
+                    b.Property<decimal?>("Amount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Description")
                         .IsRequired()

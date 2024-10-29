@@ -1,0 +1,44 @@
+﻿@model OrderManagementSystem.Models.CostBasedBilling
+
+@{
+    ViewData["Title"] = "Create Cost-Based Billing";
+}
+
+<h1>Create Cost-Based Billing</h1>
+
+<h4>Cost-Based Billing</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BillingAccountId" class="control-label"></label>
+                <select asp-for="BillingAccountId" class="form-control" asp-items="ViewBag.BillingAccountId">
+                    <option value="">-- Select Billing Account --</option>
+                </select>
+                <span asp-validation-for="BillingAccountId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CostChargeId" class="control-label"></label>
+                <select asp-for="CostChargeId" class="form-control" asp-items="ViewBag.CostChargeId">
+                    <option value="">-- Select Cost Charge --</option>
+                </select>
+                <span asp-validation-for="CostChargeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

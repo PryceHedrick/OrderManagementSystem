@@ -1,0 +1,60 @@
+﻿@model OrderManagementSystem.Models.BillingAccount
+
+@{
+    ViewData["Title"] = "Billing Account Details";
+}
+
+<h1>Billing Account Details</h1>
+
+<div>
+    <h4>Billing Account</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Billing Account ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.BillingAccountId
+        </dd>
+        <dt class="col-sm-2">
+            User
+        </dt>
+        <dd class="col-sm-10">
+            @Model.User?.Username
+        </dd>
+        <dt class="col-sm-2">
+            Account Balance
+        </dt>
+        <dd class="col-sm-10">
+            @Model.AccountBalance.ToString("C")
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <h4>Associated Billings</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Billing ID</th>
+                <th>Amount</th>
+                <th>Date Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var billing in Model.Billings)
+            {
+                <tr>
+                    <td>@billing.BillingId</td>
+                    <td>@billing.Amount.ToString("C")</td>
+                    <td>@billing.DateCreated.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.BillingAccountId" class="btn btn-primary">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
