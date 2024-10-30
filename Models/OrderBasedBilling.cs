@@ -11,7 +11,7 @@ namespace OrderManagementSystem.Models
         public string OrderChargeId { get; set; } 
 
         // Navigation Properties
-        public BillingAccount BillingAccount { get; set; }
+        public BillingAccounts BillingAccount { get; set; }
         public OrderBasedCharge OrderBasedCharge { get; set; }
     }
 }

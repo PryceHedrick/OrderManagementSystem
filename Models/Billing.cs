@@ -16,6 +16,6 @@ namespace OrderManagementSystem.Models
         public DateTime DateCreated { get; set; }
 
         // Navigation property
-        public BillingAccount BillingAccount { get; set; }
+        public BillingAccounts BillingAccount { get; set; }
     }
 }

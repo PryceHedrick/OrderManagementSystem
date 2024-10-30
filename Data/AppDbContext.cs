@@ -20,7 +20,7 @@ namespace OrderManagementSystem.Data
 
         // Billing Tables
         public DbSet<Billing> Billings { get; set; }
-        public DbSet<BillingAccount> BillingAccounts { get; set; }
+        public DbSet<BillingAccounts> BillingAccounts { get; set; }
         public DbSet<Cost> Costs { get; set; }
         public DbSet<CostBasedCharge> CostBasedCharges { get; set; }
         public DbSet<OrderBasedCharge> OrderBasedCharges { get; set; }
@@ -115,7 +115,7 @@ namespace OrderManagementSystem.Data
             });
 
             // BillingAccount Entity Configuration
-            modelBuilder.Entity<BillingAccount>(entity =>
+            modelBuilder.Entity<BillingAccounts>(entity =>
             {
                 entity.HasKey(ba => ba.BillingAccountId);
 

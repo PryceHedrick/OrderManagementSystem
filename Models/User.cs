@@ -26,7 +26,7 @@ namespace OrderManagementSystem.Models
         public DateTime DateCreated { get; set; }
 
         // Navigation Properties
-        public ICollection<BillingAccount> BillingAccounts { get; set; } = new List<BillingAccount>();
+        public ICollection<BillingAccounts> BillingAccounts { get; set; } = new List<BillingAccounts>();
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
         public ICollection<Order> Orders { get; set; } = new List<Order>(); 
     }
