@@ -1,11 +1,16 @@
-﻿namespace OrderManagementSystem.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace OrderManagementSystem.Models
 {
     public class FedExContact
     {
-       
+        [Required]
         public string PersonName { get; set; }
-        public string PhoneNumber { get; set; } 
+
+        [Required]
         public string CompanyName { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
     }
 }
-

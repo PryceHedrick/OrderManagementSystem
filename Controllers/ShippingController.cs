@@ -1,7 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using OrderManagementSystem.Models;
-using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace OrderManagementSystem.Controllers
 {
@@ -9,98 +16,194 @@ namespace OrderManagementSystem.Controllers
     [Route("api/[controller]")]
     public class ShippingController : ControllerBase
     {
-        // Endpoint to create a shipping label
-        [HttpPost("CreateShippingLabel")]
-        public IActionResult CreateShippingLabel([FromBody] FedExLabelRequest request)
+        private readonly HttpClient _httpClient;
+        private readonly FedExSettings _fedExSettings;
+
+        public ShippingController(IHttpClientFactory httpClientFactory, IOptions<FedExSettings> fedExSettings)
         {
-            // Validate the incoming request
-            if (request == null || request.OriginAddress == null || request.DestinationAddress == null || request.PackageDetails == null)
-            {
-                return BadRequest("Invalid request data.");
-            }
-
-            // Map the request data to the FedEx shipment data model
-            var shipmentData = MapToShipmentData(request);
-
-            // Here you would send shipmentData to FedEx API and handle the response
-            // For now, we're just returning the mapped data for testing
-            return Ok(shipmentData);
+            _httpClient = httpClientFactory.CreateClient();
+            _fedExSettings = fedExSettings.Value;
         }
 
-        // Maps FedExLabelRequest to FedExShipmentData
-        private FedExShipmentData MapToShipmentData(FedExLabelRequest request)
+        [HttpPost("CreateShippingLabel")]
+        public async Task<IActionResult> CreateShippingLabel([FromBody] FedExLabelRequest request)
         {
-            return new FedExShipmentData
+            if (!ModelState.IsValid)
             {
-                Shipper = new Shipper
+                // Log the model state errors
+                foreach (var state in ModelState)
                 {
-                    Contact = new FedExContact
+                    foreach (var error in state.Value.Errors)
                     {
-                        PersonName = "John Doe",
-                        PhoneNumber = "1234567890", // PhoneNumber as string
-                        CompanyName = "Acme Corporation"
-                    },
-                    Address = new FedExAddress
-                    {
-                        StreetLines = new List<string> { "123 Main St" },
-                        City = "Springfield",
-                        StateOrProvinceCode = "IL",
-                        PostalCode = "62701",
-                        CountryCode = "US"
+                        Console.WriteLine($"Property: {state.Key}, Error: {error.ErrorMessage}");
                     }
-                },
-                Recipients = new List<Recipient>
+                }
+
+                var errors = ModelState.Values.SelectMany(v => v.Errors)
+                                              .Select(e => e.ErrorMessage)
+                                              .ToList();
+                return BadRequest(new { errors });
+            }
+
+            var token = await GetFedExAccessTokenAsync();
+            if (string.IsNullOrEmpty(token))
+            {
+                return StatusCode(500, "Failed to retrieve FedEx access token.");
+            }
+
+            // Prepare the FedEx shipment request
+            var fedExRequest = MapToFedExShipmentRequest(request);
+            var requestContent = new StringContent(JsonConvert.SerializeObject(fedExRequest), Encoding.UTF8, "application/json");
+
+            // Set the authorization header with the access token
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            // Send the shipment creation request to FedEx API
+            var response = await _httpClient.PostAsync(_fedExSettings.ShipmentUrl, requestContent);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseData = await response.Content.ReadAsStringAsync();
+
+                // Parse the response to extract the label URL
+                dynamic jsonResponse = JsonConvert.DeserializeObject(responseData);
+
+                // Check if the response contains the label URL
+                if (jsonResponse.output?.transactionShipments?[0]?.pieceResponses?[0]?.packageDocuments?[0]?.url != null)
                 {
-                    new Recipient
+                    string labelUrl = jsonResponse.output.transactionShipments[0].pieceResponses[0].packageDocuments[0].url;
+                    return Ok(new { labelUrl });
+                }
+                else
+                {
+                    // Handle case where label URL is not found
+                    return StatusCode(500, "Label URL not found in FedEx response.");
+                }
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                return StatusCode((int)response.StatusCode, errorContent);
+            }
+        }
+
+        private async Task<string> GetFedExAccessTokenAsync()
+        {
+            try
+            {
+                var request = new HttpRequestMessage(HttpMethod.Post, _fedExSettings.OAuthUrl)
+                {
+                    Content = new FormUrlEncodedContent(new[]
                     {
-                        Contact = new FedExContact
+                        new KeyValuePair<string, string>("grant_type", "client_credentials"),
+                        new KeyValuePair<string, string>("client_id", _fedExSettings.ClientId),
+                        new KeyValuePair<string, string>("client_secret", _fedExSettings.ClientSecret)
+                    })
+                };
+
+                request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
+
+                var response = await _httpClient.SendAsync(request);
+
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Failed to get access token. Status Code: {response.StatusCode}, Response: {responseContent}");
+                    return null;
+                }
+
+                dynamic json = JsonConvert.DeserializeObject(responseContent);
+                return json.access_token;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in GetFedExAccessTokenAsync: {ex.Message}");
+                return null;
+            }
+        }
+
+        private static object MapToFedExShipmentRequest(FedExLabelRequest request)
+        {
+            return new
+            {
+                labelResponseOptions = "URL_ONLY",
+                accountNumber = new { value = request.AccountNumber },
+                requestedShipment = new
+                {
+                    shipper = new
+                    {
+                        contact = new
                         {
-                            PersonName = "Jane Smith",
-                            PhoneNumber = "9876543210", // PhoneNumber as string
-                            CompanyName = "Widgets Inc."
+                            personName = request.OriginAddress.Contact.PersonName,
+                            companyName = request.OriginAddress.Contact.CompanyName,
+                            phoneNumber = request.OriginAddress.Contact.PhoneNumber
                         },
-                        Address = new FedExAddress
+                        address = new
                         {
-                            StreetLines = new List<string> { "456 Elm St" },
-                            City = "Chicago",
-                            StateOrProvinceCode = "IL",
-                            PostalCode = "60601",
-                            CountryCode = "US"
+                            streetLines = request.OriginAddress.StreetLines,
+                            city = request.OriginAddress.City,
+                            stateOrProvinceCode = request.OriginAddress.StateOrProvinceCode,
+                            postalCode = request.OriginAddress.PostalCode,
+                            countryCode = request.OriginAddress.CountryCode
                         }
-                    }
-                },
-                ShipDatestamp = DateTime.Now.ToString("yyyy-MM-dd"),
-                ServiceType = "FEDEX_GROUND",
-                PackagingType = "YOUR_PACKAGING_TYPE",
-                PickupType = "USE_SCHEDULED_PICKUP",
-                ShippingChargesPayment = new ShippingChargesPayment
-                {
-                    PaymentType = "SENDER"
-                },
-                ShipmentSpecialServices = new ShipmentSpecialServices
-                {
-                    SpecialServiceTypes = new List<string> { "FEDEX_ONE_RATE" }
-                },
-                LabelSpecification = new LabelSpecification
-                {
-                    ImageType = "PDF",
-                    LabelStockType = "PAPER_85X11_TOP_HALF_LABEL"
-                },
-                RequestedPackageLineItems = new List<RequestedPackageLineItem>
-                {
-                    new RequestedPackageLineItem
+                    },
+                    recipients = new[]
                     {
-                        Weight = new FedExWeight
+                        new
                         {
-                            Units = "LB",
-                            Value = (decimal)request.PackageDetails.Weight
-                        },
-                        Dimensions = new FedExDimensions
+                            contact = new
+                            {
+                                personName = request.DestinationAddress.Contact.PersonName,
+                                companyName = request.DestinationAddress.Contact.CompanyName,
+                                phoneNumber = request.DestinationAddress.Contact.PhoneNumber
+                            },
+                            address = new
+                            {
+                                streetLines = request.DestinationAddress.StreetLines,
+                                city = request.DestinationAddress.City,
+                                stateOrProvinceCode = request.DestinationAddress.StateOrProvinceCode,
+                                postalCode = request.DestinationAddress.PostalCode,
+                                countryCode = request.DestinationAddress.CountryCode
+                            }
+                        }
+                    },
+                    shipDatestamp = request.ShipDateStamp,
+                    serviceType = request.ServiceType,
+                    packagingType = request.PackagingType,
+                    pickupType = request.PickupType,
+                    blockInsightVisibility = false,
+                    shippingChargesPayment = new
+                    {
+                        paymentType = "SENDER"
+                    },
+                    shipmentSpecialServices = new
+                    {
+                        specialServiceTypes = new string[] { }
+                    },
+                    labelSpecification = new
+                    {
+                        labelFormatType = "COMMON2D",
+                        imageType = "PDF",
+                        labelStockType = "PAPER_85X11_TOP_HALF_LABEL"
+                    },
+                    requestedPackageLineItems = new[]
+                    {
+                        new
                         {
-                            Length = request.PackageDetails.Dimensions.Length,
-                            Width = request.PackageDetails.Dimensions.Width,
-                            Height = request.PackageDetails.Dimensions.Height,
-                            
+                            weight = new
+                            {
+                                units = "LB",
+                                value = request.PackageDetails.Weight
+                            },
+                            dimensions = new
+                            {
+                                length = request.PackageDetails.Dimensions.Length,
+                                width = request.PackageDetails.Dimensions.Width,
+                                height = request.PackageDetails.Dimensions.Height,
+                                units = "IN"
+                            },
+                            sequenceNumber = 1
                         }
                     }
                 }
