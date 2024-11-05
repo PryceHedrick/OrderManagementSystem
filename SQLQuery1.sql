@@ -1,8 +1,6 @@
 CREATE DATABASE OMS;
 USE OMS;
 
-# TABLE CREATION
-
 CREATE TABLE ROLES (
     Role_ID VARCHAR(25) PRIMARY KEY,
     Role VARCHAR(25),
@@ -204,7 +202,6 @@ CREATE TABLE Customer (
     FOREIGN KEY (Admin_ID) REFERENCES USERS(User_ID)
     );
 
-# INSERT DUMMY DATA
 INSERT INTO USERS (User_ID, Username, Password, Email, Date_Created) VALUES
     ('U001', 'johndoe', 'password123', 'john.doe@gmail.com', '2024-01-01'),
     ('U002', 'janedoe', 'password456', 'jane.doe@gmail.com', '2024-01-02'),
@@ -316,7 +313,7 @@ VALUES
     ('U001', 'U004', 'Enabled', 'Company A', 'Yes', '2024-04-10'), 
     ('U002', 'U005', 'Enabled', 'Company B', 'No', '2024-02-20');
 
-# CREATE VIEWS
+GO
 CREATE VIEW Inbound AS 
 SELECT 
   Inbound_Order_ID AS "Order ID", 
@@ -341,7 +338,7 @@ INNER JOIN
   USERS ON Inbound_Orders.User_ID = USERS.User_ID 
 INNER JOIN 
   Inbound_Product_List ON Inbound_Orders.Inbound_Order_ID = Inbound_Product_List.Order_ID;
-
+GO
 CREATE VIEW Parcel AS 
 SELECT
 	Order_ID AS "Order ID",
@@ -372,7 +369,7 @@ INNER JOIN
 	Warehouse ON Parcel_Outbound.Warehouse_ID = Warehouse.Warehouse_ID
 INNER JOIN
 	USERS ON Parcel_Outbound.User_ID = USERS.User_ID;
-SELECT * FROM Parcel;
+GO
 
 CREATE VIEW Freight AS 
 SELECT
@@ -403,7 +400,7 @@ INNER JOIN
 	Warehouse ON FReight_Outbound.Warehouse_ID = Warehouse.Warehouse_ID
 INNER JOIN
 	USERS ON Freight_Outbound.User_ID = USERS.User_ID;
-SELECT * FROM Freight; 
+GO
 
 CREATE VIEW Platform_Orders AS 
 SELECT 
@@ -430,7 +427,7 @@ INNER JOIN
     Warehouse ON Platform_Order.Warehouse_ID = Warehouse.Warehouse_ID 
 INNER JOIN 
     USERS ON Platform_Order.User_ID = USERS.User_ID;
-SELECT * FROM Platform_Orders;
+GO
 
 CREATE VIEW User_List AS 
 SELECT
@@ -446,7 +443,7 @@ INNER JOIN
 	User_Roles ON USERS.USer_ID = USER_Roles.User_ID
 INNER JOIN
 	Roles ON User_Roles.Role_ID = Roles.Role_ID;
-SELECT * FROM User_List;
+GO
 
 CREATE VIEW Warehouses AS 
 SELECT
@@ -457,7 +454,7 @@ SELECT
     Currency
 FROM
 	Warehouse;
-SELECT * FROM Warehouses;
+GO
 
 CREATE VIEW Inventory_List AS 
 SELECT
@@ -470,7 +467,7 @@ FROM
 	Inventory
 INNER JOIN
 	Warehouse ON Inventory.Warehouse_ID = Warehouse.Warehouse_ID;
-SELECT * FROM Inventory_List;
+GO
 
 CREATE VIEW Customer_List AS
 SELECT  
@@ -488,7 +485,7 @@ JOIN
     USERS AS Admin ON Customer.Admin_ID = Admin.User_ID
 JOIN  
     USERS AS Customer_Users ON Customer.User_ID = Customer_Users.User_ID;
-
+GO
     
 CREATE VIEW Seller_List AS
 SELECT
@@ -505,7 +502,7 @@ INNER JOIN
 	Roles ON User_Roles.Role_ID = Roles.Role_ID
 WHERE
 	Roles.Role = "Seller";
-SELECT * FROM Seller_List;
+GO
 
 
 CREATE VIEW Charge_List AS
@@ -526,7 +523,7 @@ JOIN
     Charge ON Billing.Charge_ID = Charge.Charge_ID
 JOIN 
     USERS ON Billing_Account.User_ID = USERS.User_ID;
-SELECT * FROM Charge_list;
+GO
 
 CREATE VIEW Billing_List AS
 SELECT 
@@ -542,7 +539,7 @@ LEFT JOIN
 LEFT JOIN 
     Charge ON Billing.Charge_ID = Charge.Charge_ID;
     
-# Copy for parcel outbound, freight outbound, platform order
+GO
 CREATE VIEW Inbound_Products AS
 SELECT
 	Inbound_Orders.Inbound_Order_ID,
@@ -554,9 +551,10 @@ JOIN
 	Inbound_Product_List ON Inbound_Product_List.Order_ID = Inbound_Orders.Inbound_Order_ID
 JOIN 
 	Inventory ON Inventory.Product_ID=Inbound_Product_List.Product_ID;
+GO
 SELECT * FROM Inbound_Products WHERE Inbound_Order_ID= "IO001";
+GO
 
-# Parcel Outbound Products
 CREATE VIEW Parcel_Products AS
 SELECT
   Parcel_Outbound.Order_ID,
@@ -568,12 +566,13 @@ JOIN
   Parcel_Product_List ON Parcel_Product_List.Order_ID = Parcel_Outbound.Order_ID
 JOIN 
   Inventory ON Inventory.Product_ID = Parcel_Product_List.Product_ID;
+GO
 SELECT * FROM Parcel_Products WHERE Order_ID= "PO001";
+GO
 
-# Freight Outbound Products
 CREATE VIEW Freight_Products AS
 SELECT
-  Freight_Outbound.Outbound_Order_ID AS `Order ID`, 
+ Freight_Outbound.Outbound_Order_ID AS "Order ID", 
   Inventory.Product_Name AS "Product",
   Freight_Product_List.Quantity
 FROM 
@@ -582,9 +581,10 @@ JOIN
   Freight_Product_List ON Freight_Product_List.Order_ID = Freight_Outbound.Outbound_Order_ID
 JOIN 
   Inventory ON Inventory.Product_ID = Freight_Product_List.Product_ID;
-SELECT * FROM Freight_Products WHERE `Order ID` = "FO001";
+GO
+SELECT * FROM Freight_Products WHERE "Order ID" = "FO001";
 
-# Platform Outbound Products
+GO
 CREATE VIEW Platform_Products AS
 SELECT
   Platform_Order.Order_ID,
@@ -596,6 +596,5 @@ JOIN
   Platform_Product_List ON Platform_Product_List.Order_ID = Platform_Order.Order_ID
 JOIN 
   Inventory ON Inventory.Product_ID = Platform_Product_List.Product_ID;
+GO
 SELECT * FROM Platform_Products WHERE Order_ID = "PFO001";
-
-SELECT * From Customer_List;
