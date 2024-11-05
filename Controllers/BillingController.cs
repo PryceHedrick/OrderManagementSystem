@@ -1,0 +1,164 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using OrderManagementSystem.Data;
+using OrderManagementSystem.Models;
+
+namespace OrderManagementSystem.Controllers
+{
+    public class BillingController : Controller
+    {
+        private readonly AppDbContext _context;
+
+        public BillingController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: Billing
+        public async Task<IActionResult> Index()
+        {
+            var appDbContext = _context.Billings.Include(b => b.BillingAccount);
+            return View(await appDbContext.ToListAsync());
+        }
+
+        // GET: Billing/Details/5
+        public async Task<IActionResult> Details(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var billing = await _context.Billings
+                .Include(b => b.BillingAccount)
+                .FirstOrDefaultAsync(m => m.BillingId == id);
+            if (billing == null)
+            {
+                return NotFound();
+            }
+
+            return View(billing);
+        }
+
+        // GET: Billing/Create
+        public IActionResult Create()
+        {
+            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId");
+            return View();
+        }
+
+        // POST: Billing/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("BillingId,BillingAccountId,Amount,DateCreated")] Billing billing)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(billing);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
+            return View(billing);
+        }
+
+        // GET: Billing/Edit/5
+        public async Task<IActionResult> Edit(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var billing = await _context.Billings.FindAsync(id);
+            if (billing == null)
+            {
+                return NotFound();
+            }
+            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
+            return View(billing);
+        }
+
+        // POST: Billing/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(string id, [Bind("BillingId,BillingAccountId,Amount,DateCreated")] Billing billing)
+        {
+            if (id != billing.BillingId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(billing);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BillingExists(billing.BillingId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
+            return View(billing);
+        }
+
+        // GET: Billing/Delete/5
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var billing = await _context.Billings
+                .Include(b => b.BillingAccount)
+                .FirstOrDefaultAsync(m => m.BillingId == id);
+            if (billing == null)
+            {
+                return NotFound();
+            }
+
+            return View(billing);
+        }
+
+        // POST: Billing/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            var billing = await _context.Billings.FindAsync(id);
+            if (billing != null)
+            {
+                _context.Billings.Remove(billing);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool BillingExists(string id)
+        {
+            return _context.Billings.Any(e => e.BillingId == id);
+        }
+    }
+}
