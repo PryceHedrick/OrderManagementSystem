@@ -52,6 +52,9 @@
                 @Html.DisplayNameFor(model => model.ReferenceOrderNumber)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.RelatedAdjustmentOrder)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.CreationDate)
             </th>
             <th>
@@ -73,13 +76,10 @@
                 @Html.DisplayNameFor(model => model.DeliveryTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RelatedAdjustmentOrder)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Warehouse)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Creator)
+                @Html.DisplayNameFor(model => model.User)
             </th>
             <th></th>
         </tr>
@@ -127,6 +127,9 @@
                 @Html.DisplayFor(modelItem => item.ReferenceOrderNumber)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.RelatedAdjustmentOrder)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.CreationDate)
             </td>
             <td>
@@ -148,13 +151,10 @@
                 @Html.DisplayFor(modelItem => item.DeliveryTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RelatedAdjustmentOrder)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Warehouse.WarehouseId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Creator.UserId)
+                @Html.DisplayFor(modelItem => item.User.UserId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |

@@ -90,6 +90,12 @@
             @Html.DisplayFor(model => model.ReferenceOrderNumber)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RelatedAdjustmentOrder)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RelatedAdjustmentOrder)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CreationDate)
         </dt>
         <dd class = "col-sm-10">
@@ -132,22 +138,16 @@
             @Html.DisplayFor(model => model.DeliveryTime)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RelatedAdjustmentOrder)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RelatedAdjustmentOrder)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Warehouse)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Warehouse.WarehouseId)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Creator)
+            @Html.DisplayNameFor(model => model.User)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Creator.UserId)
+            @Html.DisplayFor(model => model.User.UserId)
         </dd>
     </dl>
     

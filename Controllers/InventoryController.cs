@@ -48,7 +48,7 @@ namespace OrderManagementSystem.Controllers
         // GET: Inventory/Create
         public IActionResult Create()
         {
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId");
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inventory.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", inventory.WarehouseId);
             return View(inventory);
         }
 
@@ -82,7 +82,7 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inventory.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", inventory.WarehouseId);
             return View(inventory);
         }
 
@@ -118,7 +118,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inventory.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", inventory.WarehouseId);
             return View(inventory);
         }
 

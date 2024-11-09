@@ -1,18 +1,24 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrderManagementSystem.Models
 {
     public class ParcelProductList
     {
         [Required]
-        public string OrderId { get; set; } 
+        [Column("Order_ID")]
+        [StringLength(25)]
+        public string OrderId { get; set; }
 
         [Required]
-        public string ProductId { get; set; } 
+        [Column("Product_ID")]
+        [StringLength(25)]
+        public string ProductId { get; set; }
 
+        [Column("Quantity")]
         public int Quantity { get; set; }
 
-        // Navigation Properties
+       
         public ParcelOutbound ParcelOutbound { get; set; }
         public Inventory Inventory { get; set; }
     }

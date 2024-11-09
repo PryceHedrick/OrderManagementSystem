@@ -21,6 +21,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.BillingAccount)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Charge)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -35,6 +38,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BillingAccount.BillingAccountId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Charge.ChargeId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.BillingId">Edit</a> |

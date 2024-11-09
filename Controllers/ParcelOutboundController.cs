@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: ParcelOutbound
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.ParcelOutbounds.Include(p => p.Creator).Include(p => p.Warehouse);
+            var appDbContext = _context.ParcelOutbounds.Include(p => p.User).Include(p => p.Warehouse);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace OrderManagementSystem.Controllers
             }
 
             var parcelOutbound = await _context.ParcelOutbounds
-                .Include(p => p.Creator)
+                .Include(p => p.User)
                 .Include(p => p.Warehouse)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (parcelOutbound == null)
@@ -49,8 +49,8 @@ namespace OrderManagementSystem.Controllers
         // GET: ParcelOutbound/Create
         public IActionResult Create()
         {
-            ViewData["CreatorId"] = new SelectList(_context.Users, "UserId", "UserId");
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,OrderType,OrderStatus,WarehouseId,CreatorId,Platform,EstimatedDeliveryDate,ShipDate,TransportDays,Cost,Currency,Recipient,Country,Postcode,TrackingNumber,ReferenceOrderNumber,CreationDate,Boxes,ShippingCompany,LatestInformation,TrackingUpdateTime,InternetPostingTime,DeliveryTime,RelatedAdjustmentOrder")] ParcelOutbound parcelOutbound)
+        public async Task<IActionResult> Create([Bind("OrderId,OrderType,OrderStatus,WarehouseId,UserId,Platform,EstimatedDeliveryDate,ShipDate,TransportDays,Cost,Currency,Recipient,Country,Postcode,TrackingNumber,ReferenceOrderNumber,RelatedAdjustmentOrder,CreationDate,Boxes,ShippingCompany,LatestInformation,TrackingUpdateTime,InternetPostingTime,DeliveryTime")] ParcelOutbound parcelOutbound)
         {
             if (ModelState.IsValid)
             {
@@ -67,8 +67,8 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CreatorId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.CreatorId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
             return View(parcelOutbound);
         }
 
@@ -85,8 +85,8 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["CreatorId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.CreatorId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
             return View(parcelOutbound);
         }
 
@@ -95,7 +95,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("OrderId,OrderType,OrderStatus,WarehouseId,CreatorId,Platform,EstimatedDeliveryDate,ShipDate,TransportDays,Cost,Currency,Recipient,Country,Postcode,TrackingNumber,ReferenceOrderNumber,CreationDate,Boxes,ShippingCompany,LatestInformation,TrackingUpdateTime,InternetPostingTime,DeliveryTime,RelatedAdjustmentOrder")] ParcelOutbound parcelOutbound)
+        public async Task<IActionResult> Edit(string id, [Bind("OrderId,OrderType,OrderStatus,WarehouseId,UserId,Platform,EstimatedDeliveryDate,ShipDate,TransportDays,Cost,Currency,Recipient,Country,Postcode,TrackingNumber,ReferenceOrderNumber,RelatedAdjustmentOrder,CreationDate,Boxes,ShippingCompany,LatestInformation,TrackingUpdateTime,InternetPostingTime,DeliveryTime")] ParcelOutbound parcelOutbound)
         {
             if (id != parcelOutbound.OrderId)
             {
@@ -122,8 +122,8 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CreatorId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.CreatorId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
             return View(parcelOutbound);
         }
 
@@ -136,7 +136,7 @@ namespace OrderManagementSystem.Controllers
             }
 
             var parcelOutbound = await _context.ParcelOutbounds
-                .Include(p => p.Creator)
+                .Include(p => p.User)
                 .Include(p => p.Warehouse)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (parcelOutbound == null)

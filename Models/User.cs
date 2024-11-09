@@ -16,7 +16,7 @@ namespace OrderManagementSystem.Models
 
         [Required]
         [StringLength(255)]
-        public string Password { get; set; } 
+        public string Password { get; set; }
 
         [Required]
         [EmailAddress]
@@ -25,9 +25,13 @@ namespace OrderManagementSystem.Models
 
         public DateTime DateCreated { get; set; }
 
-        // Navigation Properties
+        // Navigation properties
         public ICollection<BillingAccounts> BillingAccounts { get; set; } = new List<BillingAccounts>();
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
-        public ICollection<Order> Orders { get; set; } = new List<Order>(); 
+        public ICollection<Order> Orders { get; set; } = new List<Order>();
+        public ICollection<FreightOutbound> FreightOutbounds { get; set; } = new List<FreightOutbound>(); // Added
+        public ICollection<InboundOrder> InboundOrders { get; set; } = new List<InboundOrder>(); // Added
+        public ICollection<ParcelOutbound> ParcelOutbounds { get; set; } = new List<ParcelOutbound>();
+        public ICollection<PlatformOrder> PlatformOrders { get; set; } = new List<PlatformOrder>();
     }
 }
