@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: FreightOutbound
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.FreightOutbounds.Include(f => f.Creator).Include(f => f.Warehouse);
+            var appDbContext = _context.FreightOutbounds.Include(f => f.User).Include(f => f.Warehouse);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace OrderManagementSystem.Controllers
             }
 
             var freightOutbound = await _context.FreightOutbounds
-                .Include(f => f.Creator)
+                .Include(f => f.User)
                 .Include(f => f.Warehouse)
                 .FirstOrDefaultAsync(m => m.OutboundOrderId == id);
             if (freightOutbound == null)
@@ -49,8 +49,8 @@ namespace OrderManagementSystem.Controllers
         // GET: FreightOutbound/Create
         public IActionResult Create()
         {
-            ViewData["CreatorId"] = new SelectList(_context.Users, "UserId", "UserId");
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OutboundOrderId,OrderType,OrderStatus,CreatorId,WarehouseId,ProductQuantity,CreationDate,EstimatedDeliveryDate,OrderShipDate,Cost,Currency,Recipient,RecipientPostCode,DestinationType,Platform,ShippingCompany,TransportDays,RelatedAdjustmentOrder,TrackingNumber,ReferenceOrderNumber,OutboundMethod")] FreightOutbound freightOutbound)
+        public async Task<IActionResult> Create([Bind("OutboundOrderId,OrderType,OrderStatus,UserId,WarehouseId,ProductQuantity,CreationDate,EstimatedDeliveryDate,OrderShipDate,Cost,Currency,Recipient,RecipientPostCode,DestinationType,Platform,ShippingCompany,TransportDays,RelatedAdjustmentOrder,TrackingNumber,ReferenceOrderNumber,FbaShipmentId,FbaTrackingNumber,OutboundMethod")] FreightOutbound freightOutbound)
         {
             if (ModelState.IsValid)
             {
@@ -67,8 +67,8 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CreatorId"] = new SelectList(_context.Users, "UserId", "UserId", freightOutbound.CreatorId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", freightOutbound.WarehouseId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", freightOutbound.UserId);
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", freightOutbound.WarehouseId);
             return View(freightOutbound);
         }
 
@@ -85,8 +85,8 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["CreatorId"] = new SelectList(_context.Users, "UserId", "UserId", freightOutbound.CreatorId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", freightOutbound.WarehouseId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", freightOutbound.UserId);
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", freightOutbound.WarehouseId);
             return View(freightOutbound);
         }
 
@@ -95,7 +95,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("OutboundOrderId,OrderType,OrderStatus,CreatorId,WarehouseId,ProductQuantity,CreationDate,EstimatedDeliveryDate,OrderShipDate,Cost,Currency,Recipient,RecipientPostCode,DestinationType,Platform,ShippingCompany,TransportDays,RelatedAdjustmentOrder,TrackingNumber,ReferenceOrderNumber,OutboundMethod")] FreightOutbound freightOutbound)
+        public async Task<IActionResult> Edit(string id, [Bind("OutboundOrderId,OrderType,OrderStatus,UserId,WarehouseId,ProductQuantity,CreationDate,EstimatedDeliveryDate,OrderShipDate,Cost,Currency,Recipient,RecipientPostCode,DestinationType,Platform,ShippingCompany,TransportDays,RelatedAdjustmentOrder,TrackingNumber,ReferenceOrderNumber,FbaShipmentId,FbaTrackingNumber,OutboundMethod")] FreightOutbound freightOutbound)
         {
             if (id != freightOutbound.OutboundOrderId)
             {
@@ -122,8 +122,8 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CreatorId"] = new SelectList(_context.Users, "UserId", "UserId", freightOutbound.CreatorId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", freightOutbound.WarehouseId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", freightOutbound.UserId);
+            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", freightOutbound.WarehouseId);
             return View(freightOutbound);
         }
 
@@ -136,7 +136,7 @@ namespace OrderManagementSystem.Controllers
             }
 
             var freightOutbound = await _context.FreightOutbounds
-                .Include(f => f.Creator)
+                .Include(f => f.User)
                 .Include(f => f.Warehouse)
                 .FirstOrDefaultAsync(m => m.OutboundOrderId == id);
             if (freightOutbound == null)

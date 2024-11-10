@@ -29,9 +29,9 @@
                 <span asp-validation-for="WarehouseId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatorId" class="control-label"></label>
-                <select asp-for="CreatorId" class="form-control" asp-items="ViewBag.CreatorId"></select>
-                <span asp-validation-for="CreatorId" class="text-danger"></span>
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Platform" class="control-label"></label>
@@ -89,6 +89,11 @@
                 <span asp-validation-for="ReferenceOrderNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="RelatedAdjustmentOrder" class="control-label"></label>
+                <input asp-for="RelatedAdjustmentOrder" class="form-control" />
+                <span asp-validation-for="RelatedAdjustmentOrder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="CreationDate" class="control-label"></label>
                 <input asp-for="CreationDate" class="form-control" />
                 <span asp-validation-for="CreationDate" class="text-danger"></span>
@@ -122,11 +127,6 @@
                 <label asp-for="DeliveryTime" class="control-label"></label>
                 <input asp-for="DeliveryTime" class="form-control" />
                 <span asp-validation-for="DeliveryTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RelatedAdjustmentOrder" class="control-label"></label>
-                <input asp-for="RelatedAdjustmentOrder" class="form-control" />
-                <span asp-validation-for="RelatedAdjustmentOrder" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

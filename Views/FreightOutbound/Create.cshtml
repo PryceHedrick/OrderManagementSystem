@@ -28,8 +28,8 @@
                 <span asp-validation-for="OrderStatus" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatorId" class="control-label"></label>
-                <select asp-for="CreatorId" class ="form-control" asp-items="ViewBag.CreatorId"></select>
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="WarehouseId" class="control-label"></label>
@@ -109,6 +109,16 @@
                 <label asp-for="ReferenceOrderNumber" class="control-label"></label>
                 <input asp-for="ReferenceOrderNumber" class="form-control" />
                 <span asp-validation-for="ReferenceOrderNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FbaShipmentId" class="control-label"></label>
+                <input asp-for="FbaShipmentId" class="form-control" />
+                <span asp-validation-for="FbaShipmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FbaTrackingNumber" class="control-label"></label>
+                <input asp-for="FbaTrackingNumber" class="form-control" />
+                <span asp-validation-for="FbaTrackingNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="OutboundMethod" class="control-label"></label>

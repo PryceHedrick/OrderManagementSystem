@@ -1,23 +1,30 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrderManagementSystem.Models
 {
     public class Warehouse
     {
         [Key]
-        public string WarehouseId { get; set; } 
+        [Column("Warehouse_ID")]
+        [StringLength(25)]
+        public string WarehouseId { get; set; }
 
         [Required]
+        [Column("Warehouse")]
         [StringLength(50)]
         public string Name { get; set; }
 
+        [Column("Country")]
         [StringLength(50)]
         public string Country { get; set; }
 
+        [Column("City")]
         [StringLength(50)]
         public string City { get; set; }
 
+        [Column("Currency")]
         [StringLength(50)]
         public string Currency { get; set; }
 
@@ -26,5 +33,6 @@ namespace OrderManagementSystem.Models
         public ICollection<InboundOrder> InboundOrders { get; set; } = new List<InboundOrder>();
         public ICollection<FreightOutbound> FreightOutbounds { get; set; } = new List<FreightOutbound>();
         public ICollection<ParcelOutbound> ParcelOutbounds { get; set; } = new List<ParcelOutbound>();
+        public ICollection<PlatformOrder> PlatformOrders { get; set; } = new List<PlatformOrder>();
     }
 }

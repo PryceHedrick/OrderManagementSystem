@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: Billing
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Billings.Include(b => b.BillingAccount);
+            var appDbContext = _context.Billings.Include(b => b.BillingAccount).Include(b => b.Charge);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -36,6 +36,7 @@ namespace OrderManagementSystem.Controllers
 
             var billing = await _context.Billings
                 .Include(b => b.BillingAccount)
+                .Include(b => b.Charge)
                 .FirstOrDefaultAsync(m => m.BillingId == id);
             if (billing == null)
             {
@@ -49,6 +50,7 @@ namespace OrderManagementSystem.Controllers
         public IActionResult Create()
         {
             ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId");
+            ViewData["ChargeId"] = new SelectList(_context.Charges, "ChargeId", "ChargeId");
             return View();
         }
 
@@ -57,7 +59,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BillingId,BillingAccountId,Amount,DateCreated")] Billing billing)
+        public async Task<IActionResult> Create([Bind("BillingId,BillingAccountId,ChargeId,Amount,DateCreated")] Billing billing)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +68,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
+            ViewData["ChargeId"] = new SelectList(_context.Charges, "ChargeId", "ChargeId", billing.ChargeId);
             return View(billing);
         }
 
@@ -83,6 +86,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
             ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
+            ViewData["ChargeId"] = new SelectList(_context.Charges, "ChargeId", "ChargeId", billing.ChargeId);
             return View(billing);
         }
 
@@ -91,7 +95,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("BillingId,BillingAccountId,Amount,DateCreated")] Billing billing)
+        public async Task<IActionResult> Edit(string id, [Bind("BillingId,BillingAccountId,ChargeId,Amount,DateCreated")] Billing billing)
         {
             if (id != billing.BillingId)
             {
@@ -119,6 +123,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
+            ViewData["ChargeId"] = new SelectList(_context.Charges, "ChargeId", "ChargeId", billing.ChargeId);
             return View(billing);
         }
 
@@ -132,6 +137,7 @@ namespace OrderManagementSystem.Controllers
 
             var billing = await _context.Billings
                 .Include(b => b.BillingAccount)
+                .Include(b => b.Charge)
                 .FirstOrDefaultAsync(m => m.BillingId == id);
             if (billing == null)
             {
