@@ -17,459 +17,459 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OrderManagementSystem
 build_property.RootNamespace = OrderManagementSystem
-build_property.ProjectDir = C:\Documents\GitHub\OrderManagementSystem\
+build_property.ProjectDir = C:\USI important\OrderManagementSystem\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Documents\GitHub\OrderManagementSystem
+build_property.MSBuildProjectDirectory = C:\USI important\OrderManagementSystem
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/BillingAccounts/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/BillingAccounts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ0FjY291bnRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/BillingAccounts/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/BillingAccounts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ0FjY291bnRzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/BillingAccounts/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/BillingAccounts/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ0FjY291bnRzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/BillingAccounts/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/BillingAccounts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ0FjY291bnRzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/BillingAccounts/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/BillingAccounts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ0FjY291bnRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Billing/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Billing/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Billing/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Billing/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Billing/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Billing/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Billing/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Billing/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Billing/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Billing/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Charges/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Charges/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmdlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Charges/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Charges/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmdlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Charges/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Charges/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmdlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Charges/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Charges/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmdlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Charges/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Charges/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmdlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Error.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/FreightOutbound/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/FreightOutbound/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodE91dGJvdW5kXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/FreightOutbound/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/FreightOutbound/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodE91dGJvdW5kXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/FreightOutbound/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/FreightOutbound/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodE91dGJvdW5kXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/FreightOutbound/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/FreightOutbound/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodE91dGJvdW5kXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/FreightOutbound/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/FreightOutbound/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodE91dGJvdW5kXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/FreightProductList/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/FreightProductList/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodFByb2R1Y3RMaXN0XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/FreightProductList/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/FreightProductList/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodFByb2R1Y3RMaXN0XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/FreightProductList/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/FreightProductList/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodFByb2R1Y3RMaXN0XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/FreightProductList/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/FreightProductList/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodFByb2R1Y3RMaXN0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/FreightProductList/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/FreightProductList/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlaWdodFByb2R1Y3RMaXN0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Home/About.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Home/Contact.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Home/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Home/Privacy.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Home/Products.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Home/Products.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/InboundOrders/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/InboundOrders/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZE9yZGVyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/InboundOrders/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/InboundOrders/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZE9yZGVyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/InboundOrders/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/InboundOrders/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZE9yZGVyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/InboundOrders/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/InboundOrders/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZE9yZGVyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/InboundOrders/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/InboundOrders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZE9yZGVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/InboundProductList/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/InboundProductList/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZFByb2R1Y3RMaXN0XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/InboundProductList/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/InboundProductList/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZFByb2R1Y3RMaXN0XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/InboundProductList/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/InboundProductList/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZFByb2R1Y3RMaXN0XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/InboundProductList/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/InboundProductList/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZFByb2R1Y3RMaXN0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/InboundProductList/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/InboundProductList/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ib3VuZFByb2R1Y3RMaXN0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Inventory/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Inventory/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Inventory/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Inventory/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Inventory/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Inventory/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Inventory/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Inventory/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Inventory/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Inventory/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderBasedBillings/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderBasedBillings/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZEJpbGxpbmdzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderBasedBillings/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderBasedBillings/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZEJpbGxpbmdzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderBasedBillings/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderBasedBillings/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZEJpbGxpbmdzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderBasedBillings/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderBasedBillings/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZEJpbGxpbmdzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderBasedBillings/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderBasedBillings/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZEJpbGxpbmdzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderBasedCharges/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderBasedCharges/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZENoYXJnZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderBasedCharges/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderBasedCharges/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZENoYXJnZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderBasedCharges/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderBasedCharges/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZENoYXJnZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderBasedCharges/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderBasedCharges/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZENoYXJnZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderBasedCharges/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderBasedCharges/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCYXNlZENoYXJnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderItems/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderItems/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJJdGVtc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderItems/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderItems/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJJdGVtc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderItems/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderItems/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJJdGVtc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderItems/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderItems/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJJdGVtc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/OrderItems/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/OrderItems/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJJdGVtc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Orders/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Orders/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Orders/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Orders/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Orders/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Orders/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Orders/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Orders/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Orders/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Orders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/ParcelOutbound/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/ParcelOutbound/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsT3V0Ym91bmRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/ParcelOutbound/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/ParcelOutbound/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsT3V0Ym91bmRcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/ParcelOutbound/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/ParcelOutbound/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsT3V0Ym91bmRcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/ParcelOutbound/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/ParcelOutbound/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsT3V0Ym91bmRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/ParcelOutbound/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/ParcelOutbound/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsT3V0Ym91bmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/ParcelProductList/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/ParcelProductList/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsUHJvZHVjdExpc3RcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/ParcelProductList/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/ParcelProductList/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsUHJvZHVjdExpc3RcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/ParcelProductList/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/ParcelProductList/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsUHJvZHVjdExpc3RcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/ParcelProductList/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/ParcelProductList/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsUHJvZHVjdExpc3RcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/ParcelProductList/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/ParcelProductList/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyY2VsUHJvZHVjdExpc3RcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/PlatformOrders/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/PlatformOrders/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1PcmRlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/PlatformOrders/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/PlatformOrders/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1PcmRlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/PlatformOrders/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/PlatformOrders/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1PcmRlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/PlatformOrders/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/PlatformOrders/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1PcmRlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/PlatformOrders/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/PlatformOrders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1PcmRlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/PlatformProductList/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/PlatformProductList/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1Qcm9kdWN0TGlzdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/PlatformProductList/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/PlatformProductList/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1Qcm9kdWN0TGlzdFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/PlatformProductList/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/PlatformProductList/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1Qcm9kdWN0TGlzdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/PlatformProductList/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/PlatformProductList/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1Qcm9kdWN0TGlzdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/PlatformProductList/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/PlatformProductList/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1Qcm9kdWN0TGlzdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Roles/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Roles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Roles/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Roles/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Roles/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Roles/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Roles/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Roles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Roles/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Roles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Shared/Error.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/ShipmentResult.cshtml]
+[C:/USI important/OrderManagementSystem/Views/ShipmentResult.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcG1lbnRSZXN1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/UserRoles/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/UserRoles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/UserRoles/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/UserRoles/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/UserRoles/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/UserRoles/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/UserRoles/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/UserRoles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/UserRoles/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/UserRoles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJvbGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Users/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Users/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Users/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Users/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Users/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Users/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Warehouse/Create.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Warehouse/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Warehouse/Delete.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Warehouse/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Warehouse/Details.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Warehouse/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Warehouse/Edit.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Warehouse/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Warehouse/Index.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Warehouse/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/_ViewImports.cshtml]
+[C:/USI important/OrderManagementSystem/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/_ViewStart.cshtml]
+[C:/USI important/OrderManagementSystem/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Documents/GitHub/OrderManagementSystem/Views/Shared/_Layout.cshtml]
+[C:/USI important/OrderManagementSystem/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-meiofx7n7n
