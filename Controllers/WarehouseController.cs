@@ -34,7 +34,7 @@ namespace OrderManagementSystem.Controllers
             }
 
             var warehouse = await _context.Warehouses
-                .FirstOrDefaultAsync(m => m.WarehouseId == id);
+                .FirstOrDefaultAsync(m => m.Warehouse_ID == id);
             if (warehouse == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("WarehouseId,Name,Country,City,Currency")] Warehouse warehouse)
+        public async Task<IActionResult> Create([Bind("Warehouse_ID,Name,Country,City,Currency")] Warehouse warehouse)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("WarehouseId,Name,Country,City,Currency")] Warehouse warehouse)
+        public async Task<IActionResult> Edit(string id, [Bind("Warehouse_ID,Name,Country,City,Currency")] Warehouse warehouse)
         {
-            if (id != warehouse.WarehouseId)
+            if (id != warehouse.Warehouse_ID)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!WarehouseExists(warehouse.WarehouseId))
+                    if (!WarehouseExists(warehouse.Warehouse_ID))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace OrderManagementSystem.Controllers
             }
 
             var warehouse = await _context.Warehouses
-                .FirstOrDefaultAsync(m => m.WarehouseId == id);
+                .FirstOrDefaultAsync(m => m.Warehouse_ID == id);
             if (warehouse == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool WarehouseExists(string id)
         {
-            return _context.Warehouses.Any(e => e.WarehouseId == id);
+            return _context.Warehouses.Any(e => e.Warehouse_ID == id);
         }
     }
 }

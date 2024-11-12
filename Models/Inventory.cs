@@ -9,12 +9,12 @@ namespace OrderManagementSystem.Models
         [Key]
         [Column("Product_ID")]
         [StringLength(25)]
-        public string ProductId { get; set; }
+        public string Product_ID { get; set; }
 
         [Required]
         [Column("Warehouse_ID")]
         [StringLength(25)]
-        public string WarehouseId { get; set; }
+        public string Warehouse_ID { get; set; }
 
         [Column("SKU")]
         [StringLength(50)]
@@ -22,17 +22,17 @@ namespace OrderManagementSystem.Models
 
         [Column("Product_Name")]
         [StringLength(255)]
-        public string ProductName { get; set; }
+        public string Product_Name { get; set; }
 
         [Column("Product_Description")]
         [StringLength(255)]
-        public string ProductDescription { get; set; }
+        public string Product_Description { get; set; }
 
         [Column("Price", TypeName = "decimal(10,2)")]
         [Range(0, double.MaxValue, ErrorMessage = "Price must be positive.")]
         public decimal Price { get; set; }
 
-        [Column("Stock_Quantity")]
+        [Column("Quantity")]
         [Range(0, int.MaxValue, ErrorMessage = "Quantity cannot be negative.")]
         public int Quantity { get; set; }
 

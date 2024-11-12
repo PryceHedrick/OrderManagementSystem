@@ -330,13 +330,13 @@ namespace OrderManagementSystem.Data
             // Inventory configuration
             modelBuilder.Entity<Inventory>(entity =>
             {
-                entity.HasKey(i => i.ProductId);
+                entity.HasKey(i => i.Product_ID);
 
-                entity.Property(i => i.ProductId)
+                entity.Property(i => i.Product_ID)
                       .HasColumnName("Product_ID")
                       .HasMaxLength(25);
 
-                entity.Property(i => i.WarehouseId)
+                entity.Property(i => i.Warehouse_ID)
                       .HasColumnName("Warehouse_ID")
                       .HasMaxLength(25)
                       .IsRequired();
@@ -345,11 +345,11 @@ namespace OrderManagementSystem.Data
                       .HasColumnName("SKU")
                       .HasMaxLength(50);
 
-                entity.Property(i => i.ProductName)
+                entity.Property(i => i.Product_Name)
                       .HasColumnName("Product_Name")
                       .HasMaxLength(255);
 
-                entity.Property(i => i.ProductDescription)
+                entity.Property(i => i.Product_Description)
                       .HasColumnName("Product_Description")
                       .HasMaxLength(255);
 
@@ -359,13 +359,13 @@ namespace OrderManagementSystem.Data
                       .IsRequired();
 
                 entity.Property(i => i.Quantity)
-                      .HasColumnName("Stock_Quantity")
+                      .HasColumnName("Quantity")
                       .IsRequired();
 
                 // Relationships
                 entity.HasOne(i => i.Warehouse)
                       .WithMany(w => w.Inventories)
-                      .HasForeignKey(i => i.WarehouseId)
+                      .HasForeignKey(i => i.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
             });
 
@@ -391,7 +391,7 @@ namespace OrderManagementSystem.Data
                       .HasMaxLength(25)
                       .IsRequired();
 
-                entity.Property(fo => fo.WarehouseId)
+                entity.Property(fo => fo.Warehouse_ID)
                       .HasColumnName("Warehouse_ID")
                       .HasMaxLength(25)
                       .IsRequired();
@@ -471,7 +471,7 @@ namespace OrderManagementSystem.Data
 
                 entity.HasOne(fo => fo.Warehouse)
                       .WithMany(w => w.FreightOutbounds)
-                      .HasForeignKey(fo => fo.WarehouseId)
+                      .HasForeignKey(fo => fo.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
             });
 
@@ -522,7 +522,7 @@ namespace OrderManagementSystem.Data
                       .HasMaxLength(25)
                       .IsRequired();
 
-                entity.Property(io => io.WarehouseId)
+                entity.Property(io => io.Warehouse_ID)
                       .HasColumnName("Warehouse_ID")
                       .HasMaxLength(25)
                       .IsRequired();
@@ -571,7 +571,7 @@ namespace OrderManagementSystem.Data
 
                 entity.HasOne(io => io.Warehouse)
                       .WithMany(w => w.InboundOrders)
-                      .HasForeignKey(io => io.WarehouseId)
+                      .HasForeignKey(io => io.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
             });
 
@@ -621,7 +621,7 @@ namespace OrderManagementSystem.Data
                       .HasColumnName("Order_Status")
                       .HasMaxLength(25);
 
-                entity.Property(po => po.WarehouseId)
+                entity.Property(po => po.Warehouse_ID)
                       .HasColumnName("Warehouse_ID")
                       .HasMaxLength(25)
                       .IsRequired();
@@ -707,7 +707,7 @@ namespace OrderManagementSystem.Data
 
                 entity.HasOne(po => po.Warehouse)
                       .WithMany(w => w.ParcelOutbounds)
-                      .HasForeignKey(po => po.WarehouseId)
+                      .HasForeignKey(po => po.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
             });
 
@@ -753,7 +753,7 @@ namespace OrderManagementSystem.Data
                       .HasColumnName("Platform")
                       .HasMaxLength(25);
 
-                entity.Property(po => po.WarehouseId)
+                entity.Property(po => po.Warehouse_ID)
                       .HasColumnName("Warehouse_ID")
                       .HasMaxLength(25)
                       .IsRequired();
@@ -819,7 +819,7 @@ namespace OrderManagementSystem.Data
 
                 entity.HasOne(po => po.Warehouse)
                       .WithMany(w => w.PlatformOrders)
-                      .HasForeignKey(po => po.WarehouseId)
+                      .HasForeignKey(po => po.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
             });
 
@@ -855,9 +855,9 @@ namespace OrderManagementSystem.Data
             // Warehouse configuration
             modelBuilder.Entity<Warehouse>(entity =>
             {
-                entity.HasKey(w => w.WarehouseId);
+                entity.HasKey(w => w.Warehouse_ID);
 
-                entity.Property(w => w.WarehouseId)
+                entity.Property(w => w.Warehouse_ID)
                       .HasColumnName("Warehouse_ID")
                       .HasMaxLength(25);
 
@@ -881,27 +881,27 @@ namespace OrderManagementSystem.Data
                 // Relationships
                 entity.HasMany(w => w.Inventories)
                       .WithOne(i => i.Warehouse)
-                      .HasForeignKey(i => i.WarehouseId)
+                      .HasForeignKey(i => i.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasMany(w => w.InboundOrders)
                       .WithOne(io => io.Warehouse)
-                      .HasForeignKey(io => io.WarehouseId)
+                      .HasForeignKey(io => io.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasMany(w => w.FreightOutbounds)
                       .WithOne(fo => fo.Warehouse)
-                      .HasForeignKey(fo => fo.WarehouseId)
+                      .HasForeignKey(fo => fo.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasMany(w => w.ParcelOutbounds)
                       .WithOne(po => po.Warehouse)
-                      .HasForeignKey(po => po.WarehouseId)
+                      .HasForeignKey(po => po.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasMany(w => w.PlatformOrders)
                       .WithOne(po => po.Warehouse)
-                      .HasForeignKey(po => po.WarehouseId)
+                      .HasForeignKey(po => po.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
             });
 

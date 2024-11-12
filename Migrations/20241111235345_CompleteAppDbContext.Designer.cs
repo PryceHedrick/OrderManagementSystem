@@ -280,7 +280,7 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("User_ID");
 
-                    b.Property<string>("WarehouseId")
+                    b.Property<string>("Warehouse_ID")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)")
@@ -290,7 +290,7 @@ namespace OrderManagementSystem.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("WarehouseId");
+                    b.HasIndex("Warehouse_ID");
 
                     b.ToTable("FreightOutbounds");
                 });
@@ -387,7 +387,7 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("User_ID");
 
-                    b.Property<string>("WarehouseId")
+                    b.Property<string>("Warehouse_ID")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)")
@@ -397,7 +397,7 @@ namespace OrderManagementSystem.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("WarehouseId");
+                    b.HasIndex("Warehouse_ID");
 
                     b.ToTable("InboundOrders");
                 });
@@ -458,7 +458,7 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("SKU");
 
-                    b.Property<string>("WarehouseId")
+                    b.Property<string>("Warehouse_ID")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)")
@@ -466,7 +466,7 @@ namespace OrderManagementSystem.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("WarehouseId");
+                    b.HasIndex("Warehouse_ID");
 
                     b.ToTable("Inventories");
                 });
@@ -702,7 +702,7 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("User_ID");
 
-                    b.Property<string>("WarehouseId")
+                    b.Property<string>("Warehouse_ID")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)")
@@ -712,7 +712,7 @@ namespace OrderManagementSystem.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("WarehouseId");
+                    b.HasIndex("Warehouse_ID");
 
                     b.ToTable("ParcelOutbounds");
                 });
@@ -829,7 +829,7 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("User_ID");
 
-                    b.Property<string>("WarehouseId")
+                    b.Property<string>("Warehouse_ID")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)")
@@ -839,7 +839,7 @@ namespace OrderManagementSystem.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("WarehouseId");
+                    b.HasIndex("Warehouse_ID");
 
                     b.ToTable("PlatformOrders");
                 });
@@ -946,7 +946,7 @@ namespace OrderManagementSystem.Migrations
 
             modelBuilder.Entity("OrderManagementSystem.Models.Warehouse", b =>
                 {
-                    b.Property<string>("WarehouseId")
+                    b.Property<string>("Warehouse_ID")
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("Warehouse_ID");
@@ -975,7 +975,7 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("Warehouse");
 
-                    b.HasKey("WarehouseId");
+                    b.HasKey("Warehouse_ID");
 
                     b.ToTable("Warehouses");
                 });
@@ -1047,7 +1047,7 @@ namespace OrderManagementSystem.Migrations
 
                     b.HasOne("OrderManagementSystem.Models.Warehouse", "Warehouse")
                         .WithMany("FreightOutbounds")
-                        .HasForeignKey("WarehouseId")
+                        .HasForeignKey("Warehouse_ID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
@@ -1085,7 +1085,7 @@ namespace OrderManagementSystem.Migrations
 
                     b.HasOne("OrderManagementSystem.Models.Warehouse", "Warehouse")
                         .WithMany("InboundOrders")
-                        .HasForeignKey("WarehouseId")
+                        .HasForeignKey("Warehouse_ID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
@@ -1117,7 +1117,7 @@ namespace OrderManagementSystem.Migrations
                 {
                     b.HasOne("OrderManagementSystem.Models.Warehouse", "Warehouse")
                         .WithMany("Inventories")
-                        .HasForeignKey("WarehouseId")
+                        .HasForeignKey("Warehouse_ID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
@@ -1202,7 +1202,7 @@ namespace OrderManagementSystem.Migrations
 
                     b.HasOne("OrderManagementSystem.Models.Warehouse", "Warehouse")
                         .WithMany("ParcelOutbounds")
-                        .HasForeignKey("WarehouseId")
+                        .HasForeignKey("Warehouse_ID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
@@ -1240,7 +1240,7 @@ namespace OrderManagementSystem.Migrations
 
                     b.HasOne("OrderManagementSystem.Models.Warehouse", "Warehouse")
                         .WithMany("PlatformOrders")
-                        .HasForeignKey("WarehouseId")
+                        .HasForeignKey("Warehouse_ID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 

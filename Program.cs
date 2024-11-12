@@ -4,6 +4,9 @@ using OrderManagementSystem.Models; // Add this for your models
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Set the DataDirectory for the application
+AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(builder.Environment.ContentRootPath, "App_Data"));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

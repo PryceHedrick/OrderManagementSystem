@@ -50,7 +50,7 @@ namespace OrderManagementSystem.Controllers
         public IActionResult Create()
         {
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId");
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,Platform,WarehouseId,ProductQuantity,UserId,Buyer,RecipientPostcode,RecipientCountry,Store,Site,ShippingService,TrackingNumber,Carrier,OrderTime,PaymentTime,CreatedTime,OrderSource")] PlatformOrder platformOrder)
+        public async Task<IActionResult> Create([Bind("OrderId,Platform,Warehouse_ID,ProductQuantity,UserId,Buyer,RecipientPostcode,RecipientCountry,Store,Site,ShippingService,TrackingNumber,Carrier,OrderTime,PaymentTime,CreatedTime,OrderSource")] PlatformOrder platformOrder)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", platformOrder.WarehouseId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
             return View(platformOrder);
         }
 
@@ -86,7 +86,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", platformOrder.WarehouseId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
             return View(platformOrder);
         }
 
@@ -95,7 +95,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("OrderId,Platform,WarehouseId,ProductQuantity,UserId,Buyer,RecipientPostcode,RecipientCountry,Store,Site,ShippingService,TrackingNumber,Carrier,OrderTime,PaymentTime,CreatedTime,OrderSource")] PlatformOrder platformOrder)
+        public async Task<IActionResult> Edit(string id, [Bind("OrderId,Platform,Warehouse_ID,ProductQuantity,UserId,Buyer,RecipientPostcode,RecipientCountry,Store,Site,ShippingService,TrackingNumber,Carrier,OrderTime,PaymentTime,CreatedTime,OrderSource")] PlatformOrder platformOrder)
         {
             if (id != platformOrder.OrderId)
             {
@@ -123,7 +123,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", platformOrder.WarehouseId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
             return View(platformOrder);
         }
 

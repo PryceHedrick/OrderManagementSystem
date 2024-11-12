@@ -50,7 +50,7 @@ namespace OrderManagementSystem.Controllers
         public IActionResult Create()
         {
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId");
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("InboundOrderId,OrderStatus,UserId,WarehouseId,EstimatedArrival,ProductQuantity,CreationDate,Cost,Currency,Boxes,InboundType,TrackingNumber,ReferenceOrderNumber,ArrivalMethod")] InboundOrder inboundOrder)
+        public async Task<IActionResult> Create([Bind("InboundOrderId,OrderStatus,UserId,Warehouse_ID,EstimatedArrival,ProductQuantity,CreationDate,Cost,Currency,Boxes,InboundType,TrackingNumber,ReferenceOrderNumber,ArrivalMethod")] InboundOrder inboundOrder)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inboundOrder.WarehouseId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }
 
@@ -86,7 +86,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inboundOrder.WarehouseId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }
 
@@ -95,7 +95,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("InboundOrderId,OrderStatus,UserId,WarehouseId,EstimatedArrival,ProductQuantity,CreationDate,Cost,Currency,Boxes,InboundType,TrackingNumber,ReferenceOrderNumber,ArrivalMethod")] InboundOrder inboundOrder)
+        public async Task<IActionResult> Edit(string id, [Bind("InboundOrderId,OrderStatus,UserId,Warehouse_ID,EstimatedArrival,ProductQuantity,CreationDate,Cost,Currency,Boxes,InboundType,TrackingNumber,ReferenceOrderNumber,ArrivalMethod")] InboundOrder inboundOrder)
         {
             if (id != inboundOrder.InboundOrderId)
             {
@@ -123,7 +123,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inboundOrder.WarehouseId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }
 

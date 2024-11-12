@@ -10,7 +10,7 @@ namespace OrderManagementSystem.Models
         [Key]
         [Column("Warehouse_ID")]
         [StringLength(25)]
-        public string WarehouseId { get; set; }
+        public string Warehouse_ID { get; set; }
 
         [Required]
         [Column("Warehouse")]

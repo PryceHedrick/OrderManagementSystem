@@ -36,7 +36,7 @@ namespace OrderManagementSystem.Controllers
 
             var inventory = await _context.Inventories
                 .Include(i => i.Warehouse)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
+                .FirstOrDefaultAsync(m => m.Product_ID == id);
             if (inventory == null)
             {
                 return NotFound();
@@ -48,7 +48,7 @@ namespace OrderManagementSystem.Controllers
         // GET: Inventory/Create
         public IActionResult Create()
         {
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId");
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,WarehouseId,SKU,ProductName,ProductDescription,Price,Quantity")] Inventory inventory)
+        public async Task<IActionResult> Create([Bind("Product_ID,Warehouse_ID,SKU,ProductName,ProductDescription,Price,Quantity")] Inventory inventory)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inventory.WarehouseId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
             return View(inventory);
         }
 
@@ -82,7 +82,7 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inventory.WarehouseId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
             return View(inventory);
         }
 
@@ -91,9 +91,9 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("ProductId,WarehouseId,SKU,ProductName,ProductDescription,Price,Quantity")] Inventory inventory)
+        public async Task<IActionResult> Edit(string id, [Bind("Product_ID,Warehouse_ID,SKU,ProductName,ProductDescription,Price,Quantity")] Inventory inventory)
         {
-            if (id != inventory.ProductId)
+            if (id != inventory.Product_ID)
             {
                 return NotFound();
             }
@@ -107,7 +107,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InventoryExists(inventory.ProductId))
+                    if (!InventoryExists(inventory.Product_ID))
                     {
                         return NotFound();
                     }
@@ -118,7 +118,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inventory.WarehouseId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
             return View(inventory);
         }
 
@@ -132,7 +132,7 @@ namespace OrderManagementSystem.Controllers
 
             var inventory = await _context.Inventories
                 .Include(i => i.Warehouse)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
+                .FirstOrDefaultAsync(m => m.Product_ID == id);
             if (inventory == null)
             {
                 return NotFound();
@@ -158,7 +158,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool InventoryExists(string id)
         {
-            return _context.Inventories.Any(e => e.ProductId == id);
+            return _context.Inventories.Any(e => e.Product_ID == id);
         }
     }
 }
