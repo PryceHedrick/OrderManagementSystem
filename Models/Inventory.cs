@@ -28,6 +28,14 @@ namespace OrderManagementSystem.Models
         [StringLength(255)]
         public string ProductDescription { get; set; }
 
+        [Column("Price", TypeName = "decimal(10,2)")]
+        [Range(0, double.MaxValue, ErrorMessage = "Price must be positive.")]
+        public decimal Price { get; set; }
+
+        [Column("Stock_Quantity")]
+        [Range(0, int.MaxValue, ErrorMessage = "Quantity cannot be negative.")]
+        public int Quantity { get; set; }
+
         // Navigation Properties
         public Warehouse Warehouse { get; set; }
         public ICollection<InboundProductList> InboundProductLists { get; set; } = new List<InboundProductList>();

@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -50,7 +50,7 @@ namespace OrderManagementSystem.Controllers
         public IActionResult Create()
         {
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId");
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", inboundOrder.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inboundOrder.WarehouseId);
             return View(inboundOrder);
         }
 
@@ -86,7 +86,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", inboundOrder.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inboundOrder.WarehouseId);
             return View(inboundOrder);
         }
 
@@ -123,7 +123,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", inboundOrder.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", inboundOrder.WarehouseId);
             return View(inboundOrder);
         }
 

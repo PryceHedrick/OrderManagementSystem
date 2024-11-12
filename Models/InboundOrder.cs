@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using OrderManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -27,17 +29,15 @@ namespace OrderManagementSystem.Models
         public string WarehouseId { get; set; }
 
         [Column("Estimated_Arrival")]
-        [DataType(DataType.Date)]
         public DateTime EstimatedArrival { get; set; }
 
         [Column("Product_Quantity")]
         public int ProductQuantity { get; set; }
 
         [Column("Creation_Date")]
-        [DataType(DataType.Date)]
         public DateTime CreationDate { get; set; }
 
-        [Column("Cost", TypeName = "decimal(18, 2)")]
+        [Column("Cost", TypeName = "decimal(10, 2)")]
         public decimal Cost { get; set; }
 
         [Column("Currency")]
@@ -64,8 +64,8 @@ namespace OrderManagementSystem.Models
         public string ArrivalMethod { get; set; }
 
         // Navigation Properties
-        public Warehouse Warehouse { get; set; }
         public User User { get; set; }
+        public Warehouse Warehouse { get; set; }
         public ICollection<InboundProductList> InboundProductLists { get; set; } = new List<InboundProductList>();
     }
 }

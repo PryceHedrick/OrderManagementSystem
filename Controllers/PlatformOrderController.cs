@@ -10,23 +10,23 @@ using OrderManagementSystem.Models;
 
 namespace OrderManagementSystem.Controllers
 {
-    public class PlatformOrdersController : Controller
+    public class PlatformOrderController : Controller
     {
         private readonly AppDbContext _context;
 
-        public PlatformOrdersController(AppDbContext context)
+        public PlatformOrderController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: PlatformOrders
+        // GET: PlatformOrder
         public async Task<IActionResult> Index()
         {
             var appDbContext = _context.PlatformOrders.Include(p => p.User).Include(p => p.Warehouse);
             return View(await appDbContext.ToListAsync());
         }
 
-        // GET: PlatformOrders/Details/5
+        // GET: PlatformOrder/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -46,15 +46,15 @@ namespace OrderManagementSystem.Controllers
             return View(platformOrder);
         }
 
-        // GET: PlatformOrders/Create
+        // GET: PlatformOrder/Create
         public IActionResult Create()
         {
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId");
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId");
             return View();
         }
 
-        // POST: PlatformOrders/Create
+        // POST: PlatformOrder/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -68,11 +68,11 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", platformOrder.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", platformOrder.WarehouseId);
             return View(platformOrder);
         }
 
-        // GET: PlatformOrders/Edit/5
+        // GET: PlatformOrder/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -86,11 +86,11 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", platformOrder.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", platformOrder.WarehouseId);
             return View(platformOrder);
         }
 
-        // POST: PlatformOrders/Edit/5
+        // POST: PlatformOrder/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -123,11 +123,11 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", platformOrder.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", platformOrder.WarehouseId);
             return View(platformOrder);
         }
 
-        // GET: PlatformOrders/Delete/5
+        // GET: PlatformOrder/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -147,7 +147,7 @@ namespace OrderManagementSystem.Controllers
             return View(platformOrder);
         }
 
-        // POST: PlatformOrders/Delete/5
+        // POST: PlatformOrder/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

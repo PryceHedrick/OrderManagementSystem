@@ -37,7 +37,7 @@ namespace OrderManagementSystem.Controllers
             var billing = await _context.Billings
                 .Include(b => b.BillingAccount)
                 .Include(b => b.Charge)
-                .FirstOrDefaultAsync(m => m.BillingId == id);
+                .FirstOrDefaultAsync(m => m.BillingAccountId == id);
             if (billing == null)
             {
                 return NotFound();
@@ -59,7 +59,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BillingId,BillingAccountId,ChargeId,Amount,DateCreated")] Billing billing)
+        public async Task<IActionResult> Create([Bind("BillingAccountId,ChargeId,Amount,DateCreated")] Billing billing)
         {
             if (ModelState.IsValid)
             {
@@ -95,9 +95,9 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("BillingId,BillingAccountId,ChargeId,Amount,DateCreated")] Billing billing)
+        public async Task<IActionResult> Edit(string id, [Bind("BillingAccountId,ChargeId,Amount,DateCreated")] Billing billing)
         {
-            if (id != billing.BillingId)
+            if (id != billing.BillingAccountId)
             {
                 return NotFound();
             }
@@ -111,7 +111,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BillingExists(billing.BillingId))
+                    if (!BillingExists(billing.BillingAccountId))
                     {
                         return NotFound();
                     }
@@ -138,7 +138,7 @@ namespace OrderManagementSystem.Controllers
             var billing = await _context.Billings
                 .Include(b => b.BillingAccount)
                 .Include(b => b.Charge)
-                .FirstOrDefaultAsync(m => m.BillingId == id);
+                .FirstOrDefaultAsync(m => m.BillingAccountId == id);
             if (billing == null)
             {
                 return NotFound();
@@ -164,7 +164,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool BillingExists(string id)
         {
-            return _context.Billings.Any(e => e.BillingId == id);
+            return _context.Billings.Any(e => e.BillingAccountId == id);
         }
     }
 }

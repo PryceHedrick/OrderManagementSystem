@@ -34,15 +34,15 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var billingAccounts = await _context.BillingAccounts
+            var billingAccount = await _context.BillingAccounts
                 .Include(b => b.User)
                 .FirstOrDefaultAsync(m => m.BillingAccountId == id);
-            if (billingAccounts == null)
+            if (billingAccount == null)
             {
                 return NotFound();
             }
 
-            return View(billingAccounts);
+            return View(billingAccount);
         }
 
         // GET: BillingAccounts/Create
@@ -57,16 +57,16 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BillingAccountId,UserId,AccountBalance")] BillingAccounts billingAccounts)
+        public async Task<IActionResult> Create([Bind("BillingAccountId,UserId,AccountBalance")] BillingAccount billingAccount)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(billingAccounts);
+                _context.Add(billingAccount);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", billingAccounts.UserId);
-            return View(billingAccounts);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", billingAccount.UserId);
+            return View(billingAccount);
         }
 
         // GET: BillingAccounts/Edit/5
@@ -77,13 +77,13 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var billingAccounts = await _context.BillingAccounts.FindAsync(id);
-            if (billingAccounts == null)
+            var billingAccount = await _context.BillingAccounts.FindAsync(id);
+            if (billingAccount == null)
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", billingAccounts.UserId);
-            return View(billingAccounts);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", billingAccount.UserId);
+            return View(billingAccount);
         }
 
         // POST: BillingAccounts/Edit/5
@@ -91,9 +91,9 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("BillingAccountId,UserId,AccountBalance")] BillingAccounts billingAccounts)
+        public async Task<IActionResult> Edit(string id, [Bind("BillingAccountId,UserId,AccountBalance")] BillingAccount billingAccount)
         {
-            if (id != billingAccounts.BillingAccountId)
+            if (id != billingAccount.BillingAccountId)
             {
                 return NotFound();
             }
@@ -102,12 +102,12 @@ namespace OrderManagementSystem.Controllers
             {
                 try
                 {
-                    _context.Update(billingAccounts);
+                    _context.Update(billingAccount);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BillingAccountsExists(billingAccounts.BillingAccountId))
+                    if (!BillingAccountExists(billingAccount.BillingAccountId))
                     {
                         return NotFound();
                     }
@@ -118,8 +118,8 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", billingAccounts.UserId);
-            return View(billingAccounts);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", billingAccount.UserId);
+            return View(billingAccount);
         }
 
         // GET: BillingAccounts/Delete/5
@@ -130,15 +130,15 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var billingAccounts = await _context.BillingAccounts
+            var billingAccount = await _context.BillingAccounts
                 .Include(b => b.User)
                 .FirstOrDefaultAsync(m => m.BillingAccountId == id);
-            if (billingAccounts == null)
+            if (billingAccount == null)
             {
                 return NotFound();
             }
 
-            return View(billingAccounts);
+            return View(billingAccount);
         }
 
         // POST: BillingAccounts/Delete/5
@@ -146,17 +146,17 @@ namespace OrderManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var billingAccounts = await _context.BillingAccounts.FindAsync(id);
-            if (billingAccounts != null)
+            var billingAccount = await _context.BillingAccounts.FindAsync(id);
+            if (billingAccount != null)
             {
-                _context.BillingAccounts.Remove(billingAccounts);
+                _context.BillingAccounts.Remove(billingAccount);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BillingAccountsExists(string id)
+        private bool BillingAccountExists(string id)
         {
             return _context.BillingAccounts.Any(e => e.BillingAccountId == id);
         }

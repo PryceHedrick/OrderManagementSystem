@@ -10,23 +10,23 @@ using OrderManagementSystem.Models;
 
 namespace OrderManagementSystem.Controllers
 {
-    public class OrderBasedBillingsController : Controller
+    public class OrderBasedBillingController : Controller
     {
         private readonly AppDbContext _context;
 
-        public OrderBasedBillingsController(AppDbContext context)
+        public OrderBasedBillingController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: OrderBasedBillings
+        // GET: OrderBasedBilling
         public async Task<IActionResult> Index()
         {
             var appDbContext = _context.OrderBasedBillings.Include(o => o.BillingAccount).Include(o => o.OrderBasedCharge);
             return View(await appDbContext.ToListAsync());
         }
 
-        // GET: OrderBasedBillings/Details/5
+        // GET: OrderBasedBilling/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -46,7 +46,7 @@ namespace OrderManagementSystem.Controllers
             return View(orderBasedBilling);
         }
 
-        // GET: OrderBasedBillings/Create
+        // GET: OrderBasedBilling/Create
         public IActionResult Create()
         {
             ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId");
@@ -54,7 +54,7 @@ namespace OrderManagementSystem.Controllers
             return View();
         }
 
-        // POST: OrderBasedBillings/Create
+        // POST: OrderBasedBilling/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -72,7 +72,7 @@ namespace OrderManagementSystem.Controllers
             return View(orderBasedBilling);
         }
 
-        // GET: OrderBasedBillings/Edit/5
+        // GET: OrderBasedBilling/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -90,7 +90,7 @@ namespace OrderManagementSystem.Controllers
             return View(orderBasedBilling);
         }
 
-        // POST: OrderBasedBillings/Edit/5
+        // POST: OrderBasedBilling/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -127,7 +127,7 @@ namespace OrderManagementSystem.Controllers
             return View(orderBasedBilling);
         }
 
-        // GET: OrderBasedBillings/Delete/5
+        // GET: OrderBasedBilling/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -147,7 +147,7 @@ namespace OrderManagementSystem.Controllers
             return View(orderBasedBilling);
         }
 
-        // POST: OrderBasedBillings/Delete/5
+        // POST: OrderBasedBilling/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

@@ -10,23 +10,22 @@ using OrderManagementSystem.Models;
 
 namespace OrderManagementSystem.Controllers
 {
-    public class OrderItemsController : Controller
+    public class UserController : Controller
     {
         private readonly AppDbContext _context;
 
-        public OrderItemsController(AppDbContext context)
+        public UserController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: OrderItems
+        // GET: User
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.OrderItems.Include(o => o.Inventory).Include(o => o.Order);
-            return View(await appDbContext.ToListAsync());
+            return View(await _context.Users.ToListAsync());
         }
 
-        // GET: OrderItems/Details/5
+        // GET: User/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -34,45 +33,39 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var orderItem = await _context.OrderItems
-                .Include(o => o.Inventory)
-                .Include(o => o.Order)
-                .FirstOrDefaultAsync(m => m.OrderId == id);
-            if (orderItem == null)
+            var user = await _context.Users
+                .FirstOrDefaultAsync(m => m.UserId == id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(orderItem);
+            return View(user);
         }
 
-        // GET: OrderItems/Create
+        // GET: User/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId");
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId");
             return View();
         }
 
-        // POST: OrderItems/Create
+        // POST: User/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,ProductId,Quantity,UnitPrice")] OrderItem orderItem)
+        public async Task<IActionResult> Create([Bind("UserId,Username,Password,Email,DateCreated")] User user)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(orderItem);
+                _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
-            return View(orderItem);
+            return View(user);
         }
 
-        // GET: OrderItems/Edit/5
+        // GET: User/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -80,24 +73,22 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var orderItem = await _context.OrderItems.FindAsync(id);
-            if (orderItem == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
-            return View(orderItem);
+            return View(user);
         }
 
-        // POST: OrderItems/Edit/5
+        // POST: User/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("OrderId,ProductId,Quantity,UnitPrice")] OrderItem orderItem)
+        public async Task<IActionResult> Edit(string id, [Bind("UserId,Username,Password,Email,DateCreated")] User user)
         {
-            if (id != orderItem.OrderId)
+            if (id != user.UserId)
             {
                 return NotFound();
             }
@@ -106,12 +97,12 @@ namespace OrderManagementSystem.Controllers
             {
                 try
                 {
-                    _context.Update(orderItem);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OrderItemExists(orderItem.OrderId))
+                    if (!UserExists(user.UserId))
                     {
                         return NotFound();
                     }
@@ -122,12 +113,10 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
-            return View(orderItem);
+            return View(user);
         }
 
-        // GET: OrderItems/Delete/5
+        // GET: User/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -135,36 +124,34 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var orderItem = await _context.OrderItems
-                .Include(o => o.Inventory)
-                .Include(o => o.Order)
-                .FirstOrDefaultAsync(m => m.OrderId == id);
-            if (orderItem == null)
+            var user = await _context.Users
+                .FirstOrDefaultAsync(m => m.UserId == id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(orderItem);
+            return View(user);
         }
 
-        // POST: OrderItems/Delete/5
+        // POST: User/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var orderItem = await _context.OrderItems.FindAsync(id);
-            if (orderItem != null)
+            var user = await _context.Users.FindAsync(id);
+            if (user != null)
             {
-                _context.OrderItems.Remove(orderItem);
+                _context.Users.Remove(user);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OrderItemExists(string id)
+        private bool UserExists(string id)
         {
-            return _context.OrderItems.Any(e => e.OrderId == id);
+            return _context.Users.Any(e => e.UserId == id);
         }
     }
 }

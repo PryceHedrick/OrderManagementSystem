@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿
+using OrderManagementSystem.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrderManagementSystem.Models
 {
-    public class BillingAccounts
+    public class BillingAccount
     {
         [Key]
         [Column("Billing_Account_ID")]
@@ -16,10 +18,10 @@ namespace OrderManagementSystem.Models
         [StringLength(25)]
         public string UserId { get; set; }
 
-        [Column("Account_Balance", TypeName = "decimal(18, 2)")]
+        [Column("Account_Balance", TypeName = "decimal(10, 2)")]
         public decimal AccountBalance { get; set; }
 
-        // Navigation Properties
+        // Navigation properties
         public User User { get; set; }
         public ICollection<Billing> Billings { get; set; } = new List<Billing>();
     }

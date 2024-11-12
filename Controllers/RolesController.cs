@@ -54,7 +54,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RoleId,Name,RoleDescription")] Role role)
+        public async Task<IActionResult> Create([Bind("RoleId,RoleName,RoleDescription")] Role role)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("RoleId,Name,RoleDescription")] Role role)
+        public async Task<IActionResult> Edit(string id, [Bind("RoleId,RoleName,RoleDescription")] Role role)
         {
             if (id != role.RoleId)
             {

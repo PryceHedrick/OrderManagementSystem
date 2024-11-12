@@ -64,19 +64,19 @@
                 @Html.DisplayNameFor(model => model.ReferenceOrderNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FbaShipmentId)
+                @Html.DisplayNameFor(model => model.FBAShipmentId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FbaTrackingNumber)
+                @Html.DisplayNameFor(model => model.FBATrackingNumber)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.OutboundMethod)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Warehouse)
+                @Html.DisplayNameFor(model => model.User)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User)
+                @Html.DisplayNameFor(model => model.Warehouse)
             </th>
             <th></th>
         </tr>
@@ -136,19 +136,19 @@
                 @Html.DisplayFor(modelItem => item.ReferenceOrderNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FbaShipmentId)
+                @Html.DisplayFor(modelItem => item.FBAShipmentId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FbaTrackingNumber)
+                @Html.DisplayFor(modelItem => item.FBATrackingNumber)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OutboundMethod)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Warehouse.WarehouseId)
+                @Html.DisplayFor(modelItem => item.User.UserId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.UserId)
+                @Html.DisplayFor(modelItem => item.Warehouse.WarehouseId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.OutboundOrderId">Edit</a> |

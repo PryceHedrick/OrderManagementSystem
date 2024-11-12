@@ -10,23 +10,23 @@ using OrderManagementSystem.Models;
 
 namespace OrderManagementSystem.Controllers
 {
-    public class OrderBasedChargesController : Controller
+    public class OrderBasedChargeController : Controller
     {
         private readonly AppDbContext _context;
 
-        public OrderBasedChargesController(AppDbContext context)
+        public OrderBasedChargeController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: OrderBasedCharges
+        // GET: OrderBasedCharge
         public async Task<IActionResult> Index()
         {
             var appDbContext = _context.OrderBasedCharges.Include(o => o.Charge).Include(o => o.Order);
             return View(await appDbContext.ToListAsync());
         }
 
-        // GET: OrderBasedCharges/Details/5
+        // GET: OrderBasedCharge/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -46,7 +46,7 @@ namespace OrderManagementSystem.Controllers
             return View(orderBasedCharge);
         }
 
-        // GET: OrderBasedCharges/Create
+        // GET: OrderBasedCharge/Create
         public IActionResult Create()
         {
             ViewData["ChargeId"] = new SelectList(_context.Charges, "ChargeId", "ChargeId");
@@ -54,7 +54,7 @@ namespace OrderManagementSystem.Controllers
             return View();
         }
 
-        // POST: OrderBasedCharges/Create
+        // POST: OrderBasedCharge/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -72,7 +72,7 @@ namespace OrderManagementSystem.Controllers
             return View(orderBasedCharge);
         }
 
-        // GET: OrderBasedCharges/Edit/5
+        // GET: OrderBasedCharge/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -90,7 +90,7 @@ namespace OrderManagementSystem.Controllers
             return View(orderBasedCharge);
         }
 
-        // POST: OrderBasedCharges/Edit/5
+        // POST: OrderBasedCharge/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -127,7 +127,7 @@ namespace OrderManagementSystem.Controllers
             return View(orderBasedCharge);
         }
 
-        // GET: OrderBasedCharges/Delete/5
+        // GET: OrderBasedCharge/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -147,7 +147,7 @@ namespace OrderManagementSystem.Controllers
             return View(orderBasedCharge);
         }
 
-        // POST: OrderBasedCharges/Delete/5
+        // POST: OrderBasedCharge/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

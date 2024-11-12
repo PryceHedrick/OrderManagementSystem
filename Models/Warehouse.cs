@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -28,7 +29,7 @@ namespace OrderManagementSystem.Models
         [StringLength(50)]
         public string Currency { get; set; }
 
-        // Navigation Properties
+        // Navigation properties
         public ICollection<Inventory> Inventories { get; set; } = new List<Inventory>();
         public ICollection<InboundOrder> InboundOrders { get; set; } = new List<InboundOrder>();
         public ICollection<FreightOutbound> FreightOutbounds { get; set; } = new List<FreightOutbound>();

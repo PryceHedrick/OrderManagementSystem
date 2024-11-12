@@ -10,23 +10,23 @@ using OrderManagementSystem.Models;
 
 namespace OrderManagementSystem.Controllers
 {
-    public class InventoryController : Controller
+    public class OrderItemController : Controller
     {
         private readonly AppDbContext _context;
 
-        public InventoryController(AppDbContext context)
+        public OrderItemController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Inventory
+        // GET: OrderItem
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Inventories.Include(i => i.Warehouse);
+            var appDbContext = _context.OrderItems.Include(o => o.Inventory).Include(o => o.Order);
             return View(await appDbContext.ToListAsync());
         }
 
-        // GET: Inventory/Details/5
+        // GET: OrderItem/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -34,42 +34,45 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var inventory = await _context.Inventories
-                .Include(i => i.Warehouse)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (inventory == null)
+            var orderItem = await _context.OrderItems
+                .Include(o => o.Inventory)
+                .Include(o => o.Order)
+                .FirstOrDefaultAsync(m => m.OrderId == id);
+            if (orderItem == null)
             {
                 return NotFound();
             }
 
-            return View(inventory);
+            return View(orderItem);
         }
 
-        // GET: Inventory/Create
+        // GET: OrderItem/Create
         public IActionResult Create()
         {
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId");
+            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId");
+            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId");
             return View();
         }
 
-        // POST: Inventory/Create
+        // POST: OrderItem/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,WarehouseId,SKU,ProductName,ProductDescription")] Inventory inventory)
+        public async Task<IActionResult> Create([Bind("OrderId,ProductId,Quantity,UnitPrice")] OrderItem orderItem)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(inventory);
+                _context.Add(orderItem);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", inventory.WarehouseId);
-            return View(inventory);
+            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
+            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
+            return View(orderItem);
         }
 
-        // GET: Inventory/Edit/5
+        // GET: OrderItem/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -77,23 +80,24 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var inventory = await _context.Inventories.FindAsync(id);
-            if (inventory == null)
+            var orderItem = await _context.OrderItems.FindAsync(id);
+            if (orderItem == null)
             {
                 return NotFound();
             }
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", inventory.WarehouseId);
-            return View(inventory);
+            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
+            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
+            return View(orderItem);
         }
 
-        // POST: Inventory/Edit/5
+        // POST: OrderItem/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("ProductId,WarehouseId,SKU,ProductName,ProductDescription")] Inventory inventory)
+        public async Task<IActionResult> Edit(string id, [Bind("OrderId,ProductId,Quantity,UnitPrice")] OrderItem orderItem)
         {
-            if (id != inventory.ProductId)
+            if (id != orderItem.OrderId)
             {
                 return NotFound();
             }
@@ -102,12 +106,12 @@ namespace OrderManagementSystem.Controllers
             {
                 try
                 {
-                    _context.Update(inventory);
+                    _context.Update(orderItem);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InventoryExists(inventory.ProductId))
+                    if (!OrderItemExists(orderItem.OrderId))
                     {
                         return NotFound();
                     }
@@ -118,11 +122,12 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", inventory.WarehouseId);
-            return View(inventory);
+            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
+            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
+            return View(orderItem);
         }
 
-        // GET: Inventory/Delete/5
+        // GET: OrderItem/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -130,35 +135,36 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var inventory = await _context.Inventories
-                .Include(i => i.Warehouse)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (inventory == null)
+            var orderItem = await _context.OrderItems
+                .Include(o => o.Inventory)
+                .Include(o => o.Order)
+                .FirstOrDefaultAsync(m => m.OrderId == id);
+            if (orderItem == null)
             {
                 return NotFound();
             }
 
-            return View(inventory);
+            return View(orderItem);
         }
 
-        // POST: Inventory/Delete/5
+        // POST: OrderItem/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var inventory = await _context.Inventories.FindAsync(id);
-            if (inventory != null)
+            var orderItem = await _context.OrderItems.FindAsync(id);
+            if (orderItem != null)
             {
-                _context.Inventories.Remove(inventory);
+                _context.OrderItems.Remove(orderItem);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool InventoryExists(string id)
+        private bool OrderItemExists(string id)
         {
-            return _context.Inventories.Any(e => e.ProductId == id);
+            return _context.OrderItems.Any(e => e.OrderId == id);
         }
     }
 }

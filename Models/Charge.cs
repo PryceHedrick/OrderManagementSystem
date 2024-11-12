@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,6 +15,7 @@ namespace OrderManagementSystem.Models
         [Required]
         [Column("Amount")]
         [DataType(DataType.Currency)]
+        [Range(0, double.MaxValue, ErrorMessage = "Amount must be positive.")]
         public decimal Amount { get; set; }
 
         [Column("Charge_Type")]
@@ -24,7 +26,7 @@ namespace OrderManagementSystem.Models
         [StringLength(255)]
         public string Description { get; set; }
 
-        
+        // Navigation properties
         public ICollection<Billing> Billings { get; set; } = new List<Billing>();
         public ICollection<OrderBasedCharge> OrderBasedCharges { get; set; } = new List<OrderBasedCharge>();
     }

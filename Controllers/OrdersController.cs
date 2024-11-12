@@ -57,7 +57,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,CustomerId,UserId,OrderDate,ShippedDate,OrderStatus,TotalAmount")] Order order)
+        public async Task<IActionResult> Create([Bind("OrderId,UserId,TotalAmount,OrderDate")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("OrderId,CustomerId,UserId,OrderDate,ShippedDate,OrderStatus,TotalAmount")] Order order)
+        public async Task<IActionResult> Edit(string id, [Bind("OrderId,UserId,TotalAmount,OrderDate")] Order order)
         {
             if (id != order.OrderId)
             {
