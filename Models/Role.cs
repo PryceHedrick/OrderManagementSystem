@@ -12,15 +12,13 @@ namespace OrderManagementSystem.Models
         public string RoleId { get; set; }
 
         [Required]
-        [Column("Role")]
         [StringLength(25)]
-        public string Name { get; set; }
+        public string RoleName { get; set; }
 
-        [Column("Role_Description")]
         [StringLength(255)]
         public string RoleDescription { get; set; }
 
-        // Navigation Properties
+        // Navigation properties
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
     }
 }

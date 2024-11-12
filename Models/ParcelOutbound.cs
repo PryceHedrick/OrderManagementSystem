@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using OrderManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -43,8 +45,7 @@ namespace OrderManagementSystem.Models
         [Column("Transport_Days")]
         public int TransportDays { get; set; }
 
-        [Column("Cost")]
-        [DataType(DataType.Currency)]
+        [Column("Cost", TypeName = "decimal(10, 2)")]
         public decimal Cost { get; set; }
 
         [Column("Currency")]
@@ -71,10 +72,6 @@ namespace OrderManagementSystem.Models
         [StringLength(25)]
         public string ReferenceOrderNumber { get; set; }
 
-        [Column("Related_Adjustment_Order")]
-        [StringLength(25)]
-        public string RelatedAdjustmentOrder { get; set; }
-
         [Column("Creation_Date")]
         public DateTime CreationDate { get; set; }
 
@@ -97,6 +94,10 @@ namespace OrderManagementSystem.Models
 
         [Column("Delivery_Time")]
         public DateTime DeliveryTime { get; set; }
+
+        [Column("Related_Adjustment_Order")]
+        [StringLength(25)]
+        public string RelatedAdjustmentOrder { get; set; }
 
         // Navigation Properties
         public Warehouse Warehouse { get; set; }

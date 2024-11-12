@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\USI important\\OrderManagementSystem\\OrderManagementSystem.csproj": {}
+    "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\USI important\\OrderManagementSystem\\OrderManagementSystem.csproj": {
+    "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\USI important\\OrderManagementSystem\\OrderManagementSystem.csproj",
+        "projectUniqueName": "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj",
         "projectName": "OrderManagementSystem",
-        "projectPath": "C:\\USI important\\OrderManagementSystem\\OrderManagementSystem.csproj",
-        "packagesPath": "C:\\Users\\marsh\\.nuget\\packages\\",
-        "outputPath": "C:\\USI important\\OrderManagementSystem\\obj\\",
+        "projectPath": "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\Pryce\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\marsh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pryce\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -38,11 +38,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -115,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

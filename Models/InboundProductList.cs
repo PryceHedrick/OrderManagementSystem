@@ -1,14 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrderManagementSystem.Models
 {
     public class InboundProductList
     {
-        [Required]
-        public string OrderId { get; set; } 
+        [StringLength(25)]
+        public string OrderId { get; set; }
 
-        [Required]
-        public string ProductId { get; set; } 
+        [StringLength(25)]
+        public string ProductId { get; set; }
 
         public int Quantity { get; set; }
 

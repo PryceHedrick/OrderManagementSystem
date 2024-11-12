@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Models/FreightOutbound.cs
+using OrderManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -42,7 +44,7 @@ namespace OrderManagementSystem.Models
         [Column("Order_Ship_Date")]
         public DateTime OrderShipDate { get; set; }
 
-        [Column("Cost", TypeName = "decimal(18, 2)")]
+        [Column("Cost", TypeName = "decimal(10, 2)")]
         public decimal Cost { get; set; }
 
         [Column("Currency")]
@@ -86,19 +88,19 @@ namespace OrderManagementSystem.Models
 
         [Column("FBA_Shipment_ID")]
         [StringLength(25)]
-        public string FbaShipmentId { get; set; }
+        public string FBAShipmentId { get; set; }
 
         [Column("FBA_Tracking_Number")]
         [StringLength(25)]
-        public string FbaTrackingNumber { get; set; }
+        public string FBATrackingNumber { get; set; }
 
         [Column("Outbound_Method")]
         [StringLength(25)]
         public string OutboundMethod { get; set; }
 
         // Navigation Properties
-        public Warehouse Warehouse { get; set; }
         public User User { get; set; }
+        public Warehouse Warehouse { get; set; }
         public ICollection<FreightProductList> FreightProductLists { get; set; } = new List<FreightProductList>();
     }
 }

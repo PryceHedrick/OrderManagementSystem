@@ -50,7 +50,7 @@ namespace OrderManagementSystem.Controllers
         public IActionResult Create()
         {
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId");
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,OrderType,OrderStatus,WarehouseId,UserId,Platform,EstimatedDeliveryDate,ShipDate,TransportDays,Cost,Currency,Recipient,Country,Postcode,TrackingNumber,ReferenceOrderNumber,RelatedAdjustmentOrder,CreationDate,Boxes,ShippingCompany,LatestInformation,TrackingUpdateTime,InternetPostingTime,DeliveryTime")] ParcelOutbound parcelOutbound)
+        public async Task<IActionResult> Create([Bind("OrderId,OrderType,OrderStatus,WarehouseId,UserId,Platform,EstimatedDeliveryDate,ShipDate,TransportDays,Cost,Currency,Recipient,Country,Postcode,TrackingNumber,ReferenceOrderNumber,CreationDate,Boxes,ShippingCompany,LatestInformation,TrackingUpdateTime,InternetPostingTime,DeliveryTime,RelatedAdjustmentOrder")] ParcelOutbound parcelOutbound)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
             return View(parcelOutbound);
         }
 
@@ -86,7 +86,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
             return View(parcelOutbound);
         }
 
@@ -95,7 +95,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("OrderId,OrderType,OrderStatus,WarehouseId,UserId,Platform,EstimatedDeliveryDate,ShipDate,TransportDays,Cost,Currency,Recipient,Country,Postcode,TrackingNumber,ReferenceOrderNumber,RelatedAdjustmentOrder,CreationDate,Boxes,ShippingCompany,LatestInformation,TrackingUpdateTime,InternetPostingTime,DeliveryTime")] ParcelOutbound parcelOutbound)
+        public async Task<IActionResult> Edit(string id, [Bind("OrderId,OrderType,OrderStatus,WarehouseId,UserId,Platform,EstimatedDeliveryDate,ShipDate,TransportDays,Cost,Currency,Recipient,Country,Postcode,TrackingNumber,ReferenceOrderNumber,CreationDate,Boxes,ShippingCompany,LatestInformation,TrackingUpdateTime,InternetPostingTime,DeliveryTime,RelatedAdjustmentOrder")] ParcelOutbound parcelOutbound)
         {
             if (id != parcelOutbound.OrderId)
             {
@@ -123,7 +123,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
-            ViewData["WarehouseId"] = new SelectList(_context.Set<Warehouse>(), "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
+            ViewData["WarehouseId"] = new SelectList(_context.Warehouses, "WarehouseId", "WarehouseId", parcelOutbound.WarehouseId);
             return View(parcelOutbound);
         }
 

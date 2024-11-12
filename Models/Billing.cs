@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,29 +7,21 @@ namespace OrderManagementSystem.Models
 {
     public class Billing
     {
-        [Key]
-        [Column("Billing_ID")]
-        [StringLength(25)]
-        public string BillingId { get; set; }
-
-        [Required]
-        [Column("Billing_Account_ID")]
         [StringLength(25)]
         public string BillingAccountId { get; set; }
 
-        [Required]
-        [Column("Charge_ID")]
         [StringLength(25)]
         public string ChargeId { get; set; }
 
-        [Column("Amount", TypeName = "decimal(18, 2)")]
+        [Column("Amount", TypeName = "decimal(10, 2)")]
+        [Range(0, double.MaxValue, ErrorMessage = "Amount must be positive.")]
         public decimal Amount { get; set; }
 
         [Column("Date_Created")]
         public DateTime DateCreated { get; set; }
 
-        // Navigation Properties
-        public BillingAccounts BillingAccount { get; set; }
+        // Navigation properties
+        public BillingAccount BillingAccount { get; set; }
         public Charge Charge { get; set; }
     }
 }

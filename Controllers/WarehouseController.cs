@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: Warehouse
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Warehouse.ToListAsync());
+            return View(await _context.Warehouses.ToListAsync());
         }
 
         // GET: Warehouse/Details/5
@@ -33,7 +33,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var warehouse = await _context.Warehouse
+            var warehouse = await _context.Warehouses
                 .FirstOrDefaultAsync(m => m.WarehouseId == id);
             if (warehouse == null)
             {
@@ -73,7 +73,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var warehouse = await _context.Warehouse.FindAsync(id);
+            var warehouse = await _context.Warehouses.FindAsync(id);
             if (warehouse == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var warehouse = await _context.Warehouse
+            var warehouse = await _context.Warehouses
                 .FirstOrDefaultAsync(m => m.WarehouseId == id);
             if (warehouse == null)
             {
@@ -139,10 +139,10 @@ namespace OrderManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var warehouse = await _context.Warehouse.FindAsync(id);
+            var warehouse = await _context.Warehouses.FindAsync(id);
             if (warehouse != null)
             {
-                _context.Warehouse.Remove(warehouse);
+                _context.Warehouses.Remove(warehouse);
             }
 
             await _context.SaveChangesAsync();
@@ -151,7 +151,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool WarehouseExists(string id)
         {
-            return _context.Warehouse.Any(e => e.WarehouseId == id);
+            return _context.Warehouses.Any(e => e.WarehouseId == id);
         }
     }
 }

@@ -24,20 +24,14 @@ namespace OrderManagementSystem.Migrations
 
             modelBuilder.Entity("OrderManagementSystem.Models.Billing", b =>
                 {
-                    b.Property<string>("BillingId")
+                    b.Property<string>("BillingAccountId")
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)")
-                        .HasColumnName("Billing_ID");
+                        .HasColumnName("Billing_Account_ID");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18, 2)")
                         .HasColumnName("Amount");
-
-                    b.Property<string>("BillingAccountId")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)")
-                        .HasColumnName("Billing_Account_ID");
 
                     b.Property<string>("ChargeId")
                         .IsRequired()
@@ -49,16 +43,14 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("Date_Created");
 
-                    b.HasKey("BillingId");
-
-                    b.HasIndex("BillingAccountId");
+                    b.HasKey("BillingAccountId");
 
                     b.HasIndex("ChargeId");
 
                     b.ToTable("Billings");
                 });
 
-            modelBuilder.Entity("OrderManagementSystem.Models.BillingAccounts", b =>
+            modelBuilder.Entity("OrderManagementSystem.Models.BillingAccount", b =>
                 {
                     b.Property<string>("BillingAccountId")
                         .HasMaxLength(25)
@@ -66,7 +58,7 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnName("Billing_Account_ID");
 
                     b.Property<decimal>("AccountBalance")
-                        .HasColumnType("decimal(18, 2)")
+                        .HasColumnType("decimal(10, 2)")
                         .HasColumnName("Account_Balance");
 
                     b.Property<string>("UserId")
@@ -110,6 +102,60 @@ namespace OrderManagementSystem.Migrations
                     b.ToTable("Charges");
                 });
 
+            modelBuilder.Entity("OrderManagementSystem.Models.Customer", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("User_ID");
+
+                    b.Property<string>("AccountStatus")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("Account_Status");
+
+                    b.Property<string>("AdminId")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("Admin_ID");
+
+                    b.Property<string>("BillingAccountId")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("Billing_Account_ID");
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("Company_Name");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Date_Created");
+
+                    b.Property<string>("ProductNeedAuditFree")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("Product_Need_Audit_Free");
+
+                    b.Property<int>("WarehouseAvailability")
+                        .HasColumnType("int")
+                        .HasColumnName("Warehouse_Availability");
+
+                    b.HasKey("UserId");
+
+                    b.HasIndex("AdminId");
+
+                    b.HasIndex("BillingAccountId");
+
+                    b.ToTable("Customers");
+                });
+
             modelBuilder.Entity("OrderManagementSystem.Models.FreightOutbound", b =>
                 {
                     b.Property<string>("OutboundOrderId")
@@ -118,7 +164,7 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnName("Outbound_Order_ID");
 
                     b.Property<decimal>("Cost")
-                        .HasColumnType("decimal(18, 2)")
+                        .HasColumnType("decimal(10, 2)")
                         .HasColumnName("Cost");
 
                     b.Property<DateTime>("CreationDate")
@@ -127,8 +173,8 @@ namespace OrderManagementSystem.Migrations
 
                     b.Property<string>("Currency")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)")
                         .HasColumnName("Currency");
 
                     b.Property<string>("DestinationType")
@@ -141,13 +187,13 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("Estimated_Delivery_Date");
 
-                    b.Property<string>("FbaShipmentId")
+                    b.Property<string>("FBAShipmentId")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("FBA_Shipment_ID");
 
-                    b.Property<string>("FbaTrackingNumber")
+                    b.Property<string>("FBATrackingNumber")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)")
@@ -195,7 +241,7 @@ namespace OrderManagementSystem.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
-                        .HasColumnName("Recipient_Post_Code");
+                        .HasColumnName("Recipient_Postcode");
 
                     b.Property<string>("ReferenceOrderNumber")
                         .IsRequired()
@@ -287,7 +333,7 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnName("Boxes");
 
                     b.Property<decimal>("Cost")
-                        .HasColumnType("decimal(18, 2)")
+                        .HasColumnType("decimal(10, 2)")
                         .HasColumnName("Cost");
 
                     b.Property<DateTime>("CreationDate")
@@ -357,14 +403,17 @@ namespace OrderManagementSystem.Migrations
                 {
                     b.Property<string>("OrderId")
                         .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("Inbound_Order_ID");
 
                     b.Property<string>("ProductId")
                         .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("Product_ID");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Quantity");
 
                     b.HasKey("OrderId", "ProductId");
 
@@ -380,6 +429,10 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("Product_ID");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("Price");
+
                     b.Property<string>("ProductDescription")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -391,6 +444,10 @@ namespace OrderManagementSystem.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("Product_Name");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int")
+                        .HasColumnName("Stock_Quantity");
 
                     b.Property<string>("SKU")
                         .IsRequired()
@@ -418,29 +475,13 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("Order_ID");
 
-                    b.Property<string>("CustomerId")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)")
-                        .HasColumnName("Customer_ID");
-
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2")
-                        .HasColumnName("Order_Date");
-
-                    b.Property<string>("OrderStatus")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)")
-                        .HasColumnName("Order_Status");
-
-                    b.Property<DateTime?>("ShippedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Shipped_Date");
+                        .HasColumnName("OrderDate");
 
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18, 2)")
-                        .HasColumnName("Total_Amount");
+                        .HasColumnName("TotalAmount");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -459,11 +500,13 @@ namespace OrderManagementSystem.Migrations
                 {
                     b.Property<string>("BillingAccountId")
                         .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("Billing_Account_ID");
 
                     b.Property<string>("OrderChargeId")
                         .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("OrderCharge_ID");
 
                     b.HasKey("BillingAccountId", "OrderChargeId");
 
@@ -477,7 +520,7 @@ namespace OrderManagementSystem.Migrations
                     b.Property<string>("OrderBasedChargeId")
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)")
-                        .HasColumnName("Order_Based_Charge_ID");
+                        .HasColumnName("OrderCharge_ID");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18, 2)")
@@ -512,17 +555,21 @@ namespace OrderManagementSystem.Migrations
                 {
                     b.Property<string>("OrderId")
                         .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("Order_ID");
 
                     b.Property<string>("ProductId")
                         .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("Product_ID");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Quantity");
 
                     b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18, 2)");
+                        .HasColumnType("decimal(18, 2)")
+                        .HasColumnName("UnitPrice");
 
                     b.HasKey("OrderId", "ProductId");
 
@@ -543,7 +590,7 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnName("Boxes");
 
                     b.Property<decimal>("Cost")
-                        .HasColumnType("decimal(18, 2)")
+                        .HasColumnType("decimal(10, 2)")
                         .HasColumnName("Cost");
 
                     b.Property<string>("Country")
@@ -824,17 +871,17 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("Role_ID");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)")
-                        .HasColumnName("Role");
-
                     b.Property<string>("RoleDescription")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("Role_Description");
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("RoleName");
 
                     b.HasKey("RoleId");
 
@@ -845,25 +892,30 @@ namespace OrderManagementSystem.Migrations
                 {
                     b.Property<string>("UserId")
                         .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("User_ID");
 
                     b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Date_Created");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Email");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Password");
 
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasColumnType("nvarchar(25)")
+                        .HasColumnName("Username");
 
                     b.HasKey("UserId");
 
@@ -922,12 +974,12 @@ namespace OrderManagementSystem.Migrations
 
                     b.HasKey("WarehouseId");
 
-                    b.ToTable("Warehouse");
+                    b.ToTable("Warehouses");
                 });
 
             modelBuilder.Entity("OrderManagementSystem.Models.Billing", b =>
                 {
-                    b.HasOne("OrderManagementSystem.Models.BillingAccounts", "BillingAccount")
+                    b.HasOne("OrderManagementSystem.Models.BillingAccount", "BillingAccount")
                         .WithMany("Billings")
                         .HasForeignKey("BillingAccountId")
                         .OnDelete(DeleteBehavior.NoAction)
@@ -944,7 +996,7 @@ namespace OrderManagementSystem.Migrations
                     b.Navigation("Charge");
                 });
 
-            modelBuilder.Entity("OrderManagementSystem.Models.BillingAccounts", b =>
+            modelBuilder.Entity("OrderManagementSystem.Models.BillingAccount", b =>
                 {
                     b.HasOne("OrderManagementSystem.Models.User", "User")
                         .WithMany("BillingAccounts")
@@ -953,6 +1005,33 @@ namespace OrderManagementSystem.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("OrderManagementSystem.Models.Customer", b =>
+                {
+                    b.HasOne("OrderManagementSystem.Models.User", "Administrator")
+                        .WithMany()
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("OrderManagementSystem.Models.BillingAccount", "BillingAccount")
+                        .WithMany()
+                        .HasForeignKey("BillingAccountId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("OrderManagementSystem.Models.User", "CustomerUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Administrator");
+
+                    b.Navigation("BillingAccount");
+
+                    b.Navigation("CustomerUser");
                 });
 
             modelBuilder.Entity("OrderManagementSystem.Models.FreightOutbound", b =>
@@ -966,7 +1045,7 @@ namespace OrderManagementSystem.Migrations
                     b.HasOne("OrderManagementSystem.Models.Warehouse", "Warehouse")
                         .WithMany("FreightOutbounds")
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -1004,7 +1083,7 @@ namespace OrderManagementSystem.Migrations
                     b.HasOne("OrderManagementSystem.Models.Warehouse", "Warehouse")
                         .WithMany("InboundOrders")
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -1055,7 +1134,7 @@ namespace OrderManagementSystem.Migrations
 
             modelBuilder.Entity("OrderManagementSystem.Models.OrderBasedBilling", b =>
                 {
-                    b.HasOne("OrderManagementSystem.Models.BillingAccounts", "BillingAccount")
+                    b.HasOne("OrderManagementSystem.Models.BillingAccount", "BillingAccount")
                         .WithMany()
                         .HasForeignKey("BillingAccountId")
                         .OnDelete(DeleteBehavior.NoAction)
@@ -1081,7 +1160,7 @@ namespace OrderManagementSystem.Migrations
                         .IsRequired();
 
                     b.HasOne("OrderManagementSystem.Models.Order", "Order")
-                        .WithMany("OrderBasedCharges")
+                        .WithMany()
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1121,7 +1200,7 @@ namespace OrderManagementSystem.Migrations
                     b.HasOne("OrderManagementSystem.Models.Warehouse", "Warehouse")
                         .WithMany("ParcelOutbounds")
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -1159,7 +1238,7 @@ namespace OrderManagementSystem.Migrations
                     b.HasOne("OrderManagementSystem.Models.Warehouse", "Warehouse")
                         .WithMany("PlatformOrders")
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -1205,7 +1284,7 @@ namespace OrderManagementSystem.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("OrderManagementSystem.Models.BillingAccounts", b =>
+            modelBuilder.Entity("OrderManagementSystem.Models.BillingAccount", b =>
                 {
                     b.Navigation("Billings");
                 });
@@ -1242,8 +1321,6 @@ namespace OrderManagementSystem.Migrations
 
             modelBuilder.Entity("OrderManagementSystem.Models.Order", b =>
                 {
-                    b.Navigation("OrderBasedCharges");
-
                     b.Navigation("OrderItems");
                 });
 
