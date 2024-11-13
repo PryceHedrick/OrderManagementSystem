@@ -22,8 +22,9 @@ namespace OrderManagementSystem.Controllers
         // GET: Inventory
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Inventories.Include(i => i.Warehouse);
-            return View(await appDbContext.ToListAsync());
+            //var appDbContext = _context.Inventories.Include(i => i.Warehouse);
+            //return View(await appDbContext.ToListAsync());
+            return View(await _context.Inventories.ToListAsync());
         }
 
         // GET: Inventory/Details/5
