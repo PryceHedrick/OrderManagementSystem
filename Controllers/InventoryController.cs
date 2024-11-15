@@ -27,6 +27,11 @@ namespace OrderManagementSystem.Controllers
             return View(await _context.Inventories.ToListAsync());
         }
 
+        public async Task<IActionResult> Products()
+        {
+            return View(await _context.Inventories.ToListAsync());
+        }
+
         // GET: Inventory/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -49,7 +54,7 @@ namespace OrderManagementSystem.Controllers
         // GET: Inventory/Create
         public IActionResult Create()
         {
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID");
+            //ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID");
             return View();
         }
 

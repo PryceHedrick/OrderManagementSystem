@@ -37,7 +37,7 @@ namespace OrderManagementSystem.Models
         public int Quantity { get; set; }
 
         // Navigation Properties
-        public Warehouse Warehouse { get; set; }
+        public Warehouse Warehouse { get; set; } 
         public ICollection<InboundProductList> InboundProductLists { get; set; } = new List<InboundProductList>();
         public ICollection<FreightProductList> FreightProductLists { get; set; } = new List<FreightProductList>();
         public ICollection<ParcelProductList> ParcelProductLists { get; set; } = new List<ParcelProductList>();

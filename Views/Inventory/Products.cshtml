@@ -161,7 +161,7 @@
                                 <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 20px;">
                                     <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_product"></i><span data-v-6a3d8818="">
                                         <span data-v-6a3d8818="">
-                                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Products">Product</a>
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Inventory" asp-action="Products">Product</a>
                                         </span>
                                     </span>
                                 </li>
@@ -649,9 +649,11 @@
                 <div class="ak-operate-wrapper">
                     <div class="ak-operate-section">
                         <div class="xl-tab-btn">
-                            <button type="button" class="el-button el-button--primary el-button--small is-round">
-                                <span class="text-wrap"> Add </span>
-                            </button>
+                            <a asp-action="Create" class="el-button el-button--primary el-button--small is-round">
+                                <button type="button" class="el-button el-button--primary el-button--small is-round">
+                                    <span class="text-wrap">Add </span>
+                                </button>
+                            </a>
                             <button disabled="disabled" type="button" class="el-button el-button--small is-disabled is-round">
                                 <span class="text-wrap"> Submit </span>
                             </button>
@@ -990,7 +992,7 @@
                                     <div xid="5" class="vxe-table--header-wrapper body--wrapper">
                                         <div class="vxe-body--x-space">
                                         </div>
-                                        <table xid="5" cellspacing="0" cellpadding="0" border="0" class="vxe-table--header" style="width: 1566px;">
+                                        <table xid="5" cellspacing="0" cellpadding="0" border="0" class="vxe-table--header" style="width: 900px;">
                                             <colgroup>
                                                 <col name="col_6" style="width: 80px;">
                                                 <col name="col_7" style="width: 120px;">
@@ -998,75 +1000,30 @@
                                                 <col name="col_9" style="width: 120px;">
                                                 <col name="col_10" style="width: 120px;">
                                                 <col name="col_11" style="width: 120px;">
-                                                <col name="col_12" style="width: 160px;">
-                                                <col name="col_13" style="width: 160px;">
-                                                <col name="col_14" style="width: 160px;">
-                                                <col name="col_15" style="width: 160px;">
                                                 <col name="col_16" style="width: 175px;">
-                                                <col name="col_17" style="width: 126px;">
                                             </colgroup>
                                             <thead>
 
                                                 <tr class="vxe-header--row">
                                                     <th colid="col_6" class="vxe-header--column col_6 col--ellipsis">
                                                         @Html.DisplayNameFor(model => model.SKU)
-                                                        <!---- <div class="vxe-cell c--tooltip" style="width: 39px;">
-                                                            <span class="vxe-cell--title">
-                                                                <span title="全选/取消" class="vxe-cell--checkbox is--disabled">
-                                                                    <span class="vxe-checkbox--icon vxe-checkbox--checked-icon"></span>
-                                                                    <span class="vxe-checkbox--icon vxe-checkbox--unchecked-icon"></span>
-                                                                    <span class="vxe-checkbox--icon vxe-checkbox--indeterminate-icon"></span>
-                                                                </span>
-                                                            </span>
-                                                        </div> -->
                                                     </th>
                                                     <th colid="col_7" class="vxe-header--column col_7 col--ellipsis">
                                                         @Html.DisplayNameFor(model => model.Product_Name)
-                                                        <!----<div class="vxe-cell c--tooltip" style="width: 64px;">
-                                                            <span class="vxe-cell--title">Picture</span>
-                                                        </div>-->
                                                     </th>
                                                     <th colid="col_8" class="vxe-header--column col_8 col--ellipsis">
                                                         @Html.DisplayNameFor(model => model.Product_Description)
-                                                        <!----<div class="vxe-cell c--tooltip" style="width: 159px;">
-                                                            <span class="vxe-cell--title">SKU</span>
-                                                        </div>-->
                                                     </th>
                                                     <th colid="col_9" class="vxe-header--column col_9 col--ellipsis">
                                                         @Html.DisplayNameFor(model => model.Price)
-                                                        <!----<div class="vxe-cell c--tooltip" style="width: 119px;">
-                                                            <span class="vxe-cell--title">Product Name</span>
-                                                        </div>
-                                                        <div class="vxe-resizable is--line">
-                                                        </div>-->
                                                     </th>
                                                     <th colid="col_10" class="vxe-header--column col_10 col--ellipsis">
                                                         @Html.DisplayNameFor(model => model.Quantity)
-                                                        <!----<div class="vxe-cell c--tooltip" style="width: 119px;">
-                                                            <span class="vxe-cell--title">Product type</span>
-                                                        </div>
-                                                        <div class="vxe-resizable is--line">
-                                                        </div>-->
                                                     </th>
                                                     <th colid="col_11" class="vxe-header--column col_11 col--ellipsis">
                                                         @Html.DisplayNameFor(model => model.Warehouse)
-                                                        <!----<div class="vxe-cell c--tooltip" style="width: 119px;">
-                                                            <span class="vxe-cell--title">Product alias</span>
-                                                        </div>
-                                                        <div class="vxe-resizable is--line">
-                                                        </div>-->
                                                     </th>
                                                     <th colid="col_16" class="vxe-header--column col_16 col--ellipsis is--sortable">
-                                                        <!----<div class="vxe-cell c--tooltip" style="width: 174px;">
-                                                            <span class="vxe-cell--title">Created time</span>
-                                                            <span class="vxe-cell--sort">
-                                                                <i title="升序：最低到最高" class="vxe-sort--asc-btn vxe-icon--caret-top"></i>
-                                                                <i title="降序：最高到最低" class="vxe-sort--desc-btn vxe-icon--caret-bottom"></i>
-                                                            </span>
-                                                        </div>
-                                                        <div class="vxe-resizable is--line">
-
-                                                        </div>-->
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -1074,7 +1031,7 @@
                                                 
                                             </tbody>
                                         </table>
-                                        <div class="vxe-table--header-border-line" style="width: 1566px;">
+                                        <div class="vxe-table--header-border-line" style="width: 900px;">
                                         </div>
                                     </div>
                                     <div xid="5" class="vxe-table--body-wrapper body--wrapper" style="height: 314px;">
@@ -1082,67 +1039,38 @@
                                         </div>
                                         <div class="vxe-body--y-space">
                                         </div>
-
-
-
-                                        
-
-
-
-                                        <table xid="5" cellspacing="0" cellpadding="0" border="0" class="vxe-table--body" style="width: 1566px;">
+                                        <table xid="5" cellspacing="0" cellpadding="0" border="0" class="vxe-table--body" style="width: 900px;">
                                             <colgroup>
                                                 <col name="col_6" style="width: 80px;">
                                                 <col name="col_7" style="width: 120px;">
                                                 <col name="col_8" style="width: 160px;">
-                                                <col name="col_9" style="width: 120px;">
-                                                <col name="col_10" style="width: 120px;">
-                                                <col name="col_11" style="width: 120px;">
-                                                <col name="col_12" style="width: 160px;">
-                                                <col name="col_13" style="width: 160px;">
-                                                <col name="col_14" style="width: 160px;">
-                                                <col name="col_15" style="width: 160px;">
-                                                <col name="col_16" style="width: 175px;">
-                                                <col name="col_17" style="width: 126px;">
                                             </colgroup>
                                             <tbody>
 
                                                 @foreach (var item in Model) {
                                                 <tr rowid="row_14" class="vxe-body--row row--current">
-                                                    <td colid="col_2" class="vxe-body--column col_2 col--checkbox col--first col--ellipsis fixed--hidden" style="height: 48px;">
+                                                    <td colid="col_2" class="vxe-body--column col_2 col--ellipsis" style="height: 48px;">
                                                         @Html.DisplayFor(modelItem => item.SKU)
-                                                        
-                                                        <!--<div class="vxe-cell c--tooltip" style="max-height: 48px; width: 39px;"></div>-->
                                                     </td>
-                                                    <td colid="col_3" class="vxe-body--column col_3 col--ellipsis fixed--hidden" style="height: 48px;">
+                                                    <td colid="col_3" class="vxe-body--column col_3 col--ellipsis" style="height: 48px;">
                                                             @Html.DisplayFor(modelItem => item.Product_Name)
-                                                        <!--<div class="vxe-cell c--tooltip" style="max-height: 48px; width: 64px;"></div>-->
                                                     </td>
-                                                    <td colid="col_4" class="vxe-body--column col_4 col--ellipsis fixed--hidden" style="height: 48px;">
+                                                    <td colid="col_4" class="vxe-body--column col_4 col--ellipsis" style="height: 48px;">
                                                             @Html.DisplayFor(modelItem => item.Product_Description)
-                                                        <!--<div class="vxe-cell c--tooltip" style="max-height: 48px; width: 159px;"></div>-->
                                                     </td>
                                                     <td colid="col_5" class="vxe-body--column col_5 col--ellipsis" style="height: 48px;">
                                                             @Html.DisplayFor(modelItem => item.Price)
-                                                        <!--<div class="vxe-cell c--tooltip" style="max-height: 48px; width: 119px;">
-                                                            <span class="vxe-cell--label">Replacement Prime Original LCD With Frame for Samsung M33 M336B Black</span>
-                                                        </div>-->
                                                     </td>
                                                     <td colid="col_6" class="vxe-body--column col_6 col--ellipsis" style="height: 48px;">
                                                             @Html.DisplayFor(modelItem => item.Quantity)
-                                                        <!--<div class="vxe-cell c--tooltip" style="max-height: 48px; width: 119px;">
-                                                            <span class="vxe-cell--label">-</span>
-                                                        </div>-->
                                                     </td>
                                                     <td colid="col_7" class="vxe-body--column col_7 col--ellipsis" style="height: 48px;">
                                                             @Html.DisplayFor(modelItem => item.Warehouse.Warehouse_ID)
-                                                        <!--<div class="vxe-cell c--tooltip" style="max-height: 48px; width: 119px;">
-                                                            <span class="vxe-cell--label">-</span>
-                                                        </div>-->
                                                     </td>
                                                     <td colid="col_8" class="vxe-body--column col_8 col--ellipsis" style="height: 48px;">
-                                                            <!--<div class="vxe-cell c--tooltip" style="max-height: 48px; width: 159px;">
-                                                            <span data-v-3bb9e471="">-</span>
-                                                            </div>-->
+                                                        <a asp-action="Edit" asp-route-id="@item.Product_ID">Edit</a> |
+                                                        <a asp-action="Details" asp-route-id="@item.Product_ID">Details</a> |
+                                                        <a asp-action="Delete" asp-route-id="@item.Product_ID">Delete</a>
                                                     </td>
                                                 </tr>
                                                 }
@@ -1150,7 +1078,7 @@
                                         </table>
                                         <div class="vxe-table--checkbox-range">
                                         </div>
-                                        <div class="vxe-table--empty-block" style="width: 1566px;">
+                                        <div class="vxe-table--empty-block" style="width: 900px;">
                                             <div class="vxe-table--empty-content">
                                                 
                                             </div>
@@ -1161,7 +1089,7 @@
                             </div>
                             <div class="vxe-table--empty-placeholder" style="top: 40px; height: 303px;">
                                 <div class="vxe-table--empty-content">
-                                    <span>No data</span>
+                                    
                                 </div>
                             </div>
                             <div class="vxe-table--border-line">
