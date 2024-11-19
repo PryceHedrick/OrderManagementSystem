@@ -424,7 +424,7 @@ namespace OrderManagementSystem.Migrations
 
             modelBuilder.Entity("OrderManagementSystem.Models.Inventory", b =>
                 {
-                    b.Property<string>("ProductId")
+                    b.Property<string>("Product_ID")
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("Product_ID");
@@ -433,13 +433,13 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("Price");
 
-                    b.Property<string>("ProductDescription")
+                    b.Property<string>("Product_Description")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("Product_Description");
 
-                    b.Property<string>("ProductName")
+                    b.Property<string>("Product_Name")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
@@ -447,7 +447,7 @@ namespace OrderManagementSystem.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int")
-                        .HasColumnName("Stock_Quantity");
+                        .HasColumnName("Quantity");
 
                     b.Property<string>("SKU")
                         .IsRequired()
@@ -461,7 +461,7 @@ namespace OrderManagementSystem.Migrations
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("Warehouse_ID");
 
-                    b.HasKey("ProductId");
+                    b.HasKey("Product_ID");
 
                     b.HasIndex("Warehouse_ID");
 
