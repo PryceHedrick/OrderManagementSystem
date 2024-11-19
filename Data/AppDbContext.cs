@@ -18,7 +18,7 @@ namespace OrderManagementSystem.Data
         public DbSet<Charge> Charges { get; set; }
         public DbSet<OrderBasedBilling> OrderBasedBillings { get; set; }
         public DbSet<OrderBasedCharge> OrderBasedCharges { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> User { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Inventory> Inventory { get; set; }

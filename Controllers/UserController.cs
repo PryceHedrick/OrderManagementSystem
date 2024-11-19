@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: User
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Users.ToListAsync());
+            return View(await _context.User.ToListAsync());
         }
 
         // GET: User/Details/5
@@ -33,7 +33,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var user = await _context.User
                 .FirstOrDefaultAsync(m => m.UserId == id);
             if (user == null)
             {
@@ -73,7 +73,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.User.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var user = await _context.User
                 .FirstOrDefaultAsync(m => m.UserId == id);
             if (user == null)
             {
@@ -139,10 +139,10 @@ namespace OrderManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.User.FindAsync(id);
             if (user != null)
             {
-                _context.Users.Remove(user);
+                _context.User.Remove(user);
             }
 
             await _context.SaveChangesAsync();
@@ -151,7 +151,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool UserExists(string id)
         {
-            return _context.Users.Any(e => e.UserId == id);
+            return _context.User.Any(e => e.UserId == id);
         }
     }
 }

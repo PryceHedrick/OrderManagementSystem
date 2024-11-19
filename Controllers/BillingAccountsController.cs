@@ -48,7 +48,7 @@ namespace OrderManagementSystem.Controllers
         // GET: BillingAccounts/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", billingAccount.UserId);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", billingAccount.UserId);
             return View(billingAccount);
         }
 
@@ -82,7 +82,7 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", billingAccount.UserId);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", billingAccount.UserId);
             return View(billingAccount);
         }
 
@@ -118,7 +118,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", billingAccount.UserId);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", billingAccount.UserId);
             return View(billingAccount);
         }
 

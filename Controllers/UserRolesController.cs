@@ -50,7 +50,7 @@ namespace OrderManagementSystem.Controllers
         public IActionResult Create()
         {
             ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "RoleId");
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "RoleId", userRole.RoleId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", userRole.UserId);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", userRole.UserId);
             return View(userRole);
         }
 
@@ -86,7 +86,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
             ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "RoleId", userRole.RoleId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", userRole.UserId);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", userRole.UserId);
             return View(userRole);
         }
 
@@ -123,7 +123,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "RoleId", userRole.RoleId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", userRole.UserId);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", userRole.UserId);
             return View(userRole);
         }
 

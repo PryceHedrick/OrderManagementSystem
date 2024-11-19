@@ -49,7 +49,7 @@ namespace OrderManagementSystem.Controllers
         // GET: PlatformOrder/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID");
             return View();
         }
@@ -67,7 +67,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", platformOrder.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
             return View(platformOrder);
         }
@@ -85,7 +85,7 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", platformOrder.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
             return View(platformOrder);
         }
@@ -122,7 +122,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", platformOrder.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
             return View(platformOrder);
         }
