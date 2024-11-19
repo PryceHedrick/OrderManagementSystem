@@ -49,7 +49,7 @@ namespace OrderManagementSystem.Controllers
         // GET: OrderItem/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId");
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId");
             ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId");
             return View();
         }
@@ -67,7 +67,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", orderItem.ProductId);
             ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
             return View(orderItem);
         }
@@ -85,7 +85,7 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", orderItem.ProductId);
             ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
             return View(orderItem);
         }
@@ -122,7 +122,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", orderItem.ProductId);
             ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
             return View(orderItem);
         }

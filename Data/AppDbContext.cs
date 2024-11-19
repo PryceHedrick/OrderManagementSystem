@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using OrderManagementSystem.Models;
+using System.Collections;
 
 namespace OrderManagementSystem.Data
 {
@@ -20,7 +21,7 @@ namespace OrderManagementSystem.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
-        public DbSet<Inventory> Inventories { get; set; }
+        public DbSet<Inventory> Inventory { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<FreightOutbound> FreightOutbounds { get; set; }
@@ -33,6 +34,7 @@ namespace OrderManagementSystem.Data
         public DbSet<ParcelOutbound> ParcelOutbounds { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
         public DbSet<Customer> Customers { get; set; }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -364,7 +366,7 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(i => i.Warehouse)
-                      .WithMany(w => w.Inventories)
+                      .WithMany(w => w.Inventory)
                       .HasForeignKey(i => i.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -879,7 +881,7 @@ namespace OrderManagementSystem.Data
                       .HasMaxLength(50);
 
                 // Relationships
-                entity.HasMany(w => w.Inventories)
+                entity.HasMany(w => w.Inventory)
                       .WithOne(i => i.Warehouse)
                       .HasForeignKey(i => i.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);

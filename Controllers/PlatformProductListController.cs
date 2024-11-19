@@ -49,7 +49,7 @@ namespace OrderManagementSystem.Controllers
         // GET: PlatformProductList/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId");
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId");
             ViewData["OrderId"] = new SelectList(_context.PlatformOrders, "OrderId", "OrderId");
             return View();
         }
@@ -67,7 +67,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", platformProductList.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", platformProductList.ProductId);
             ViewData["OrderId"] = new SelectList(_context.PlatformOrders, "OrderId", "OrderId", platformProductList.OrderId);
             return View(platformProductList);
         }
@@ -85,7 +85,7 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", platformProductList.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", platformProductList.ProductId);
             ViewData["OrderId"] = new SelectList(_context.PlatformOrders, "OrderId", "OrderId", platformProductList.OrderId);
             return View(platformProductList);
         }
@@ -122,7 +122,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", platformProductList.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", platformProductList.ProductId);
             ViewData["OrderId"] = new SelectList(_context.PlatformOrders, "OrderId", "OrderId", platformProductList.OrderId);
             return View(platformProductList);
         }

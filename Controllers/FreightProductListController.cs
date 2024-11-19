@@ -50,7 +50,7 @@ namespace OrderManagementSystem.Controllers
         public IActionResult Create()
         {
             ViewData["OrderId"] = new SelectList(_context.FreightOutbounds, "OutboundOrderId", "OutboundOrderId");
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId");
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["OrderId"] = new SelectList(_context.FreightOutbounds, "OutboundOrderId", "OutboundOrderId", freightProductList.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", freightProductList.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", freightProductList.ProductId);
             return View(freightProductList);
         }
 
@@ -86,7 +86,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
             ViewData["OrderId"] = new SelectList(_context.FreightOutbounds, "OutboundOrderId", "OutboundOrderId", freightProductList.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", freightProductList.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", freightProductList.ProductId);
             return View(freightProductList);
         }
 
@@ -123,7 +123,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["OrderId"] = new SelectList(_context.FreightOutbounds, "OutboundOrderId", "OutboundOrderId", freightProductList.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", freightProductList.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", freightProductList.ProductId);
             return View(freightProductList);
         }
 
