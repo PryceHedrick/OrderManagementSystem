@@ -1,4 +1,4 @@
-﻿// Models/PlatformOrder.cs
+﻿
 using OrderManagementSystem.Models;
 using System;
 using System.Collections.Generic;
@@ -77,8 +77,8 @@ namespace OrderManagementSystem.Models
         public string OrderSource { get; set; }
 
         // Navigation Properties
-        public Warehouse Warehouse { get; set; }
         public User User { get; set; }
+        public Warehouse Warehouse { get; set; }
         public ICollection<PlatformProductList> PlatformProductList { get; set; } = new List<PlatformProductList>();
     }
 }

@@ -20,7 +20,7 @@ namespace OrderManagementSystem.Models
         [Column("Date_Created")]
         public DateTime DateCreated { get; set; }
 
-        // Navigation properties
+       //Navigation Properties
         public BillingAccount BillingAccount { get; set; }
         public Charge Charge { get; set; }
     }

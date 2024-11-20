@@ -16,6 +16,7 @@ namespace OrderManagementSystem.Models
 
         // Navigation Properties
         public InboundOrder InboundOrder { get; set; }
+
         public Inventory Inventory { get; set; }
     }
 }

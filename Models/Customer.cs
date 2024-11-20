@@ -40,13 +40,11 @@ namespace OrderManagementSystem.Models
         public DateTime DateCreated { get; set; }
 
         // Navigation Properties
-        [ForeignKey("AdminId")]
+        
         public User Administrator { get; set; }
 
-        [ForeignKey("UserId")]
         public User CustomerUser { get; set; }
 
-        [ForeignKey("BillingAccountId")]
         public BillingAccount BillingAccount { get; set; }
     }
 }

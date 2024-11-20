@@ -1,4 +1,4 @@
-﻿// Models/FreightOutbound.cs
+﻿
 using OrderManagementSystem.Models;
 using System;
 using System.Collections.Generic;
@@ -101,6 +101,8 @@ namespace OrderManagementSystem.Models
         // Navigation Properties
         public User User { get; set; }
         public Warehouse Warehouse { get; set; }
+
         public ICollection<FreightProductList> FreightProductList { get; set; } = new List<FreightProductList>();
     }
 }
+
