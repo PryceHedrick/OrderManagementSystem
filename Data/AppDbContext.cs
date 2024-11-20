@@ -13,26 +13,24 @@ namespace OrderManagementSystem.Data
         }
 
         // DbSets for all models
-        public DbSet<Billing> Billings { get; set; }
-        public DbSet<BillingAccount> BillingAccounts { get; set; }
-        public DbSet<Charge> Charges { get; set; }
-        public DbSet<OrderBasedBilling> OrderBasedBillings { get; set; }
-        public DbSet<OrderBasedCharge> OrderBasedCharges { get; set; }
+        public DbSet<Billing> Billing { get; set; }
+        public DbSet<BillingAccount> BillingAccount { get; set; }
+        public DbSet<Charge> Charge { get; set; }
         public DbSet<User> User { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<UserRole> UserRole { get; set; }
         public DbSet<Inventory> Inventory { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderItem> OrderItems { get; set; }
-        public DbSet<FreightOutbound> FreightOutbounds { get; set; }
-        public DbSet<FreightProductList> FreightProductLists { get; set; }
-        public DbSet<InboundOrder> InboundOrders { get; set; }
-        public DbSet<InboundProductList> InboundProductLists { get; set; }
-        public DbSet<ParcelProductList> ParcelProductLists { get; set; }
-        public DbSet<PlatformOrder> PlatformOrders { get; set; }
-        public DbSet<PlatformProductList> PlatformProductLists { get; set; }
-        public DbSet<ParcelOutbound> ParcelOutbounds { get; set; }
-        public DbSet<Warehouse> Warehouses { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderItem> OrderItem { get; set; }
+        public DbSet<FreightOutbound> FreightOutbound { get; set; }
+        public DbSet<FreightProductList> FreightProductList { get; set; }
+        public DbSet<InboundOrder> InboundOrder { get; set; }
+        public DbSet<InboundProductList> InboundProductList { get; set; }
+        public DbSet<ParcelProductList> ParcelProductList { get; set; }
+        public DbSet<PlatformOrder> PlatformOrder { get; set; }
+        public DbSet<PlatformProductList> PlatformProductList { get; set; }
+        public DbSet<ParcelOutbound> ParcelOutbound { get; set; }
+        public DbSet<Warehouse> Warehouse { get; set; }
         public DbSet<Customer> Customers { get; set; }
        
 
@@ -65,12 +63,12 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(b => b.BillingAccount)
-                      .WithMany(ba => ba.Billings)
+                      .WithMany(ba => ba.Billing)
                       .HasForeignKey(b => b.BillingAccountId)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(b => b.Charge)
-                      .WithMany(c => c.Billings)
+                      .WithMany(c => c.Billing)
                       .HasForeignKey(b => b.ChargeId)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -94,7 +92,7 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(ba => ba.User)
-                      .WithMany(u => u.BillingAccounts)
+                      .WithMany(u => u.BillingAccount)
                       .HasForeignKey(ba => ba.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -144,7 +142,7 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(o => o.User)
-                      .WithMany(u => u.Orders)
+                      .WithMany(u => u.Order)
                       .HasForeignKey(o => o.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -173,56 +171,18 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(oi => oi.Order)
-                      .WithMany(o => o.OrderItems)
+                      .WithMany(o => o.OrderItem)
                       .HasForeignKey(oi => oi.OrderId)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(oi => oi.Inventory)
-                      .WithMany(i => i.OrderItems)
+                      .WithMany(i => i.OrderItem)
                       .HasForeignKey(oi => oi.ProductId)
                       .OnDelete(DeleteBehavior.NoAction);
             });
 
-            // OrderBasedBilling configuration
-            modelBuilder.Entity<OrderBasedBilling>(entity =>
-            {
-                entity.HasKey(ob => new { ob.BillingAccountId, ob.OrderChargeId });
 
-                entity.Property(ob => ob.BillingAccountId)
-                      .HasColumnName("Billing_Account_ID")
-                      .HasMaxLength(25);
-
-                entity.Property(ob => ob.OrderChargeId)
-                      .HasColumnName("OrderCharge_ID")
-                      .HasMaxLength(25);
-
-                // Relationships
-                entity.HasOne(ob => ob.BillingAccount)
-                      .WithMany()
-                      .HasForeignKey(ob => ob.BillingAccountId)
-                      .OnDelete(DeleteBehavior.NoAction);
-
-                entity.HasOne(ob => ob.OrderBasedCharge)
-                      .WithMany()
-                      .HasForeignKey(ob => ob.OrderChargeId)
-                      .OnDelete(DeleteBehavior.NoAction);
-            });
-
-            // OrderBasedCharge configuration
-            modelBuilder.Entity<OrderBasedCharge>(entity =>
-            {
-                entity.HasKey(obc => obc.OrderBasedChargeId);
-
-                entity.Property(obc => obc.OrderBasedChargeId)
-                      .HasColumnName("OrderCharge_ID")
-                      .HasMaxLength(25);
-
-                entity.Property(obc => obc.Amount)
-                      .HasColumnName("Amount")
-                      .HasColumnType("decimal(18, 2)");
-
-                // Relationships can be added here if necessary
-            });
+           
 
             // User configuration
             modelBuilder.Entity<User>(entity =>
@@ -252,37 +212,37 @@ namespace OrderManagementSystem.Data
                       .HasColumnName("Date_Created");
 
                 // Relationships
-                entity.HasMany(u => u.BillingAccounts)
+                entity.HasMany(u => u.BillingAccount)
                       .WithOne(ba => ba.User)
                       .HasForeignKey(ba => ba.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasMany(u => u.UserRoles)
+                entity.HasMany(u => u.UserRole)
                       .WithOne(ur => ur.User)
                       .HasForeignKey(ur => ur.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasMany(u => u.Orders)
+                entity.HasMany(u => u.Order)
                       .WithOne(o => o.User)
                       .HasForeignKey(o => o.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasMany(u => u.FreightOutbounds)
+                entity.HasMany(u => u.FreightOutbound)
                       .WithOne(fo => fo.User)
                       .HasForeignKey(fo => fo.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasMany(u => u.InboundOrders)
+                entity.HasMany(u => u.InboundOrder)
                       .WithOne(io => io.User)
                       .HasForeignKey(io => io.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasMany(u => u.ParcelOutbounds)
+                entity.HasMany(u => u.ParcelOutbound)
                       .WithOne(po => po.User)
                       .HasForeignKey(po => po.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasMany(u => u.PlatformOrders)
+                entity.HasMany(u => u.PlatformOrder)
                       .WithOne(po => po.User)
                       .HasForeignKey(po => po.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
@@ -307,7 +267,7 @@ namespace OrderManagementSystem.Data
                       .HasMaxLength(255);
 
                 // Relationships
-                entity.HasMany(r => r.UserRoles)
+                entity.HasMany(r => r.UserRole)
                       .WithOne(ur => ur.Role)
                       .HasForeignKey(ur => ur.RoleId)
                       .OnDelete(DeleteBehavior.NoAction);
@@ -467,12 +427,12 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(fo => fo.User)
-                      .WithMany(u => u.FreightOutbounds)
+                      .WithMany(u => u.FreightOutbound)
                       .HasForeignKey(fo => fo.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(fo => fo.Warehouse)
-                      .WithMany(w => w.FreightOutbounds)
+                      .WithMany(w => w.FreightOutbound)
                       .HasForeignKey(fo => fo.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -496,12 +456,12 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(fpl => fpl.FreightOutbound)
-                      .WithMany(fo => fo.FreightProductLists)
+                      .WithMany(fo => fo.FreightProductList)
                       .HasForeignKey(fpl => fpl.OrderId)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(fpl => fpl.Inventory)
-                      .WithMany(i => i.FreightProductLists)
+                      .WithMany(i => i.FreightProductList)
                       .HasForeignKey(fpl => fpl.ProductId)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -567,12 +527,12 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(io => io.User)
-                      .WithMany(u => u.InboundOrders)
+                      .WithMany(u => u.InboundOrder)
                       .HasForeignKey(io => io.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(io => io.Warehouse)
-                      .WithMany(w => w.InboundOrders)
+                      .WithMany(w => w.InboundOrder)
                       .HasForeignKey(io => io.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -596,12 +556,12 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(ipl => ipl.InboundOrder)
-                      .WithMany(io => io.InboundProductLists)
+                      .WithMany(io => io.InboundProductList)
                       .HasForeignKey(ipl => ipl.OrderId)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(ipl => ipl.Inventory)
-                      .WithMany(i => i.InboundProductLists)
+                      .WithMany(i => i.InboundProductList)
                       .HasForeignKey(ipl => ipl.ProductId)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -703,12 +663,12 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(po => po.User)
-                      .WithMany(u => u.ParcelOutbounds)
+                      .WithMany(u => u.ParcelOutbound)
                       .HasForeignKey(po => po.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(po => po.Warehouse)
-                      .WithMany(w => w.ParcelOutbounds)
+                      .WithMany(w => w.ParcelOutbound)
                       .HasForeignKey(po => po.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -732,12 +692,12 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(ppl => ppl.ParcelOutbound)
-                      .WithMany(po => po.ParcelProductLists)
+                      .WithMany(po => po.ParcelProductList)
                       .HasForeignKey(ppl => ppl.OrderId)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(ppl => ppl.Inventory)
-                      .WithMany(i => i.ParcelProductLists)
+                      .WithMany(i => i.ParcelProductList)
                       .HasForeignKey(ppl => ppl.ProductId)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -815,12 +775,12 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(po => po.User)
-                      .WithMany(u => u.PlatformOrders)
+                      .WithMany(u => u.PlatformOrder)
                       .HasForeignKey(po => po.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(po => po.Warehouse)
-                      .WithMany(w => w.PlatformOrders)
+                      .WithMany(w => w.PlatformOrder)
                       .HasForeignKey(po => po.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -844,12 +804,12 @@ namespace OrderManagementSystem.Data
 
                 // Relationships
                 entity.HasOne(pp => pp.PlatformOrder)
-                      .WithMany(po => po.PlatformProductLists)
+                      .WithMany(po => po.PlatformProductList)
                       .HasForeignKey(pp => pp.OrderId)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(pp => pp.Inventory)
-                      .WithMany(i => i.PlatformProductLists)
+                      .WithMany(i => i.PlatformProductList)
                       .HasForeignKey(pp => pp.ProductId)
                       .OnDelete(DeleteBehavior.NoAction);
             });
@@ -886,22 +846,22 @@ namespace OrderManagementSystem.Data
                       .HasForeignKey(i => i.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasMany(w => w.InboundOrders)
+                entity.HasMany(w => w.InboundOrder)
                       .WithOne(io => io.Warehouse)
                       .HasForeignKey(io => io.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasMany(w => w.FreightOutbounds)
+                entity.HasMany(w => w.FreightOutbound)
                       .WithOne(fo => fo.Warehouse)
                       .HasForeignKey(fo => fo.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasMany(w => w.ParcelOutbounds)
+                entity.HasMany(w => w.ParcelOutbound)
                       .WithOne(po => po.Warehouse)
                       .HasForeignKey(po => po.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);
 
-                entity.HasMany(w => w.PlatformOrders)
+                entity.HasMany(w => w.PlatformOrder)
                       .WithOne(po => po.Warehouse)
                       .HasForeignKey(po => po.Warehouse_ID)
                       .OnDelete(DeleteBehavior.NoAction);

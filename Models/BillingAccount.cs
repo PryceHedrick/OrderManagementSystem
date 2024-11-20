@@ -23,6 +23,6 @@ namespace OrderManagementSystem.Models
 
         // Navigation properties
         public User User { get; set; }
-        public ICollection<Billing> Billings { get; set; } = new List<Billing>();
+        public ICollection<Billing> Billing { get; set; } = new List<Billing>();
     }
 }

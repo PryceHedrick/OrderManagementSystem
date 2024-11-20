@@ -30,12 +30,12 @@ namespace OrderManagementSystem.Models
         public DateTime DateCreated { get; set; }
 
         // Navigation properties
-        public ICollection<BillingAccount> BillingAccounts { get; set; } = new List<BillingAccount>();
-        public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
-        public ICollection<Order> Orders { get; set; } = new List<Order>();
-        public ICollection<FreightOutbound> FreightOutbounds { get; set; } = new List<FreightOutbound>();
-        public ICollection<InboundOrder> InboundOrders { get; set; } = new List<InboundOrder>();
-        public ICollection<ParcelOutbound> ParcelOutbounds { get; set; } = new List<ParcelOutbound>();
-        public ICollection<PlatformOrder> PlatformOrders { get; set; } = new List<PlatformOrder>();
+        public ICollection<BillingAccount> BillingAccount { get; set; } = new List<BillingAccount>();
+        public ICollection<UserRole> UserRole { get; set; } = new List<UserRole>();
+        public ICollection<Order> Order { get; set; } = new List<Order>();
+        public ICollection<FreightOutbound> FreightOutbound { get; set; } = new List<FreightOutbound>();
+        public ICollection<InboundOrder> InboundOrder { get; set; } = new List<InboundOrder>();
+        public ICollection<ParcelOutbound> ParcelOutbound { get; set; } = new List<ParcelOutbound>();
+        public ICollection<PlatformOrder> PlatformOrder { get; set; } = new List<PlatformOrder>();
     }
 }

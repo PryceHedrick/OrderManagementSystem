@@ -102,6 +102,6 @@ namespace OrderManagementSystem.Models
         // Navigation Properties
         public Warehouse Warehouse { get; set; }
         public User User { get; set; }
-        public ICollection<ParcelProductList> ParcelProductLists { get; set; } = new List<ParcelProductList>();
+        public ICollection<ParcelProductList> ParcelProductList { get; set; } = new List<ParcelProductList>();
     }
 }

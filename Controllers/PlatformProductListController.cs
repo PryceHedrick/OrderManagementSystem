@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: PlatformProductList
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.PlatformProductLists.Include(p => p.Inventory).Include(p => p.PlatformOrder);
+            var appDbContext = _context.PlatformProductList.Include(p => p.Inventory).Include(p => p.PlatformOrder);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var platformProductList = await _context.PlatformProductLists
+            var platformProductList = await _context.PlatformProductList
                 .Include(p => p.Inventory)
                 .Include(p => p.PlatformOrder)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -50,7 +50,7 @@ namespace OrderManagementSystem.Controllers
         public IActionResult Create()
         {
             ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId");
-            ViewData["OrderId"] = new SelectList(_context.PlatformOrders, "OrderId", "OrderId");
+            ViewData["OrderId"] = new SelectList(_context.PlatformOrder, "OrderId", "OrderId");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", platformProductList.ProductId);
-            ViewData["OrderId"] = new SelectList(_context.PlatformOrders, "OrderId", "OrderId", platformProductList.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.PlatformOrder, "OrderId", "OrderId", platformProductList.OrderId);
             return View(platformProductList);
         }
 
@@ -80,13 +80,13 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var platformProductList = await _context.PlatformProductLists.FindAsync(id);
+            var platformProductList = await _context.PlatformProductList.FindAsync(id);
             if (platformProductList == null)
             {
                 return NotFound();
             }
             ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", platformProductList.ProductId);
-            ViewData["OrderId"] = new SelectList(_context.PlatformOrders, "OrderId", "OrderId", platformProductList.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.PlatformOrder, "OrderId", "OrderId", platformProductList.OrderId);
             return View(platformProductList);
         }
 
@@ -123,7 +123,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", platformProductList.ProductId);
-            ViewData["OrderId"] = new SelectList(_context.PlatformOrders, "OrderId", "OrderId", platformProductList.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.PlatformOrder, "OrderId", "OrderId", platformProductList.OrderId);
             return View(platformProductList);
         }
 
@@ -135,7 +135,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var platformProductList = await _context.PlatformProductLists
+            var platformProductList = await _context.PlatformProductList
                 .Include(p => p.Inventory)
                 .Include(p => p.PlatformOrder)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -152,10 +152,10 @@ namespace OrderManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var platformProductList = await _context.PlatformProductLists.FindAsync(id);
+            var platformProductList = await _context.PlatformProductList.FindAsync(id);
             if (platformProductList != null)
             {
-                _context.PlatformProductLists.Remove(platformProductList);
+                _context.PlatformProductList.Remove(platformProductList);
             }
 
             await _context.SaveChangesAsync();
@@ -164,7 +164,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool PlatformProductListExists(string id)
         {
-            return _context.PlatformProductLists.Any(e => e.OrderId == id);
+            return _context.PlatformProductList.Any(e => e.OrderId == id);
         }
     }
 }

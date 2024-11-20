@@ -66,6 +66,6 @@ namespace OrderManagementSystem.Models
         // Navigation Properties
         public User User { get; set; }
         public Warehouse Warehouse { get; set; }
-        public ICollection<InboundProductList> InboundProductLists { get; set; } = new List<InboundProductList>();
+        public ICollection<InboundProductList> InboundProductList { get; set; } = new List<InboundProductList>();
     }
 }

@@ -79,6 +79,6 @@ namespace OrderManagementSystem.Models
         // Navigation Properties
         public Warehouse Warehouse { get; set; }
         public User User { get; set; }
-        public ICollection<PlatformProductList> PlatformProductLists { get; set; } = new List<PlatformProductList>();
+        public ICollection<PlatformProductList> PlatformProductList { get; set; } = new List<PlatformProductList>();
     }
 }

@@ -71,7 +71,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
             return View(inventory);
         }
 
@@ -88,7 +88,7 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
             return View(inventory);
         }
 
@@ -124,7 +124,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
             return View(inventory);
         }
 

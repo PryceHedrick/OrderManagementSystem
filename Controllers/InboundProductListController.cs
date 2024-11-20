@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: InboundProductList
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.InboundProductLists.Include(i => i.InboundOrder).Include(i => i.Inventory);
+            var appDbContext = _context.InboundProductList.Include(i => i.InboundOrder).Include(i => i.Inventory);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var inboundProductList = await _context.InboundProductLists
+            var inboundProductList = await _context.InboundProductList
                 .Include(i => i.InboundOrder)
                 .Include(i => i.Inventory)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -49,7 +49,7 @@ namespace OrderManagementSystem.Controllers
         // GET: InboundProductList/Create
         public IActionResult Create()
         {
-            ViewData["OrderId"] = new SelectList(_context.InboundOrders, "InboundOrderId", "InboundOrderId");
+            ViewData["OrderId"] = new SelectList(_context.InboundOrder, "InboundOrderId", "InboundOrderId");
             ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId");
             return View();
         }
@@ -67,7 +67,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderId"] = new SelectList(_context.InboundOrders, "InboundOrderId", "InboundOrderId", inboundProductList.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.InboundOrder, "InboundOrderId", "InboundOrderId", inboundProductList.OrderId);
             ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", inboundProductList.ProductId);
             return View(inboundProductList);
         }
@@ -80,12 +80,12 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var inboundProductList = await _context.InboundProductLists.FindAsync(id);
+            var inboundProductList = await _context.InboundProductList.FindAsync(id);
             if (inboundProductList == null)
             {
                 return NotFound();
             }
-            ViewData["OrderId"] = new SelectList(_context.InboundOrders, "InboundOrderId", "InboundOrderId", inboundProductList.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.InboundOrder, "InboundOrderId", "InboundOrderId", inboundProductList.OrderId);
             ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", inboundProductList.ProductId);
             return View(inboundProductList);
         }
@@ -122,7 +122,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderId"] = new SelectList(_context.InboundOrders, "InboundOrderId", "InboundOrderId", inboundProductList.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.InboundOrder, "InboundOrderId", "InboundOrderId", inboundProductList.OrderId);
             ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", inboundProductList.ProductId);
             return View(inboundProductList);
         }
@@ -135,7 +135,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var inboundProductList = await _context.InboundProductLists
+            var inboundProductList = await _context.InboundProductList
                 .Include(i => i.InboundOrder)
                 .Include(i => i.Inventory)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -152,10 +152,10 @@ namespace OrderManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var inboundProductList = await _context.InboundProductLists.FindAsync(id);
+            var inboundProductList = await _context.InboundProductList.FindAsync(id);
             if (inboundProductList != null)
             {
-                _context.InboundProductLists.Remove(inboundProductList);
+                _context.InboundProductList.Remove(inboundProductList);
             }
 
             await _context.SaveChangesAsync();
@@ -164,7 +164,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool InboundProductListExists(string id)
         {
-            return _context.InboundProductLists.Any(e => e.OrderId == id);
+            return _context.InboundProductList.Any(e => e.OrderId == id);
         }
     }
 }

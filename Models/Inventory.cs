@@ -38,10 +38,10 @@ namespace OrderManagementSystem.Models
 
         // Navigation Properties
         public Warehouse Warehouse { get; set; } 
-        public ICollection<InboundProductList> InboundProductLists { get; set; } = new List<InboundProductList>();
-        public ICollection<FreightProductList> FreightProductLists { get; set; } = new List<FreightProductList>();
-        public ICollection<ParcelProductList> ParcelProductLists { get; set; } = new List<ParcelProductList>();
-        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
-        public ICollection<PlatformProductList> PlatformProductLists { get; set; } = new List<PlatformProductList>();
+        public ICollection<InboundProductList> InboundProductList { get; set; } = new List<InboundProductList>();
+        public ICollection<FreightProductList> FreightProductList { get; set; } = new List<FreightProductList>();
+        public ICollection<ParcelProductList> ParcelProductList { get; set; } = new List<ParcelProductList>();
+        public ICollection<OrderItem> OrderItem { get; set; } = new List<OrderItem>();
+        public ICollection<PlatformProductList> PlatformProductList { get; set; } = new List<PlatformProductList>();
     }
 }
