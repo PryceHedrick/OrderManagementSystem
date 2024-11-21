@@ -22,8 +22,16 @@ namespace OrderManagementSystem.Controllers
         // GET: InboundOrders
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.InboundOrders.Include(i => i.User).Include(i => i.Warehouse);
-            return View(await appDbContext.ToListAsync());
+            //var appDbContext = _context.InboundOrders.Include(i => i.User).Include(i => i.Warehouse);
+            //return View(await appDbContext.ToListAsync());
+            return View(await _context.InboundOrders.ToListAsync());
+        }
+
+        public async Task<IActionResult> Inbound_All()
+        {
+            //var appDbContext = _context.InboundOrders.Include(i => i.User).Include(i => i.Warehouse);
+            //return View(await appDbContext.ToListAsync());
+            return View(await _context.InboundOrders.ToListAsync());
         }
 
         // GET: InboundOrders/Details/5

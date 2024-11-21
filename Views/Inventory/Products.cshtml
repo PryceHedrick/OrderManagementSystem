@@ -4,6 +4,10 @@
     ViewData["Title"] = "Products";
 }
 
+<script src="~/js/chunk-lingxingUI.js"></script>
+<script src="~/js/chunk-libs.js"></script>
+<script src="~/js/app.js"></script>
+
 <div data-v-b3d0b4c2="" data-v-441fc658="" class="layout-container">
     <div data-v-b3d0b4c2="" class="layout-left">
         <div data-v-6a3d8818="" data-v-b3d0b4c2="" class="siderbar-container">
@@ -26,7 +30,7 @@
                     <div class="el-scrollbar__wrap" style="margin-bottom: -11px; margin-right: -11px;">
                         <div class="el-scrollbar__view">
                             <ul data-v-6a3d8818="" role="menubar" class="el-menu" style="height: 400px;">
-                                <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item is-active" style="padding-left: 20px;">
+                                <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 20px;">
                                     <i data-v-6a3d8818="" class="xl-font xl_nav_home menu-icon">
 
                                     </i>
@@ -36,7 +40,7 @@
                                         </span>
                                     </span>
                                 </li>
-                                <!---->
+                                
                                 <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 20px;">
                                     <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_order">
 
@@ -47,7 +51,7 @@
                                         </span>
                                     </span>
                                 </li>
-                                <!---->
+                                
                                 <li data-v-6a3d8818="" role="menuitem" aria-haspopup="true" class="el-submenu">
                                     <div class="el-submenu__title" style="padding-left: 20px;">
                                         <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_operation">
@@ -60,53 +64,31 @@
 
                                         </i>
                                     </div>
-                                    <ul role="menu" class="el-menu el-menu--inline" style="display: none;">
+                                    <ul role="menu" class="el-menu el-menu--inline">
                                         <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
                                             <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Inbound
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="InboundOrders" asp-action="Inbound_All">Inbound</a>
                                             </span>
                                         </li>
-                                        <!---->
-                                        <!---->
-                                        <!---->
+                                        
+                                        
+                                        
                                         <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
                                             <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
                                                 Parcel Outbound
                                             </span>
                                         </li>
-                                        <!---->
-                                        <!---->
-                                        <!---->
+                                        
+                                        
+                                        
                                         <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
                                             <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
                                                 Freight Outbound
                                             </span>
                                         </li>
-                                        <!---->
-                                        <!---->
-                                        <!---->
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Claim
-                                            </span>
-                                        </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Dmg product processing
-                                            </span>
-                                        </li>
-                                        <!---->
-                                        <!---->
-                                        <!---->
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Work order
-                                            </span>
-                                        </li>
-                                        <!---->
                                     </ul>
                                 </li>
-                                <!---->
+                                
                                 <li data-v-6a3d8818="" role="menuitem" aria-haspopup="true" class="el-submenu">
                                     <div class="el-submenu__title" style="padding-left: 20px;">
                                         <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_inventory">
@@ -157,15 +139,15 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <!---->
-                                <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 20px;">
+                                
+                                <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item is-active" style="padding-left: 20px;">
                                     <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_product"></i><span data-v-6a3d8818="">
                                         <span data-v-6a3d8818="">
                                             <a class="nav-link text-dark" asp-area="" asp-controller="Inventory" asp-action="Products">Product</a>
                                         </span>
                                     </span>
                                 </li>
-                                <!---->
+                                
                                 <li data-v-6a3d8818="" role="menuitem" aria-haspopup="true" class="el-submenu">
                                     <div class="el-submenu__title" style="padding-left: 20px;">
                                         <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_bill">
@@ -189,12 +171,12 @@
                                                 Funds Flow
                                             </span>
                                         </li>
-                                        <!---->
-                                        <!---->
-                                        <!---->
+                                        
+                                        
+                                        
                                     </ul>
                                 </li>
-                                <!---->
+                                
                                 <li data-v-6a3d8818="" role="menuitem" aria-haspopup="true" class="el-submenu">
                                     <div class="el-submenu__title" style="padding-left: 20px;">
                                         <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_setting"></i>
@@ -229,9 +211,9 @@
                                                 Role
                                             </span>
                                         </li>
-                                        <!---->
-                                        <!---->
-                                        <!---->
+                                        
+                                        
+                                        
                                         <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
                                             <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
                                                 Address Book
@@ -247,11 +229,11 @@
                                                 Unit Preference
                                             </span>
                                         </li>
-                                        <!---->
+                                        
                                     </ul>
                                 </li>
-                                <!---->
-                                <!---->
+                                
+                                
                             </ul>
                         </div>
                     </div>
@@ -288,7 +270,7 @@
                         </div>
                         <div data-v-0f8ef51b="" id="slick-list-fixed" class="tags-view-wrapper">
                         </div>
-                        <!---->
+                        
                         <ul data-v-0f8ef51b="" class="contextmenu" style="left: 0px; top: 0px; display: none;">
                             <li data-v-0f8ef51b="">Refresh</li>
                             <li data-v-0f8ef51b=""> Close </li>
@@ -308,7 +290,7 @@
                         </svg>
                     </span>
                     <span data-v-03f6d477="" class="el-popover-span">
-                        <!---->
+                        
                         <span class="el-popover__reference-wrapper">
                             <i class="xl-font xl_tab_download task-icon el-popover__reference" aria-describedby="el-popover-7575" tabindex="0"></i>
                         </span>
@@ -319,35 +301,35 @@
                         </span>
                         <ul class="el-dropdown-menu el-popper header-dropdown" style="display: none;" id="dropdown-menu-1568">
                             <li tabindex="-1" class="el-dropdown-menu__item">
-                                <!---->
+                                
                                 Platform Account
                             </li>
                             <li tabindex="-1" class="el-dropdown-menu__item">
-                                <!---->
+                                
                                 Platform order rules
                             </li>
                             <li tabindex="-1" class="el-dropdown-menu__item">
-                                <!---->
+                                
                                 Product Mapping
                             </li>
                             <li tabindex="-1" class="el-dropdown-menu__item">
-                                <!---->
+                                
                                 Account
                             </li>
                             <li tabindex="-1" class="el-dropdown-menu__item">
-                                <!---->
+                                
                                 Role
                             </li>
                             <li tabindex="-1" class="el-dropdown-menu__item">
-                                <!---->
+                                
                                 Address Book
                             </li>
                             <li tabindex="-1" class="el-dropdown-menu__item">
-                                <!---->
+                                
                                 Login Log
                             </li>
                             <li tabindex="-1" class="el-dropdown-menu__item">
-                                <!---->
+                                
                                 Unit Preference
                             </li>
                         </ul>
@@ -360,11 +342,11 @@
                         </span>
                         <ul class="el-dropdown-menu el-popper" style="display: none;" id="dropdown-menu-1726">
                             <li tabindex="-1" class="el-dropdown-menu__item">
-                                <!---->
+                                
                                 中文
                             </li>
                             <li aria-disabled="true" class="el-dropdown-menu__item is-disabled">
-                                <!---->
+                                
                                 English
                             </li>
                         </ul>
@@ -377,18 +359,18 @@
                         <ul data-v-03f6d477="" class="el-dropdown-menu el-popper" style="display: none;" id="dropdown-menu-5408">
                             <a data-v-03f6d477="" href="/userCenter/profile" class="">
                             <li data-v-03f6d477="" tabindex="-1" class="el-dropdown-menu__item">
-                                <!---->
+                                
                                 Profile
                             </li>
                             </a>
                             <a data-v-03f6d477="" href="/userCenter/apiKeys" class="">
                             <li data-v-03f6d477="" tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
-                                <!---->
+                                
                                 API Keys
                             </li>
                             </a>
                             <li data-v-03f6d477="" tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
-                                <!---->
+                                
                                 <span data-v-03f6d477="" style="display: block;">
                                     Log out
                                 </span>
@@ -446,7 +428,7 @@
                     <div class="date-picker">
                         <div class="el-select search-time-field el-select--small" style="width: 136px;">
                             <div class="el-input el-input--small el-input--prefix el-input--suffix">
-                                <input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner">
+                                <input type="text" readonly="readonly" autocomplete="off" placeholder="Created Time" class="el-input__inner">
                                 <span class="el-input__prefix">
                                     <span class="fake-placeholder" style="display: none;"></span>
                                     <span class="fake-select-label" style="display: none; overflow: hidden; text-overflow: ellipsis;">Created time</span>
@@ -495,7 +477,7 @@
                     <div class="xl-input-range-wrapper">
                         <div class="el-select xl-input-range-select el-select--small" style="width: 150px;">
                             <div class="el-input el-input--small el-input--prefix el-input--suffix">
-                                <input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner">
+                                <input type="text" readonly="readonly" autocomplete="off" placeholder="Product Weight" class="el-input__inner">
                                 <span class="el-input__prefix">
                                     <span class="fake-placeholder" style="display: none;"></span>
                                     <span class="fake-select-label" style="display: none; overflow: hidden; text-overflow: ellipsis;">Product weight</span>
@@ -569,7 +551,7 @@
                                         <div class="el-input-group__prepend">
                                             <div class="el-select el-select--small" style="width: 81px;">
                                                 <div class="el-input el-input--small el-input--prefix el-input--suffix">
-                                                    <input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner">
+                                                    <input type="text" readonly="readonly" autocomplete="off" placeholder="SKU" class="el-input__inner">
                                                     <span class="el-input__prefix">
                                                         <span class="fake-placeholder" style="display: none;"></span>
                                                         <span class="fake-select-label" style="display: none; overflow: hidden; text-overflow: ellipsis;">SKU</span>
