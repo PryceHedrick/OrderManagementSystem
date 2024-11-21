@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: Billing
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Billings.Include(b => b.BillingAccount).Include(b => b.Charge);
+            var appDbContext = _context.Billing.Include(b => b.BillingAccount).Include(b => b.Charge);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var billing = await _context.Billings
+            var billing = await _context.Billing
                 .Include(b => b.BillingAccount)
                 .Include(b => b.Charge)
                 .FirstOrDefaultAsync(m => m.BillingAccountId == id);
@@ -49,8 +49,8 @@ namespace OrderManagementSystem.Controllers
         // GET: Billing/Create
         public IActionResult Create()
         {
-            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId");
-            ViewData["ChargeId"] = new SelectList(_context.Charges, "ChargeId", "ChargeId");
+            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccount, "BillingAccountId", "BillingAccountId");
+            ViewData["ChargeId"] = new SelectList(_context.Charge, "ChargeId", "ChargeId");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
-            ViewData["ChargeId"] = new SelectList(_context.Charges, "ChargeId", "ChargeId", billing.ChargeId);
+            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccount, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
+            ViewData["ChargeId"] = new SelectList(_context.Charge, "ChargeId", "ChargeId", billing.ChargeId);
             return View(billing);
         }
 
@@ -80,13 +80,13 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var billing = await _context.Billings.FindAsync(id);
+            var billing = await _context.Billing.FindAsync(id);
             if (billing == null)
             {
                 return NotFound();
             }
-            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
-            ViewData["ChargeId"] = new SelectList(_context.Charges, "ChargeId", "ChargeId", billing.ChargeId);
+            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccount, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
+            ViewData["ChargeId"] = new SelectList(_context.Charge, "ChargeId", "ChargeId", billing.ChargeId);
             return View(billing);
         }
 
@@ -122,8 +122,8 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccounts, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
-            ViewData["ChargeId"] = new SelectList(_context.Charges, "ChargeId", "ChargeId", billing.ChargeId);
+            ViewData["BillingAccountId"] = new SelectList(_context.BillingAccount, "BillingAccountId", "BillingAccountId", billing.BillingAccountId);
+            ViewData["ChargeId"] = new SelectList(_context.Charge, "ChargeId", "ChargeId", billing.ChargeId);
             return View(billing);
         }
 
@@ -135,7 +135,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var billing = await _context.Billings
+            var billing = await _context.Billing
                 .Include(b => b.BillingAccount)
                 .Include(b => b.Charge)
                 .FirstOrDefaultAsync(m => m.BillingAccountId == id);
@@ -152,10 +152,10 @@ namespace OrderManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var billing = await _context.Billings.FindAsync(id);
+            var billing = await _context.Billing.FindAsync(id);
             if (billing != null)
             {
-                _context.Billings.Remove(billing);
+                _context.Billing.Remove(billing);
             }
 
             await _context.SaveChangesAsync();
@@ -164,7 +164,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool BillingExists(string id)
         {
-            return _context.Billings.Any(e => e.BillingAccountId == id);
+            return _context.Billing.Any(e => e.BillingAccountId == id);
         }
     }
 }

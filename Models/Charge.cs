@@ -26,8 +26,8 @@ namespace OrderManagementSystem.Models
         [StringLength(255)]
         public string Description { get; set; }
 
-        // Navigation properties
-        public ICollection<Billing> Billings { get; set; } = new List<Billing>();
-        public ICollection<OrderBasedCharge> OrderBasedCharges { get; set; } = new List<OrderBasedCharge>();
+        // Navigation Properties
+        public ICollection<Billing> Billing { get; set; } = new List<Billing>();
+        
     }
 }

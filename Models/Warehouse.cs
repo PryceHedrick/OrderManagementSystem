@@ -30,10 +30,10 @@ namespace OrderManagementSystem.Models
         public string Currency { get; set; }
 
         // Navigation properties
-        public ICollection<Inventory> Inventories { get; set; } = new List<Inventory>();
-        public ICollection<InboundOrder> InboundOrders { get; set; } = new List<InboundOrder>();
-        public ICollection<FreightOutbound> FreightOutbounds { get; set; } = new List<FreightOutbound>();
-        public ICollection<ParcelOutbound> ParcelOutbounds { get; set; } = new List<ParcelOutbound>();
-        public ICollection<PlatformOrder> PlatformOrders { get; set; } = new List<PlatformOrder>();
+        public ICollection<Inventory> Inventory { get; set; } = new List<Inventory>();
+        public ICollection<InboundOrder> InboundOrder { get; set; } = new List<InboundOrder>();
+        public ICollection<FreightOutbound> FreightOutbound { get; set; } = new List<FreightOutbound>();
+        public ICollection<ParcelOutbound> ParcelOutbound { get; set; } = new List<ParcelOutbound>();
+        public ICollection<PlatformOrder> PlatformOrder { get; set; } = new List<PlatformOrder>();
     }
 }

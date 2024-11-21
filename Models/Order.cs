@@ -26,6 +26,6 @@ namespace OrderManagementSystem.Models
 
         // Navigation Properties
         public User User { get; set; }
-        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public ICollection<OrderItem> OrderItem { get; set; } = new List<OrderItem>();
     }
 }

@@ -22,14 +22,14 @@ namespace OrderManagementSystem.Controllers
         // GET: Inventory
         public async Task<IActionResult> Index()
         {
-            //var appDbContext = _context.Inventories.Include(i => i.Warehouse);
+            //var appDbContext = _context.Inventory.Include(i => i.Warehouse);
             //return View(await appDbContext.ToListAsync());
-            return View(await _context.Inventories.ToListAsync());
+            return View(await _context.Inventory.ToListAsync());
         }
 
         public async Task<IActionResult> Products()
         {
-            return View(await _context.Inventories.ToListAsync());
+            return View(await _context.Inventory.ToListAsync());
         }
 
         // GET: Inventory/Details/5
@@ -40,7 +40,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var inventory = await _context.Inventories
+            var inventory = await _context.Inventory
                 .Include(i => i.Warehouse)
                 .FirstOrDefaultAsync(m => m.Product_ID == id);
             if (inventory == null)
@@ -71,7 +71,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
             return View(inventory);
         }
 
@@ -83,12 +83,12 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var inventory = await _context.Inventories.FindAsync(id);
+            var inventory = await _context.Inventory.FindAsync(id);
             if (inventory == null)
             {
                 return NotFound();
             }
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
             return View(inventory);
         }
 
@@ -124,7 +124,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inventory.Warehouse_ID);
             return View(inventory);
         }
 
@@ -136,7 +136,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var inventory = await _context.Inventories
+            var inventory = await _context.Inventory
                 .Include(i => i.Warehouse)
                 .FirstOrDefaultAsync(m => m.Product_ID == id);
             if (inventory == null)
@@ -152,10 +152,10 @@ namespace OrderManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var inventory = await _context.Inventories.FindAsync(id);
+            var inventory = await _context.Inventory.FindAsync(id);
             if (inventory != null)
             {
-                _context.Inventories.Remove(inventory);
+                _context.Inventory.Remove(inventory);
             }
 
             await _context.SaveChangesAsync();
@@ -164,7 +164,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool InventoryExists(string id)
         {
-            return _context.Inventories.Any(e => e.Product_ID == id);
+            return _context.Inventory.Any(e => e.Product_ID == id);
         }
     }
 }

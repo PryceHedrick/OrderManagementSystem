@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: ParcelOutbound
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.ParcelOutbounds.Include(p => p.User).Include(p => p.Warehouse);
+            var appDbContext = _context.ParcelOutbound.Include(p => p.User).Include(p => p.Warehouse);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var parcelOutbound = await _context.ParcelOutbounds
+            var parcelOutbound = await _context.ParcelOutbound
                 .Include(p => p.User)
                 .Include(p => p.Warehouse)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -49,8 +49,8 @@ namespace OrderManagementSystem.Controllers
         // GET: ParcelOutbound/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID");
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", parcelOutbound.Warehouse_ID);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", parcelOutbound.UserId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", parcelOutbound.Warehouse_ID);
             return View(parcelOutbound);
         }
 
@@ -80,13 +80,13 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var parcelOutbound = await _context.ParcelOutbounds.FindAsync(id);
+            var parcelOutbound = await _context.ParcelOutbound.FindAsync(id);
             if (parcelOutbound == null)
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", parcelOutbound.Warehouse_ID);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", parcelOutbound.UserId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", parcelOutbound.Warehouse_ID);
             return View(parcelOutbound);
         }
 
@@ -122,8 +122,8 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", parcelOutbound.Warehouse_ID);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", parcelOutbound.UserId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", parcelOutbound.Warehouse_ID);
             return View(parcelOutbound);
         }
 
@@ -135,7 +135,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var parcelOutbound = await _context.ParcelOutbounds
+            var parcelOutbound = await _context.ParcelOutbound
                 .Include(p => p.User)
                 .Include(p => p.Warehouse)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -152,10 +152,10 @@ namespace OrderManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var parcelOutbound = await _context.ParcelOutbounds.FindAsync(id);
+            var parcelOutbound = await _context.ParcelOutbound.FindAsync(id);
             if (parcelOutbound != null)
             {
-                _context.ParcelOutbounds.Remove(parcelOutbound);
+                _context.ParcelOutbound.Remove(parcelOutbound);
             }
 
             await _context.SaveChangesAsync();
@@ -164,7 +164,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool ParcelOutboundExists(string id)
         {
-            return _context.ParcelOutbounds.Any(e => e.OrderId == id);
+            return _context.ParcelOutbound.Any(e => e.OrderId == id);
         }
     }
 }

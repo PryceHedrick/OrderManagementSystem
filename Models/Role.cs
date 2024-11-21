@@ -19,6 +19,6 @@ namespace OrderManagementSystem.Models
         public string RoleDescription { get; set; }
 
         // Navigation properties
-        public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
+        public ICollection<UserRole> UserRole { get; set; } = new List<UserRole>();
     }
 }

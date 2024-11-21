@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: PlatformOrder
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.PlatformOrders.Include(p => p.User).Include(p => p.Warehouse);
+            var appDbContext = _context.PlatformOrder.Include(p => p.User).Include(p => p.Warehouse);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var platformOrder = await _context.PlatformOrders
+            var platformOrder = await _context.PlatformOrder
                 .Include(p => p.User)
                 .Include(p => p.Warehouse)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -49,8 +49,8 @@ namespace OrderManagementSystem.Controllers
         // GET: PlatformOrder/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID");
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", platformOrder.UserId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
             return View(platformOrder);
         }
 
@@ -80,13 +80,13 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var platformOrder = await _context.PlatformOrders.FindAsync(id);
+            var platformOrder = await _context.PlatformOrder.FindAsync(id);
             if (platformOrder == null)
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", platformOrder.UserId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
             return View(platformOrder);
         }
 
@@ -122,8 +122,8 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", platformOrder.UserId);
-            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
+            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", platformOrder.UserId);
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", platformOrder.Warehouse_ID);
             return View(platformOrder);
         }
 
@@ -135,7 +135,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var platformOrder = await _context.PlatformOrders
+            var platformOrder = await _context.PlatformOrder
                 .Include(p => p.User)
                 .Include(p => p.Warehouse)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -152,10 +152,10 @@ namespace OrderManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var platformOrder = await _context.PlatformOrders.FindAsync(id);
+            var platformOrder = await _context.PlatformOrder.FindAsync(id);
             if (platformOrder != null)
             {
-                _context.PlatformOrders.Remove(platformOrder);
+                _context.PlatformOrder.Remove(platformOrder);
             }
 
             await _context.SaveChangesAsync();
@@ -164,7 +164,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool PlatformOrderExists(string id)
         {
-            return _context.PlatformOrders.Any(e => e.OrderId == id);
+            return _context.PlatformOrder.Any(e => e.OrderId == id);
         }
     }
 }

@@ -21,8 +21,8 @@ namespace OrderManagementSystem.Models
         [Column("Account_Balance", TypeName = "decimal(10, 2)")]
         public decimal AccountBalance { get; set; }
 
-        // Navigation properties
+        // Navigation Properties
         public User User { get; set; }
-        public ICollection<Billing> Billings { get; set; } = new List<Billing>();
+        public ICollection<Billing> Billing { get; set; } = new List<Billing>();
     }
 }

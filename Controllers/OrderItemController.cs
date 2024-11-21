@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: OrderItem
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.OrderItems.Include(o => o.Inventory).Include(o => o.Order);
+            var appDbContext = _context.OrderItem.Include(o => o.Inventory).Include(o => o.Order);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var orderItem = await _context.OrderItems
+            var orderItem = await _context.OrderItem
                 .Include(o => o.Inventory)
                 .Include(o => o.Order)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -49,8 +49,8 @@ namespace OrderManagementSystem.Controllers
         // GET: OrderItem/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId");
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId");
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId");
+            ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", orderItem.ProductId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId", orderItem.OrderId);
             return View(orderItem);
         }
 
@@ -80,13 +80,13 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var orderItem = await _context.OrderItems.FindAsync(id);
+            var orderItem = await _context.OrderItem.FindAsync(id);
             if (orderItem == null)
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", orderItem.ProductId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId", orderItem.OrderId);
             return View(orderItem);
         }
 
@@ -122,8 +122,8 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Inventories, "ProductId", "ProductId", orderItem.ProductId);
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderItem.OrderId);
+            ViewData["ProductId"] = new SelectList(_context.Inventory, "ProductId", "ProductId", orderItem.ProductId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId", orderItem.OrderId);
             return View(orderItem);
         }
 
@@ -135,7 +135,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
 
-            var orderItem = await _context.OrderItems
+            var orderItem = await _context.OrderItem
                 .Include(o => o.Inventory)
                 .Include(o => o.Order)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -152,10 +152,10 @@ namespace OrderManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var orderItem = await _context.OrderItems.FindAsync(id);
+            var orderItem = await _context.OrderItem.FindAsync(id);
             if (orderItem != null)
             {
-                _context.OrderItems.Remove(orderItem);
+                _context.OrderItem.Remove(orderItem);
             }
 
             await _context.SaveChangesAsync();
@@ -164,7 +164,7 @@ namespace OrderManagementSystem.Controllers
 
         private bool OrderItemExists(string id)
         {
-            return _context.OrderItems.Any(e => e.OrderId == id);
+            return _context.OrderItem.Any(e => e.OrderId == id);
         }
     }
 }
