@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OrderManagementSystem.Models.UserRole>
+﻿@model IEnumerable<OrderManagementSystem.Models.UsersRole>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.User)
+                @Html.DisplayNameFor(model => model.Users)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Role)
@@ -25,7 +25,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.User.UserId)
+                @Html.DisplayFor(modelItem => item.Users.UserId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Role.RoleId)

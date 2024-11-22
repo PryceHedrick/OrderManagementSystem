@@ -31,7 +31,7 @@ namespace OrderManagementSystem.Models
 
         // Navigation properties
         public ICollection<BillingAccount> BillingAccount { get; set; } = new List<BillingAccount>();
-        public ICollection<UserRole> UserRole { get; set; } = new List<UserRole>();
+        public ICollection<UsersRole> UserRole { get; set; } = new List<UsersRole>();
         public ICollection<Order> Order { get; set; } = new List<Order>();
         public ICollection<FreightOutbound> FreightOutbound { get; set; } = new List<FreightOutbound>();
         public ICollection<InboundOrder> InboundOrder { get; set; } = new List<InboundOrder>();

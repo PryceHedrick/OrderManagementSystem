@@ -57,7 +57,7 @@ namespace OrderManagementSystem.Controllers
         // GET: InboundOrder/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID");
             return View();
         }
@@ -75,7 +75,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", inboundOrder.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }
@@ -93,7 +93,7 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", inboundOrder.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }
@@ -130,7 +130,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", inboundOrder.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }

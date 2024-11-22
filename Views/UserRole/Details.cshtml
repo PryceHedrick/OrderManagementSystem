@@ -1,4 +1,4 @@
-﻿@model OrderManagementSystem.Models.UserRole
+﻿@model OrderManagementSystem.Models.UsersRole
 
 @{
     ViewData["Title"] = "Details";
@@ -11,10 +11,10 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
+            @Html.DisplayNameFor(model => model.Users)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.UserId)
+            @Html.DisplayFor(model => model.Users.UserId)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Role)

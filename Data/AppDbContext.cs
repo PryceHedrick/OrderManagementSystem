@@ -16,9 +16,9 @@ namespace OrderManagementSystem.Data
         public DbSet<Billing> Billing { get; set; }
         public DbSet<BillingAccount> BillingAccount { get; set; }
         public DbSet<Charge> Charge { get; set; }
-        public DbSet<User> User { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Role> Role { get; set; }
-        public DbSet<UserRole> UserRole { get; set; }
+        public DbSet<UsersRole> UserRole { get; set; }
         public DbSet<Inventory> Inventory { get; set; }
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderItem> OrderItem { get; set; }
@@ -218,7 +218,7 @@ namespace OrderManagementSystem.Data
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasMany(u => u.UserRole)
-                      .WithOne(ur => ur.User)
+                      .WithOne(ur => ur.Users)
                       .HasForeignKey(ur => ur.UserId)
                       .OnDelete(DeleteBehavior.NoAction);
 
@@ -274,7 +274,7 @@ namespace OrderManagementSystem.Data
             });
 
             // UserRole configuration
-            modelBuilder.Entity<UserRole>(entity =>
+            modelBuilder.Entity<UsersRole>(entity =>
             {
                 entity.HasKey(ur => new { ur.UserId, ur.RoleId });
 
