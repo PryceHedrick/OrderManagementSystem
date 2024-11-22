@@ -54,7 +54,7 @@ namespace OrderManagementSystem.Controllers
         // GET: Inventory/Create
         public IActionResult Create()
         {
-            //ViewData["Warehouse_ID"] = new SelectList(_context.Warehouses, "Warehouse_ID", "Warehouse_ID");
+            ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID");
             return View();
         }
 
