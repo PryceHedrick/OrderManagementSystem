@@ -55,7 +55,7 @@ namespace OrderManagementSystem.Controllers
         // GET: ParcelOutbound/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID");
             return View();
         }
@@ -73,7 +73,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", parcelOutbound.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", parcelOutbound.Warehouse_ID);
             return View(parcelOutbound);
         }
@@ -91,7 +91,7 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", parcelOutbound.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", parcelOutbound.Warehouse_ID);
             return View(parcelOutbound);
         }
@@ -128,7 +128,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", parcelOutbound.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", parcelOutbound.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", parcelOutbound.Warehouse_ID);
             return View(parcelOutbound);
         }

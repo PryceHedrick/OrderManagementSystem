@@ -29,9 +29,9 @@ namespace OrderManagementSystem.Controllers
 
         public async Task<IActionResult> Inbound_All()
         {
-            var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
-            return View(await appDbContext.ToListAsync());
-            //return View(await _context.InboundOrder.ToListAsync());
+            //var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
+            //return View(await appDbContext.ToListAsync());
+            return View(await _context.InboundOrder.ToListAsync());
         }
 
         // GET: InboundOrder/Details/5
@@ -57,7 +57,7 @@ namespace OrderManagementSystem.Controllers
         // GET: InboundOrder/Create
         public IActionResult Create()
         {
-            ViewData["User_ID"] = new SelectList(_context.User, "User_ID", "User_ID");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID");
             return View();
         }
@@ -75,7 +75,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["User_ID"] = new SelectList(_context.User, "User_ID", "User_ID", inboundOrder.User_ID);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }
@@ -93,7 +93,7 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["User_ID"] = new SelectList(_context.User, "User_ID", "User_ID", inboundOrder.User_ID);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }
@@ -130,7 +130,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["User_ID"] = new SelectList(_context.User, "User_ID", "User_ID", inboundOrder.User_ID);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }

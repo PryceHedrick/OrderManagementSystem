@@ -22,7 +22,7 @@ namespace OrderManagementSystem.Controllers
         // GET: UserRole
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.UserRole.Include(u => u.Role).Include(u => u.User);
+            var appDbContext = _context.UserRole.Include(u => u.Role).Include(u => u.Users);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -36,7 +36,7 @@ namespace OrderManagementSystem.Controllers
 
             var userRole = await _context.UserRole
                 .Include(u => u.Role)
-                .Include(u => u.User)
+                .Include(u => u.Users)
                 .FirstOrDefaultAsync(m => m.UserId == id);
             if (userRole == null)
             {
@@ -50,7 +50,7 @@ namespace OrderManagementSystem.Controllers
         public IActionResult Create()
         {
             ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleId");
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,RoleId")] UserRole userRole)
+        public async Task<IActionResult> Create([Bind("UserId,RoleId")] UsersRole userRole)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleId", userRole.RoleId);
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", userRole.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", userRole.UserId);
             return View(userRole);
         }
 
@@ -86,7 +86,7 @@ namespace OrderManagementSystem.Controllers
                 return NotFound();
             }
             ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleId", userRole.RoleId);
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", userRole.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", userRole.UserId);
             return View(userRole);
         }
 
@@ -95,7 +95,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("UserId,RoleId")] UserRole userRole)
+        public async Task<IActionResult> Edit(string id, [Bind("UserId,RoleId")] UsersRole userRole)
         {
             if (id != userRole.UserId)
             {
@@ -123,7 +123,7 @@ namespace OrderManagementSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleId", userRole.RoleId);
-            ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId", userRole.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", userRole.UserId);
             return View(userRole);
         }
 
@@ -137,7 +137,7 @@ namespace OrderManagementSystem.Controllers
 
             var userRole = await _context.UserRole
                 .Include(u => u.Role)
-                .Include(u => u.User)
+                .Include(u => u.Users)
                 .FirstOrDefaultAsync(m => m.UserId == id);
             if (userRole == null)
             {

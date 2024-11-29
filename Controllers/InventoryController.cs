@@ -65,7 +65,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Product_ID,Warehouse_ID,SKU,ProductName,ProductDescription,Price,Quantity")] Inventory inventory)
+        public async Task<IActionResult> Create([Bind("Product_ID,Warehouse_ID,SKU,Product_Name,Product_Description,Price,Quantity")] Inventory inventory)
         {
             if (ModelState.IsValid)
             {
@@ -99,7 +99,7 @@ namespace OrderManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Product_ID,Warehouse_ID,SKU,ProductName,ProductDescription,Price,Quantity")] Inventory inventory)
+        public async Task<IActionResult> Edit(string id, [Bind("Product_ID,Warehouse_ID,SKU,Product_Name,Product_Description,Price,Quantity")] Inventory inventory)
         {
             if (id != inventory.Product_ID)
             {
