@@ -234,7 +234,7 @@ namespace OrderManagementSystem.Data
 
                 entity.HasMany(u => u.InboundOrder)
                       .WithOne(io => io.User)
-                      .HasForeignKey(io => io.UserId)
+                      .HasForeignKey(io => io.User_ID)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasMany(u => u.ParcelOutbound)
@@ -479,7 +479,7 @@ namespace OrderManagementSystem.Data
                       .HasColumnName("Order_Status")
                       .HasMaxLength(25);
 
-                entity.Property(io => io.UserId)
+                entity.Property(io => io.User_ID)
                       .HasColumnName("User_ID")
                       .HasMaxLength(25)
                       .IsRequired();
@@ -528,7 +528,7 @@ namespace OrderManagementSystem.Data
                 // Relationships
                 entity.HasOne(io => io.User)
                       .WithMany(u => u.InboundOrder)
-                      .HasForeignKey(io => io.UserId)
+                      .HasForeignKey(io => io.User_ID)
                       .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(io => io.Warehouse)

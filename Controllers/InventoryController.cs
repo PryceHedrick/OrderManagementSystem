@@ -29,7 +29,9 @@ namespace OrderManagementSystem.Controllers
 
         public async Task<IActionResult> Products()
         {
-            return View(await _context.Inventory.ToListAsync());
+            var appDbContext = _context.Inventory.Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.Inventory.ToListAsync());
         }
 
         // GET: Inventory/Details/5

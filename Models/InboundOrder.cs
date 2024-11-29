@@ -21,7 +21,7 @@ namespace OrderManagementSystem.Models
         [Required]
         [Column("User_ID")]
         [StringLength(25)]
-        public string UserId { get; set; }
+        public string User_ID { get; set; }
 
         [Required]
         [Column("Warehouse_ID")]
