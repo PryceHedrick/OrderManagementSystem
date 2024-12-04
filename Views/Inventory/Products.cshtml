@@ -36,22 +36,22 @@
                                     </i>
                                     <span data-v-6a3d8818="">
                                         <span data-v-6a3d8818="">
-                                            Home
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                         </span>
                                     </span>
                                 </li>
-                                
+
                                 <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 20px;">
                                     <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_order">
 
                                     </i>
                                     <span data-v-6a3d8818="">
                                         <span data-v-6a3d8818="">
-                                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Platform Orders</a>
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="PlatformOrder" asp-action="Platfrom_Order_All">Platform Orders</a>
                                         </span>
                                     </span>
                                 </li>
-                                
+
                                 <li data-v-6a3d8818="" role="menuitem" aria-haspopup="true" class="el-submenu">
                                     <div class="el-submenu__title" style="padding-left: 20px;">
                                         <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_operation">
@@ -70,25 +70,25 @@
                                                 <a class="nav-link text-dark" asp-area="" asp-controller="InboundOrder" asp-action="Inbound_All">Inbound</a>
                                             </span>
                                         </li>
-                                        
-                                        
-                                        
+
+
+
                                         <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
                                             <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
                                                 <a class="nav-link text-dark" asp-area="" asp-controller="ParcelOutbound" asp-action="Parcel_Outbound_All">Parcel Outbound</a>
                                             </span>
                                         </li>
-                                        
-                                        
-                                        
+
+
+
                                         <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
                                             <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Freight Outbound
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="FreightOutbound" asp-action="Freight_Outbound_All">Freight Outbound</a>
                                             </span>
                                         </li>
                                     </ul>
                                 </li>
-                                
+
                                 <li data-v-6a3d8818="" role="menuitem" aria-haspopup="true" class="el-submenu">
                                     <div class="el-submenu__title" style="padding-left: 20px;">
                                         <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_inventory">
@@ -107,39 +107,9 @@
                                                 Parcel Stock
                                             </span>
                                         </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Box Inventory
-                                            </span>
-                                        </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Return Stock
-                                            </span>
-                                        </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Consolidated Stock
-                                            </span>
-                                        </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Product Stock Age
-                                            </span>
-                                        </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Box Stock Age
-                                            </span>
-                                        </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Returned Stock Age
-                                            </span>
-                                        </li>
                                     </ul>
                                 </li>
-                                
+
                                 <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item is-active" style="padding-left: 20px;">
                                     <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_product"></i><span data-v-6a3d8818="">
                                         <span data-v-6a3d8818="">
@@ -147,7 +117,7 @@
                                         </span>
                                     </span>
                                 </li>
-                                
+
                                 <li data-v-6a3d8818="" role="menuitem" aria-haspopup="true" class="el-submenu">
                                     <div class="el-submenu__title" style="padding-left: 20px;">
                                         <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_bill">
@@ -171,12 +141,12 @@
                                                 Funds Flow
                                             </span>
                                         </li>
-                                        
-                                        
-                                        
+
+
+
                                     </ul>
                                 </li>
-                                
+
                                 <li data-v-6a3d8818="" role="menuitem" aria-haspopup="true" class="el-submenu">
                                     <div class="el-submenu__title" style="padding-left: 20px;">
                                         <i data-v-6a3d8818="" class="xl-font menu-icon xl_nav_setting"></i>
@@ -185,55 +155,14 @@
                                         </span>
                                         <i class="el-submenu__icon-arrow iconfont lx_arrow_down_rev"></i>
                                     </div>
-                                    <ul role="menu" class="el-menu el-menu--inline" style="display: none;">
+                                    <ul role="menu" class="el-menu el-menu--inline">
                                         <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
                                             <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Platform Account
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="User_Managment">User Managment</a>
                                             </span>
                                         </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Platform order rules
-                                            </span>
-                                        </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Product Mapping
-                                            </span>
-                                        </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Account
-                                            </span>
-                                        </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Role
-                                            </span>
-                                        </li>
-                                        
-                                        
-                                        
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Address Book
-                                            </span>
-                                        </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Login Log
-                                            </span>
-                                        </li>
-                                        <li data-v-6a3d8818="" role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;">
-                                            <span data-v-6a3d8818="" class="submenu-title oneLine" style="overflow: hidden; text-overflow: ellipsis;">
-                                                Unit Preference
-                                            </span>
-                                        </li>
-                                        
                                     </ul>
                                 </li>
-                                
-                                
                             </ul>
                         </div>
                     </div>
@@ -388,22 +317,22 @@
                                     <div class="el-tabs__active-bar is-top" style="width: 62px; transform: translateX(58px);">
                                     </div>
                                     <div id="tab--1" aria-controls="pane--1" role="tab" tabindex="-1" class="el-tabs__item is-top" style="overflow: hidden; text-overflow: ellipsis;" inelement="0">
-                                        <span> All </span>
+                                        <span> <a class="nav-link text-dark" asp-area="" asp-controller="Inventory" asp-action="Products_All">All</a> </span>
                                     </div>
                                     <div id="tab-0" aria-controls="pane-0" role="tab" tabindex="0" class="el-tabs__item is-top is-active" style="overflow: hidden; text-overflow: ellipsis;" inelement="0" aria-selected="true">
-                                        <span> Drafts <span class="tab-count"> (0) </span></span>
+                                        <span> <a class="nav-link text-dark" asp-area="" asp-controller="Inventory" asp-action="Products">Drafts</a> </span>
                                     </div>
                                     <div id="tab-1" aria-controls="pane-1" role="tab" tabindex="-1" class="el-tabs__item is-top" style="overflow: hidden; text-overflow: ellipsis;" inelement="0">
-                                        <span> Under Review <span class="tab-count"> (0) </span></span>
+                                        <span> <a class="nav-link text-dark" asp-area="" asp-controller="Inventory" asp-action="Products_Under_Review">Under Review</a> </span>
                                     </div>
                                     <div id="tab-2" aria-controls="pane-2" role="tab" tabindex="-1" class="el-tabs__item is-top" style="overflow: hidden; text-overflow: ellipsis;" inelement="0">
-                                        <span> Reviewed </span>
+                                        <span> <a class="nav-link text-dark" asp-area="" asp-controller="Inventory" asp-action="Products_Reviewed">Reviewed</a> </span>
                                     </div>
                                     <div id="tab-3" aria-controls="pane-3" role="tab" tabindex="-1" class="el-tabs__item is-top" style="overflow: hidden; text-overflow: ellipsis;" inelement="0">
-                                        <span> Rejected <span class="tab-count"> (0) </span></span>
+                                        <span> <a class="nav-link text-dark" asp-area="" asp-controller="Inventory" asp-action="Products_Rejected">Rejected</a> </span>
                                     </div>
                                     <div id="tab-4" aria-controls="pane-4" role="tab" tabindex="-1" class="el-tabs__item is-top" style="overflow: hidden; text-overflow: ellipsis;" inelement="0">
-                                        <span> Discard </span>
+                                        <span> <a class="nav-link text-dark" asp-area="" asp-controller="Inventory" asp-action="Products_Discard">Discard</a> </span>
                                     </div>
                                 </div>
                             </div>

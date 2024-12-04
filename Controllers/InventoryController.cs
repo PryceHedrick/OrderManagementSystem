@@ -22,9 +22,44 @@ namespace OrderManagementSystem.Controllers
         // GET: Inventory
         public async Task<IActionResult> Index()
         {
-            //var appDbContext = _context.Inventory.Include(i => i.Warehouse);
-            //return View(await appDbContext.ToListAsync());
-            return View(await _context.Inventory.ToListAsync());
+            var appDbContext = _context.Inventory.Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.Inventory.ToListAsync());
+        }
+
+        public async Task<IActionResult> Products_All()
+        {
+            var appDbContext = _context.Inventory.Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.Inventory.ToListAsync());
+        }
+
+        public async Task<IActionResult> Products_Discard()
+        {
+            var appDbContext = _context.Inventory.Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.Inventory.ToListAsync());
+        }
+
+        public async Task<IActionResult> Products_Rejected()
+        {
+            var appDbContext = _context.Inventory.Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.Inventory.ToListAsync());
+        }
+
+        public async Task<IActionResult> Products_Reviewed()
+        {
+            var appDbContext = _context.Inventory.Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.Inventory.ToListAsync());
+        }
+
+        public async Task<IActionResult> Products_Under_Review()
+        {
+            var appDbContext = _context.Inventory.Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.Inventory.ToListAsync());
         }
 
         public async Task<IActionResult> Products()

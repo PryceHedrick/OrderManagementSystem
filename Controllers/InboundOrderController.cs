@@ -22,16 +22,58 @@ namespace OrderManagementSystem.Controllers
         // GET: InboundOrder
         public async Task<IActionResult> Index()
         {
-            //var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
-            //return View(await appDbContext.ToListAsync());
-            return View(await _context.InboundOrder.ToListAsync());
+            var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.InboundOrder.ToListAsync());
         }
 
         public async Task<IActionResult> Inbound_All()
         {
-            //var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
-            //return View(await appDbContext.ToListAsync());
-            return View(await _context.InboundOrder.ToListAsync());
+            var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.InboundOrder.ToListAsync());
+        }
+
+        public async Task<IActionResult> Inbound_Awaiting()
+        {
+            var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.InboundOrder.ToListAsync());
+        }
+
+        public async Task<IActionResult> Inbound_Drafts()
+        {
+            var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.InboundOrder.ToListAsync());
+        }
+
+        public async Task<IActionResult> Inbound_Recieved()
+        {
+            var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.InboundOrder.ToListAsync());
+        }
+
+        public async Task<IActionResult> Inbound_Recieving()
+        {
+            var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.InboundOrder.ToListAsync());
+        }
+
+        public async Task<IActionResult> Inbound_Shelved()
+        {
+            var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.InboundOrder.ToListAsync());
+        }
+
+        public async Task<IActionResult> Inbound_Void()
+        {
+            var appDbContext = _context.InboundOrder.Include(i => i.User).Include(i => i.Warehouse);
+            return View(await appDbContext.ToListAsync());
+            //return View(await _context.InboundOrder.ToListAsync());
         }
 
         // GET: InboundOrder/Details/5
@@ -75,7 +117,7 @@ namespace OrderManagementSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.User_ID);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }
@@ -93,7 +135,7 @@ namespace OrderManagementSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.User_ID);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }
@@ -130,7 +172,7 @@ namespace OrderManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", inboundOrder.User_ID);
             ViewData["Warehouse_ID"] = new SelectList(_context.Warehouse, "Warehouse_ID", "Warehouse_ID", inboundOrder.Warehouse_ID);
             return View(inboundOrder);
         }

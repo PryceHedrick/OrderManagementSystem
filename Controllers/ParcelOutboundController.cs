@@ -32,6 +32,36 @@ namespace OrderManagementSystem.Controllers
             return View(await appDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> Parcel_Outbound_Drafts()
+        {
+            var appDbContext = _context.ParcelOutbound.Include(p => p.User).Include(p => p.Warehouse);
+            return View(await appDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Parcel_Outbound_Awaiting()
+        {
+            var appDbContext = _context.ParcelOutbound.Include(p => p.User).Include(p => p.Warehouse);
+            return View(await appDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Parcel_Outbound_Completed()
+        {
+            var appDbContext = _context.ParcelOutbound.Include(p => p.User).Include(p => p.Warehouse);
+            return View(await appDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Parcel_Outbound_Void()
+        {
+            var appDbContext = _context.ParcelOutbound.Include(p => p.User).Include(p => p.Warehouse);
+            return View(await appDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Parcel_Outbound_Exceptions()
+        {
+            var appDbContext = _context.ParcelOutbound.Include(p => p.User).Include(p => p.Warehouse);
+            return View(await appDbContext.ToListAsync());
+        }
+
         // GET: ParcelOutbound/Details/5
         public async Task<IActionResult> Details(string id)
         {

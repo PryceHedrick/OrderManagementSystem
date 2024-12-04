@@ -26,6 +26,42 @@ namespace OrderManagementSystem.Controllers
             return View(await appDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> Freight_Outbound_All()
+        {
+            var appDbContext = _context.FreightOutbound.Include(p => p.User).Include(p => p.Warehouse);
+            return View(await appDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Freight_Outbound_Drafts()
+        {
+            var appDbContext = _context.FreightOutbound.Include(p => p.User).Include(p => p.Warehouse);
+            return View(await appDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Freight_Outbound_Awaiting()
+        {
+            var appDbContext = _context.FreightOutbound.Include(p => p.User).Include(p => p.Warehouse);
+            return View(await appDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Freight_Outbound_Completed()
+        {
+            var appDbContext = _context.FreightOutbound.Include(p => p.User).Include(p => p.Warehouse);
+            return View(await appDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Freight_Outbound_Void()
+        {
+            var appDbContext = _context.FreightOutbound.Include(p => p.User).Include(p => p.Warehouse);
+            return View(await appDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Freight_Outbound_Exceptions()
+        {
+            var appDbContext = _context.FreightOutbound.Include(p => p.User).Include(p => p.Warehouse);
+            return View(await appDbContext.ToListAsync());
+        }
+
         // GET: FreightOutbound/Details/5
         public async Task<IActionResult> Details(string id)
         {
