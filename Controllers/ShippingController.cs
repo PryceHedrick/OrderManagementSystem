@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using OrderManagementSystem.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using OrderManagementSystem.Models; // Ensure this is correct namespace
 
 namespace OrderManagementSystem.Controllers
 {
@@ -30,15 +29,6 @@ namespace OrderManagementSystem.Controllers
         {
             if (!ModelState.IsValid)
             {
-                // Log the model state errors
-                foreach (var state in ModelState)
-                {
-                    foreach (var error in state.Value.Errors)
-                    {
-                        Console.WriteLine($"Property: {state.Key}, Error: {error.ErrorMessage}");
-                    }
-                }
-
                 var errors = ModelState.Values.SelectMany(v => v.Errors)
                                               .Select(e => e.ErrorMessage)
                                               .ToList();
@@ -51,24 +41,17 @@ namespace OrderManagementSystem.Controllers
                 return StatusCode(500, "Failed to retrieve FedEx access token.");
             }
 
-            // Prepare the FedEx shipment request
             var fedExRequest = MapToFedExShipmentRequest(request);
             var requestContent = new StringContent(JsonConvert.SerializeObject(fedExRequest), Encoding.UTF8, "application/json");
-
-            // Set the authorization header with the access token
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            // Send the shipment creation request to FedEx API
             var response = await _httpClient.PostAsync(_fedExSettings.ShipmentUrl, requestContent);
 
             if (response.IsSuccessStatusCode)
             {
                 var responseData = await response.Content.ReadAsStringAsync();
-
-                // Parse the response to extract the label URL
                 dynamic jsonResponse = JsonConvert.DeserializeObject(responseData);
 
-                // Check if the response contains the label URL
                 if (jsonResponse.output?.transactionShipments?[0]?.pieceResponses?[0]?.packageDocuments?[0]?.url != null)
                 {
                     string labelUrl = jsonResponse.output.transactionShipments[0].pieceResponses[0].packageDocuments[0].url;
@@ -76,7 +59,6 @@ namespace OrderManagementSystem.Controllers
                 }
                 else
                 {
-                    // Handle case where label URL is not found
                     return StatusCode(500, "Label URL not found in FedEx response.");
                 }
             }
@@ -104,21 +86,18 @@ namespace OrderManagementSystem.Controllers
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
 
                 var response = await _httpClient.SendAsync(request);
-
                 var responseContent = await response.Content.ReadAsStringAsync();
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Failed to get access token. Status Code: {response.StatusCode}, Response: {responseContent}");
                     return null;
                 }
 
                 dynamic json = JsonConvert.DeserializeObject(responseContent);
                 return json.access_token;
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine($"Exception in GetFedExAccessTokenAsync: {ex.Message}");
                 return null;
             }
         }
@@ -173,14 +152,8 @@ namespace OrderManagementSystem.Controllers
                     packagingType = request.PackagingType,
                     pickupType = request.PickupType,
                     blockInsightVisibility = false,
-                    shippingChargesPayment = new
-                    {
-                        paymentType = "SENDER"
-                    },
-                    shipmentSpecialServices = new
-                    {
-                        specialServiceTypes = new string[] { }
-                    },
+                    shippingChargesPayment = new { paymentType = "SENDER" },
+                    shipmentSpecialServices = new { specialServiceTypes = new string[] { } },
                     labelSpecification = new
                     {
                         labelFormatType = "COMMON2D",
@@ -191,13 +164,8 @@ namespace OrderManagementSystem.Controllers
                     {
                         new
                         {
-                            weight = new
-                            {
-                                units = "LB",
-                                value = request.PackageDetails.Weight
-                            },
-                            dimensions = new
-                            {
+                            weight = new { units = "LB", value = request.PackageDetails.Weight },
+                            dimensions = new {
                                 length = request.PackageDetails.Dimensions.Length,
                                 width = request.PackageDetails.Dimensions.Width,
                                 height = request.PackageDetails.Dimensions.Height,
@@ -211,3 +179,4 @@ namespace OrderManagementSystem.Controllers
         }
     }
 }
+  
