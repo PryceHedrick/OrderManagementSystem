@@ -25,6 +25,11 @@ namespace OrderManagementSystem.Controllers
             return View(await _context.Users.ToListAsync());
         }
 
+        public async Task<IActionResult> User_Managment()
+        {
+            return View(await _context.Users.ToListAsync());
+        }
+
         // GET: User/Details/5
         public async Task<IActionResult> Details(string id)
         {

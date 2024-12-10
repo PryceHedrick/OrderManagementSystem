@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem.csproj": {}
+    "C:\\Documents\\GitHub\\OrderManagementSystem\\OrderManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem.csproj": {
+    "C:\\Documents\\GitHub\\OrderManagementSystem\\OrderManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem.csproj",
+        "projectUniqueName": "C:\\Documents\\GitHub\\OrderManagementSystem\\OrderManagementSystem.csproj",
         "projectName": "OrderManagementSystem",
-        "projectPath": "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem.csproj",
-        "packagesPath": "C:\\Users\\Pryce\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\obj\\",
+        "projectPath": "C:\\Documents\\GitHub\\OrderManagementSystem\\OrderManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\tonym\\.nuget\\packages\\",
+        "outputPath": "C:\\Documents\\GitHub\\OrderManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Pryce\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\tonym\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

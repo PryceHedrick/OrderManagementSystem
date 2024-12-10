@@ -781,7 +781,7 @@
                                             </colgroup>
                                             <tbody>
 
-                                                @foreach (var item in Model)
+                                                @foreach (var item in Model.Where(item => item.OrderStatus == "Awaiting"))
                                                 {
                                                     <tr rowid="row_14" class="vxe-body--row row--current">
                                                         <td colid="col_2" class="vxe-body--column col_2 col--ellipsis" style="height: 48px;">
@@ -791,7 +791,7 @@
                                                             @Html.DisplayFor(modelItem => item.Boxes)
                                                         </td>
                                                         <td colid="col_4" class="vxe-body--column col_4 col--ellipsis" style="height: 48px;">
-                                                            @Html.DisplayFor(modelItem => item.Warehouse)
+                                                            @Html.DisplayFor(modelItem => item.Warehouse.Warehouse_ID)
                                                         </td>
                                                         <td colid="col_5" class="vxe-body--column col_5 col--ellipsis" style="height: 48px;">
                                                             @Html.DisplayFor(modelItem => item.ArrivalMethod)
