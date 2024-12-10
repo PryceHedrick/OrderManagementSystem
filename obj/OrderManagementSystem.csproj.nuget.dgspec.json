@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Documents\\GitHub\\OrderManagementSystem\\OrderManagementSystem.csproj": {}
+    "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Documents\\GitHub\\OrderManagementSystem\\OrderManagementSystem.csproj": {
+    "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Documents\\GitHub\\OrderManagementSystem\\OrderManagementSystem.csproj",
+        "projectUniqueName": "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem.csproj",
         "projectName": "OrderManagementSystem",
-        "projectPath": "C:\\Documents\\GitHub\\OrderManagementSystem\\OrderManagementSystem.csproj",
-        "packagesPath": "C:\\Users\\tonym\\.nuget\\packages\\",
-        "outputPath": "C:\\Documents\\GitHub\\OrderManagementSystem\\obj\\",
+        "projectPath": "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\OrderManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\Pryce\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pryce\\source\\repos\\OrderManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tonym\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pryce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +72,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.6, )"
+              "version": "[9.0.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
