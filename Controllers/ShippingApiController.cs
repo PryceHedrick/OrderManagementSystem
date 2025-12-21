@@ -13,12 +13,12 @@ namespace OrderManagementSystem.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ShippingController : ControllerBase
+    public class ShippingApiController : ControllerBase
     {
         private readonly HttpClient _httpClient;
         private readonly FedExSettings _fedExSettings;
 
-        public ShippingController(IHttpClientFactory httpClientFactory, IOptions<FedExSettings> fedExSettings)
+        public ShippingApiController(IHttpClientFactory httpClientFactory, IOptions<FedExSettings> fedExSettings)
         {
             _httpClient = httpClientFactory.CreateClient();
             _fedExSettings = fedExSettings.Value;

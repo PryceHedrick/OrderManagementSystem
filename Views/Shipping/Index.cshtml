@@ -1,0 +1,148 @@
+@{
+    ViewData["Title"] = "Shipping Labels";
+    ViewData["ActivePage"] = "Shipping";
+}
+
+<div class="data-table mb-4">
+    <div class="card-header-custom">
+        <h5 class="mb-0">Create Shipping Label</h5>
+    </div>
+    <div class="p-4">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <h6 class="mb-3"><i class="bi bi-geo-alt me-2"></i>Origin Address</h6>
+                <div class="mb-3">
+                    <label class="form-label">Company Name</label>
+                    <input type="text" class="form-control" value="Panda International LLC">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Street Address</label>
+                    <input type="text" class="form-control" value="1234 Logistics Way">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">City</label>
+                        <input type="text" class="form-control" value="Evansville">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">State</label>
+                        <input type="text" class="form-control" value="IN">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">ZIP</label>
+                        <input type="text" class="form-control" value="47715">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h6 class="mb-3"><i class="bi bi-geo me-2"></i>Destination Address</h6>
+                <div class="mb-3">
+                    <label class="form-label">Recipient Name</label>
+                    <input type="text" class="form-control" placeholder="John Smith">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Street Address</label>
+                    <input type="text" class="form-control" placeholder="5678 Customer Ave">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">City</label>
+                        <input type="text" class="form-control" placeholder="Chicago">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">State</label>
+                        <input type="text" class="form-control" placeholder="IL">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">ZIP</label>
+                        <input type="text" class="form-control" placeholder="60601">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label class="form-label">Service Type</label>
+                <select class="form-select">
+                    <option selected>FedEx Ground</option>
+                    <option>FedEx Express</option>
+                    <option>FedEx 2Day</option>
+                    <option>FedEx Overnight</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Weight (lbs)</label>
+                <input type="number" class="form-control" value="5">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Length (in)</label>
+                <input type="number" class="form-control" value="12">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Width (in)</label>
+                <input type="number" class="form-control" value="10">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Height (in)</label>
+                <input type="number" class="form-control" value="8">
+            </div>
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-primary btn-lg"><i class="bi bi-printer me-2"></i>Generate Label via FedEx API</button>
+        </div>
+    </div>
+</div>
+
+<div class="data-table">
+    <div class="card-header-custom">
+        <h5 class="mb-0">Recent Labels</h5>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tracking Number</th>
+                <th>Order</th>
+                <th>Destination</th>
+                <th>Service</th>
+                <th>Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>1Z999AA10123456784</code></td>
+                <td>#ORD-2024-1247</td>
+                <td>Chicago, IL 60601</td>
+                <td>FedEx Ground</td>
+                <td>Dec 21, 2024</td>
+                <td>
+                    <a href="/Shipping/Tracking" class="btn btn-sm btn-outline-primary"><i class="bi bi-geo-alt"></i></a>
+                    <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-download"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td><code>1Z999AA10123456783</code></td>
+                <td>#ORD-2024-1245</td>
+                <td>New York, NY 10001</td>
+                <td>FedEx Express</td>
+                <td>Dec 20, 2024</td>
+                <td>
+                    <a href="/Shipping/Tracking" class="btn btn-sm btn-outline-primary"><i class="bi bi-geo-alt"></i></a>
+                    <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-download"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td><code>1Z999AA10123456782</code></td>
+                <td>#ORD-2024-1243</td>
+                <td>Los Angeles, CA 90001</td>
+                <td>FedEx 2Day</td>
+                <td>Dec 19, 2024</td>
+                <td>
+                    <a href="/Shipping/Tracking" class="btn btn-sm btn-outline-primary"><i class="bi bi-geo-alt"></i></a>
+                    <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-download"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

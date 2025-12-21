@@ -1,0 +1,137 @@
+@{
+    ViewData["Title"] = "Track Shipment";
+    ViewData["ActivePage"] = "Tracking";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="data-table mb-4">
+            <div class="card-header-custom">
+                <h5 class="mb-0"><i class="bi bi-search me-2"></i>Track Your Shipment</h5>
+            </div>
+            <div class="p-4">
+                <div class="input-group input-group-lg">
+                    <input type="text" class="form-control" placeholder="Enter tracking number..." value="1Z999AA10123456784">
+                    <button class="btn btn-primary px-4" type="button">
+                        <i class="bi bi-search me-2"></i>Track
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-table">
+            <div class="card-header-custom">
+                <div>
+                    <h5 class="mb-1">Tracking: 1Z999AA10123456784</h5>
+                    <small class="text-muted">FedEx Ground - Order #ORD-2024-1247</small>
+                </div>
+                <span class="badge-status badge-shipped">In Transit</span>
+            </div>
+            <div class="p-4">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <small class="text-muted d-block">From</small>
+                            <strong>Panda International Warehouse</strong><br>
+                            <span class="text-muted">1234 Logistics Way, Evansville, IN 47715</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <small class="text-muted d-block">To</small>
+                            <strong>John Smith</strong><br>
+                            <span class="text-muted">5678 Customer Ave, Chicago, IL 60601</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress mb-4" style="height: 8px;">
+                    <div class="progress-bar bg-success" style="width: 75%"></div>
+                </div>
+
+                <div class="row text-center mb-4">
+                    <div class="col">
+                        <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        <div class="small mt-1">Label Created</div>
+                    </div>
+                    <div class="col">
+                        <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        <div class="small mt-1">Picked Up</div>
+                    </div>
+                    <div class="col">
+                        <i class="bi bi-circle-fill text-primary fs-4"></i>
+                        <div class="small mt-1">In Transit</div>
+                    </div>
+                    <div class="col">
+                        <i class="bi bi-circle text-muted fs-4"></i>
+                        <div class="small mt-1">Out for Delivery</div>
+                    </div>
+                    <div class="col">
+                        <i class="bi bi-circle text-muted fs-4"></i>
+                        <div class="small mt-1">Delivered</div>
+                    </div>
+                </div>
+
+                <h6 class="mb-3">Tracking History</h6>
+                <div class="tracking-timeline">
+                    <div class="tracking-event">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <strong>In transit</strong>
+                                <div class="text-muted">Package arrived at FedEx facility - Indianapolis, IN</div>
+                            </div>
+                            <div class="text-muted text-end">
+                                <div>Dec 21, 2024</div>
+                                <small>2:45 PM</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tracking-event completed">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <strong>Departed facility</strong>
+                                <div class="text-muted">Package left FedEx facility - Evansville, IN</div>
+                            </div>
+                            <div class="text-muted text-end">
+                                <div>Dec 21, 2024</div>
+                                <small>8:30 AM</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tracking-event completed">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <strong>Picked up</strong>
+                                <div class="text-muted">Package picked up from sender - Evansville, IN</div>
+                            </div>
+                            <div class="text-muted text-end">
+                                <div>Dec 20, 2024</div>
+                                <small>4:15 PM</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tracking-event completed">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <strong>Shipment information sent to FedEx</strong>
+                                <div class="text-muted">Shipping label created via FedEx API</div>
+                            </div>
+                            <div class="text-muted text-end">
+                                <div>Dec 20, 2024</div>
+                                <small>2:30 PM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .tracking-timeline { position: relative; padding-left: 2rem; }
+    .tracking-timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #e2e8f0; }
+    .tracking-event { position: relative; padding-bottom: 1.5rem; }
+    .tracking-event::before { content: ''; position: absolute; left: -24px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #3b82f6; border: 2px solid #fff; box-shadow: 0 0 0 2px #3b82f6; }
+    .tracking-event.completed::before { background: #10b981; box-shadow: 0 0 0 2px #10b981; }
+</style>

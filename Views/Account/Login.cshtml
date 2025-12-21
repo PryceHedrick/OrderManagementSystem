@@ -1,64 +1,99 @@
-﻿@* Views/Account/Login.cshtml *@
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
 
-<p style="color:red">@ViewBag.Error</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Panda International OMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        .login-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            width: 100%;
+            max-width: 420px;
+            padding: 3rem;
+        }
+        .login-brand {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-brand i {
+            font-size: 3rem;
+            color: #2563eb;
+        }
+        .login-brand h2 {
+            color: #1e293b;
+            margin-top: 0.5rem;
+            font-weight: 700;
+        }
+        .form-control {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+        }
+        .form-control:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .btn-login {
+            background: #2563eb;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+        }
+        .btn-login:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="login-brand">
+            <i class="bi bi-box-seam"></i>
+            <h2>Panda OMS</h2>
+            <p class="text-muted">Order Management System</p>
+        </div>
 
-    <link href="~/css/chunk-lingxingUI.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/chunk-libs.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/app.css" rel="stylesheet" type="text/css" />
-
-
-<div data-v-441fc658="" id="app">
-    <div data-v-08d9a5aa="" data-v-441fc658="" class="login-container">
-        <form data-v-08d9a5aa="" class="el-form login-form el-form--label-left" autocomplete="on"  asp-action="Login" method="post">
-            <div data-v-08d9a5aa="" class="title-container">
-                <div data-v-4e5e9e7a="" data-v-08d9a5aa="" class="logo-wrapper lager">
-                    <svg data-v-50a7d372="" data-v-4e5e9e7a="" aria-hidden="true" class="logo svg-icon">
-                        <use data-v-50a7d372="" xlink:href="#icon-logo"></use>
-                    </svg>
-                    <span data-v-4e5e9e7a="" class="title"> 领星 OMS </span>
-                </div>
-                <div data-v-08d9a5aa="" class="international set-language el-dropdown">
-                    <span class="lang-dropdown-title el-dropdown-selfdefine" aria-haspopup="list" aria-controls="dropdown-menu-4979" role="button" tabindex="0">
-                        English 
-                        <i class="xl-font xl_collapse_arrow_down_rev"></i>
-                    </span>
-                    <ul class="el-dropdown-menu el-popper" id="dropdown-menu-4979" style="display: none;">
-                        <li tabindex="-1" class="el-dropdown-menu__item"><!---->中文</li>
-                        <li aria-disabled="true" class="el-dropdown-menu__item is-disabled"><!---->English</li>
-                    </ul>
-                </div>
+        <form action="/" method="get">
+            <div class="mb-3">
+                <label class="form-label">Email or Username</label>
+                <input type="text" class="form-control" placeholder="Enter your email" value="admin@pandaoms.com">
             </div>
-            <div data-v-08d9a5aa="" class="second-title">Login</div>
-            <!---->
-            <div data-v-08d9a5aa="" class="el-form-item el-form-item--small"><!---->
-                <div class="el-form-item__content">
-                    <div data-v-08d9a5aa="" class="el-input el-input--small">
-                        <!---->
-                        <input tabindex="1" type="text" autocomplete="on" placeholder="Enter Account" name="username" class="el-input__inner">
-                        <!----><!----><!----><!----><!---->
-                    </div><!---->
-                </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" placeholder="Enter your password" value="••••••••">
             </div>
-            <div data-v-08d9a5aa="" class="el-form-item el-tooltip el-form-item--small" aria-describedby="el-tooltip-7430" tabindex="-1">
-                <!---->
-                <div class="el-form-item__content">
-                    <div data-v-08d9a5aa="" class="el-input el-input--small">
-                        <!---->
-                        <input tabindex="2" type="password" autocomplete="on" placeholder="Enter Password" name="password" class="el-input__inner">
-                        <!----><!----><!----><!----><!---->
-                    </div>
-                    <span data-v-08d9a5aa="" class="show-pwd">
-                        <svg data-v-50a7d372="" data-v-08d9a5aa="" aria-hidden="true" class="svg-icon">
-                            <use data-v-50a7d372="" xlink:href="#icon-eye"></use>
-                        </svg>
-                    </span>
-                    <!---->
-                </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="remember" checked>
+                <label class="form-check-label" for="remember">Remember me</label>
             </div>
-            <button data-v-08d9a5aa="" type="submit" class="el-button login-btn el-button--primary el-button--small is-round">
-                <!----><!---->
-                <span class="text-wrap"> Login </span>
+            <button type="submit" class="btn btn-primary btn-login">
+                <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
             </button>
         </form>
+
+        <div class="text-center mt-4">
+            <small class="text-muted">
+                Panda International LLC &copy; 2024<br>
+                USI Senior Capstone Project
+            </small>
+        </div>
     </div>
-</div>
+</body>
+</html>
